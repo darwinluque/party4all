@@ -1,0 +1,1 @@
+curl -i -X POST -H "Content-Type: application/json" -d '{ "str_dominio":"DOM_ZONAS" , "str_descripcion":"zonas" , "str_estado":"A" }' localhost:3001/api/tbl_parametros/add
