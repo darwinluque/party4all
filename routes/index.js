@@ -30,7 +30,7 @@ const tbl_votos_cancionesController = require('../controllers').tbl_votos_cancio
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API' });
+  res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API', contentBD: '<a href="../docsBD/Index.html">Docs BD</a>' });  
 });
 
 router.get('/api/tbl_parametros', tbl_parametrosController.list); 
