@@ -25,16 +25,12 @@ const tbl_reservasController = require('../controllers').tbl_reservas;
 const tbl_servicios_discotecaController = require('../controllers').tbl_servicios_discoteca;
 const tbl_suscriptoresController = require('../controllers').tbl_suscriptores;
 const tbl_votos_cancionesController = require('../controllers').tbl_votos_canciones;
-const docs_db = require('../docsBD/Index.html');
-
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API' });  
 });
-
-router.get('/DocsDB', docs_db); 
 
 router.get('/api/tbl_parametros', tbl_parametrosController.list); 
 router.get('/api/tbl_parametros/:id', tbl_parametrosController.getById); 
