@@ -1,11 +1,4 @@
 {
-  "local": {
-    "username": "postgres",
-    "password": "admin",
-    "database": "party4all",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
-  },
   "development": {
     "username": "cjjjqdwqfnvhdw",
     "password": "e40e74964b84c09d7bec2341e37cf6b67a9d113407bab05476c5c196f1ed8a89",
