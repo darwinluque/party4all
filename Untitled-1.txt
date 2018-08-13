@@ -1,1 +1,4 @@
 curl -i -X POST -H "Content-Type: application/json" -d '{ "str_dominio":"DOM_ZONAS" , "str_descripcion":"zonas" , "str_estado":"A" }' localhost:3001/api/tbl_parametros/add
+
+curl -i -X POST -H "Content-Type: application/json" -d '{ "str_dominio":"DOM_ZONAS" , "str_descripcion":"zonas" , "str_estado":"A" }' https://party4all.herokuapp.com/api/tbl_parametros/add
+https://party4all.herokuapp.com/

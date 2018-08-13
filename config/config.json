@@ -12,19 +12,5 @@
     "database": "dedgoomjpett0e",
     "host": "ec2-23-21-238-28.compute-1.amazonaws.com",
     "dialect": "postgres"
-  },
-  "test": {
-    "username": "cjjjqdwqfnvhdw",
-    "password": "e40e74964b84c09d7bec2341e37cf6b67a9d113407bab05476c5c196f1ed8a89",
-    "database": "dedgoomjpett0e",
-    "host": "ec2-23-21-238-28.compute-1.amazonaws.com",
-    "dialect": "postgres"
-  },
-  "production": {
-    "username": "cjjjqdwqfnvhdw",
-    "password": "e40e74964b84c09d7bec2341e37cf6b67a9d113407bab05476c5c196f1ed8a89",
-    "database": "dedgoomjpett0e",
-    "host": "ec2-23-21-238-28.compute-1.amazonaws.com",
-    "dialect": "postgres"
   }
 }
