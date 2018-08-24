@@ -282,7 +282,7 @@ module.exports = {
       .then(tbl_parametros => {
         if (!tbl_parametros) {
           return res.status(400).send({
-            message: 'tbl_parametros Not Found',
+            message: '1-ERROR: Registro no enconrado',
           });
         }
         return tbl_parametros
@@ -290,7 +290,7 @@ module.exports = {
           .then(() => res.status(204).send("0-Elimnación exitosa"))
           .catch((error) => res.status(400).send("1-ERROR: "+error));
       })
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
 
   //---- ADD otras tablas
