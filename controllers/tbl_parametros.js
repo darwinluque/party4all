@@ -141,10 +141,10 @@ module.exports = {
       })
       .catch((error) => res.status(400).send(error));
   },
-
+/*
   getByDom(req, res) {
     return tbl_parametros
-      .findById(req.params.id, {
+      .findByDom(req.params.str_dominio, {
         /*include: [{
             model: tbl_artista,
             as: 'artistas'
@@ -187,7 +187,7 @@ module.exports = {
               model: tbl_funcionarios,
               as: 'roles'
           }],
-          */
+          
       })
       .then((tbl_parametros) => {
         if (!tbl_parametros) {
@@ -199,11 +199,70 @@ module.exports = {
       })
       .catch((error) => res.status(400).send(error));
   },
-
+/*
+  getByDomVal(req, res) {
+    return tbl_parametros
+      .findByDomVal(req.params.str_dominio, req.params.str_valor, {
+        /*include: [{
+            model: tbl_artista,
+            as: 'artistas'
+        }],
+        /*
+        include: [{
+            model: tbl_discotecas,
+            as: 'vestuarios'
+          },{
+            model: tbl_discotecas,
+            as: 'zonas'
+          },{
+              model: tbl_discotecas,
+              as: 'generos'
+          },{
+              model: tbl_discotecas,
+              as: 'tipos_rumba'
+          },{
+              model: tbl_personas,
+              as: 'generos_sexo'
+          },{
+              model: tbl_personas,
+              as: 'estados_civiles'
+          },{
+              model: tbl_personas,
+              as: 'bebidas'
+          },{
+              model: tbl_servicios_discotecateca,
+              as: 'servicios'
+          },{
+              model: tbl_generos_fav,
+              as: 'generos_favoritos'
+          },{
+              model: tbl_artista,
+              as: 'generos_artistas'
+          },{
+              model: tbl_pqrs,
+              as: 'tipos_pqr'
+          },{
+              model: tbl_funcionarios,
+              as: 'roles'
+          }],
+          
+      })
+      .then((tbl_parametros) => {
+        if (!tbl_parametros) {
+          return res.status(404).send({
+            message: 'tbl_parametros Not Found',
+          });
+        }
+        return res.status(200).send(tbl_parametros);
+      })
+      .catch((error) => res.status(400).send(error));
+  },
+*/
   add(req, res) {
     return tbl_parametros
       .create({
         str_dominio: req.body.str_dominio,
+        str_valor: req.body.str_valor,
         str_descripcion: req.body.str_descripcion,
         str_estado: req.body.str_estado,
       })
@@ -267,6 +326,7 @@ module.exports = {
         return tbl_parametros
           .update({
             str_dominio: req.body.str_dominio,
+            str_valor: req.body.str_valor,
             str_descripcion: req.body.str_descripcion,
             str_estado: req.body.str_estado,
           })
@@ -282,13 +342,40 @@ module.exports = {
       .then(tbl_parametros => {
         if (!tbl_parametros) {
           return res.status(400).send({
-            message: '1-ERROR: Registro no enconrado',
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_parametros
-          .destroy()
-          .then(() => res.status(204).send("0-Elimnación exitosa"))
-          .catch((error) => res.status(400).send("1-ERROR: "+error));
+        tbl_parametros
+            .destroy()
+            .then(() => res.status(204).send())
+            .catch((error) => res.status(400).send("1-ERROR: "+error));
+        return res.status(200).send({
+            code: '0',  
+            message: 'OK: Registro eliminado exitosamente',
+        });
+      })
+      .catch((error) => res.status(400).send("1-ERROR: "+error));
+  },
+
+  deleteDomVal(req, res) {
+    return tbl_parametros
+      .findByDomVal(req.params.str_dominio, req.params.str_valor)
+      .then(tbl_parametros => {
+        if (!tbl_parametros) {
+          return res.status(400).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        tbl_parametros
+            .destroy()
+            .then(() => res.status(204).send())
+            .catch((error) => res.status(400).send("1-ERROR: "+error));
+        return res.status(200).send({
+            code: '0',  
+            message: 'OK: Registro eliminado exitosamente',
+        });
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },

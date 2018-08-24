@@ -34,6 +34,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/api/tbl_parametros', tbl_parametrosController.list); 
 router.get('/api/tbl_parametros/:id', tbl_parametrosController.getById); 
+//router.get('/api/tbl_parametros/:str_dominio=str_dominio', tbl_parametrosController.getByDom); 
+//router.get('/api/tbl_parametros/:str_dominio/:str_valor', tbl_parametrosController.getByDomVal); 
 router.post('/api/tbl_parametros', tbl_parametrosController.add); 
 router.put('/api/tbl_parametros/:id', tbl_parametrosController.update); 
 router.delete('/api/tbl_parametros/:id', tbl_parametrosController.delete); 

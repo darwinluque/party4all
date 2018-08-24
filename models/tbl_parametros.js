@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var tbl_parametros = sequelize.define('tbl_parametros', {
     str_dominio: DataTypes.STRING,
+    str_valor: DataTypes.STRING,
     str_descripcion: DataTypes.STRING,
     str_estado: DataTypes.STRING
   }, {});
