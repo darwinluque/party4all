@@ -142,6 +142,64 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+  getByDom(req, res) {
+    return tbl_parametros
+      .findById(req.params.id, {
+        /*include: [{
+            model: tbl_artista,
+            as: 'artistas'
+        }],
+        /*
+        include: [{
+            model: tbl_discotecas,
+            as: 'vestuarios'
+          },{
+            model: tbl_discotecas,
+            as: 'zonas'
+          },{
+              model: tbl_discotecas,
+              as: 'generos'
+          },{
+              model: tbl_discotecas,
+              as: 'tipos_rumba'
+          },{
+              model: tbl_personas,
+              as: 'generos_sexo'
+          },{
+              model: tbl_personas,
+              as: 'estados_civiles'
+          },{
+              model: tbl_personas,
+              as: 'bebidas'
+          },{
+              model: tbl_servicios_discotecateca,
+              as: 'servicios'
+          },{
+              model: tbl_generos_fav,
+              as: 'generos_favoritos'
+          },{
+              model: tbl_artista,
+              as: 'generos_artistas'
+          },{
+              model: tbl_pqrs,
+              as: 'tipos_pqr'
+          },{
+              model: tbl_funcionarios,
+              as: 'roles'
+          }],
+          */
+      })
+      .then((tbl_parametros) => {
+        if (!tbl_parametros) {
+          return res.status(404).send({
+            message: 'tbl_parametros Not Found',
+          });
+        }
+        return res.status(200).send(tbl_parametros);
+      })
+      .catch((error) => res.status(400).send(error));
+  },
+
   add(req, res) {
     return tbl_parametros
       .create({
@@ -229,8 +287,8 @@ module.exports = {
         }
         return tbl_parametros
           .destroy()
-          .then(() => res.status(204).send())
-          .catch((error) => res.status(400).send(error));
+          .then(() => res.status(204).send("0-Elimnación exitosa"))
+          .catch((error) => res.status(400).send("1-ERROR: "+error));
       })
       .catch((error) => res.status(400).send(error));
   },
