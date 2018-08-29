@@ -275,6 +275,38 @@ module.exports = {
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
 
+  deleteFilter(req, res) {
+    let whereClause= {};  
+    var filtro = req.params.filtro;
+    var campos = filtro.split(',');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        whereClause[datos[0]] = datos[1];
+    }
+
+    return tbl_parametros
+      .findAll( {
+        // ACA VAN LOS INCLUDES PARA RELACION
+        where: whereClause,
+      })
+      .then(tbl_parametros => {
+        if (!tbl_parametros) {
+          return res.status(400).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        tbl_parametros
+            .destroy()
+            .then(() => res.status(204).send())
+            .catch((error) => res.status(400).send("1-ERROR: "+error));
+        return res.status(200).send({
+            code: '0',  
+            message: 'OK: Registro eliminado exitosamente',
+        });
+      })
+      .catch((error) => res.status(400).send("1-ERROR: "+error));
+  },
 
   //---- ADD otras tablas
 /*
