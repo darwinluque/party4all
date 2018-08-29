@@ -11,6 +11,9 @@ module.exports = {
       str_dominio: {
         type: Sequelize.STRING
       },
+      str_valor: {
+        type: Sequelize.STRING
+      },
       str_descripcion: {
         type: Sequelize.STRING
       },

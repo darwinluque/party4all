@@ -148,12 +148,39 @@ module.exports = {
       .then((tbl_discotecas) => {
         if (!tbl_discotecas) {
           return res.status(404).send({
-            message: 'tbl_discotecas Not Found',
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
           });
         }
         return res.status(200).send(tbl_discotecas);
       })
       .catch((error) => res.status(400).send(error));
+  },
+
+  getFilter(req, res) {
+    let whereClause= {};  
+    var filtro = req.params.filtro;
+    var campos = filtro.split(',');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        whereClause[datos[0]] = datos[1];
+    }
+
+    return tbl_discotecas
+      .findAll( {
+        // ACA VAN LOS INCLUDES PARA RELACION
+        where: whereClause,
+      })
+      .then((tbl_discotecas) => {
+        if (!tbl_discotecas) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        return res.status(200).send(tbl_discotecas);
+      })
+      .catch((error) => { res.status(400).send(error); });
   },
 
   add(req, res) {
@@ -237,7 +264,8 @@ module.exports = {
       .then(tbl_discotecas => {
         if (!tbl_discotecas) {
           return res.status(404).send({
-            message: 'tbl_discotecas Not Found',
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
           });
         }
         return tbl_discotecas
@@ -269,15 +297,20 @@ module.exports = {
       .then(tbl_discotecas => {
         if (!tbl_discotecas) {
           return res.status(400).send({
-            message: 'tbl_discotecas Not Found',
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_discotecas
-          .destroy()
-          .then(() => res.status(204).send())
-          .catch((error) => res.status(400).send(error));
+        tbl_discotecas
+            .destroy()
+            .then(() => res.status(204).send())
+            .catch((error) => res.status(400).send("1-ERROR: "+error));
+        return res.status(200).send({
+            code: '0',  
+            message: 'OK: Registro eliminado exitosamente',
+        });
       })
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
 };
 
