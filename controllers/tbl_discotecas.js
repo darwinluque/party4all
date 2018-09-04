@@ -200,6 +200,8 @@ module.exports = {
         str_url_ubicacion: req.body.str_url_ubicacion,
         str_horarios: req.body.str_horarios,
         str_telefono_reserva: req.body.str_telefono_reserva,
+        str_identificacion: req.body.str_identificacion,
+        str_estado: req.body.str_estado,
       })
       .then((tbl_discotecas) => res.status(201).send(tbl_discotecas))
       .catch((error) => res.status(400).send(error));
@@ -284,6 +286,8 @@ module.exports = {
             str_url_ubicacion: req.body.str_url_ubicacion,
             str_horarios: req.body.str_horarios,
             str_telefono_reserva: req.body.str_telefono_reserva,
+            str_identificacion: req.body.str_identificacion,
+            str_estado: req.body.str_estado,
           })
           .then(() => res.status(200).send(tbl_discotecas))
           .catch((error) => res.status(400).send(error));

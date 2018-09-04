@@ -285,7 +285,7 @@ module.exports = {
     }
 
     return tbl_parametros
-      .findAll( {
+      .find( {
         // ACA VAN LOS INCLUDES PARA RELACION
         where: whereClause,
       })
@@ -298,7 +298,7 @@ module.exports = {
         }
         tbl_parametros
             .destroy({
-                where: { whereClause } 
+                where: whereClause, 
             })
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));

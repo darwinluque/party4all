@@ -14,7 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     str_num_celular: DataTypes.STRING,
     str_url_ubicacion: DataTypes.STRING,
     str_horarios: DataTypes.STRING,
-    str_telefono_reserva: DataTypes.STRING
+    str_telefono_reserva: DataTypes.STRING,
+    str_identificacion: DataTypes.STRING,
+    str_esado: DataTypes.STRING
   }, {});
   tbl_discotecas.associate = function(models) {
     // associations can be defined here

@@ -50,6 +50,13 @@ module.exports = {
       str_telefono_reserva: {
         type: Sequelize.STRING
       },
+      str_identificacion: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      str_estado: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
