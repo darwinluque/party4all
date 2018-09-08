@@ -32,22 +32,20 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API' });  
 });
 
-var args = {
-  data: { test: "hello" },
-  headers: { 
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Header set Access-Control-Allow-Headers": "'Origin, X-Requested-With, Content-Type, Accept'"
-  }
-};
+router.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin','*');
+  res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers','Content-Type');
+  next();
+});
 
-router.get('/api/tbl_parametros/all/', args, tbl_parametrosController.list); 
-router.get('/api/tbl_parametros/id/:id', args, tbl_parametrosController.getById); 
-router.get('/api/tbl_parametros/qry/:filtro', args, tbl_parametrosController.getFilter); 
-router.post('/api/tbl_parametros', args, tbl_parametrosController.add); 
-router.put('/api/tbl_parametros/:id', args, tbl_parametrosController.update); 
-router.delete('/api/tbl_parametros/id/:id', args, tbl_parametrosController.delete); 
-router.delete('/api/tbl_parametros/rem/:filtro', args, tbl_parametrosController.deleteFilter);
+router.get('/api/tbl_parametros/all/', tbl_parametrosController.list); 
+router.get('/api/tbl_parametros/id/:id', tbl_parametrosController.getById); 
+router.get('/api/tbl_parametros/qry/:filtro', tbl_parametrosController.getFilter); 
+router.post('/api/tbl_parametros', tbl_parametrosController.add); 
+router.put('/api/tbl_parametros/:id', tbl_parametrosController.update); 
+router.delete('/api/tbl_parametros/id/:id', tbl_parametrosController.delete); 
+router.delete('/api/tbl_parametros/rem/:filtro', tbl_parametrosController.deleteFilter);
 //router.post('/api/tbl_parametros/add_with_artistas', tbl_parametrosController.addWithArtistas);
 
 router.get('/api/tbl_artista/all/', tbl_artistaController.list); 
@@ -71,12 +69,12 @@ router.post('/api/tbl_cartas', tbl_cartasController.add);
 router.put('/api/tbl_cartas/:id', tbl_cartasController.update); 
 router.delete('/api/tbl_cartas/:id', tbl_cartasController.delete); 
 
-router.get('/api/tbl_discotecas/all/', args, tbl_discotecasController.list); 
-router.get('/api/tbl_discotecas/id/:id', args, tbl_discotecasController.getById); 
-router.get('/api/tbl_discotecas/qry/:filtro', args, tbl_discotecasController.getFilter); 
-router.post('/api/tbl_discotecas', args, tbl_discotecasController.add); 
-router.put('/api/tbl_discotecas/:id', args, tbl_discotecasController.update); 
-router.delete('/api/tbl_discotecas/:id', args, tbl_discotecasController.delete); 
+router.get('/api/tbl_discotecas/all/', tbl_discotecasController.list); 
+router.get('/api/tbl_discotecas/id/:id', tbl_discotecasController.getById); 
+router.get('/api/tbl_discotecas/qry/:filtro', tbl_discotecasController.getFilter); 
+router.post('/api/tbl_discotecas', tbl_discotecasController.add); 
+router.put('/api/tbl_discotecas/:id', tbl_discotecasController.update); 
+router.delete('/api/tbl_discotecas/:id', tbl_discotecasController.delete); 
 
 router.get('/api/tbl_encuesta/all/', tbl_encuestaController.list); 
 router.get('/api/tbl_encuesta/id/:id', tbl_encuestaController.getById); 
