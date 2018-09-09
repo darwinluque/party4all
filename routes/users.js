@@ -6,4 +6,11 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+router.get('/login', function(req, res, next) {
+  var users = [
+    {name:"Darwin"}
+  ]
+  res.send(users,200);
+});
+
 module.exports = router;
