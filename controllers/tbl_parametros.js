@@ -26,6 +26,13 @@ const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
 module.exports = {
   list(req, res) {
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token');
+    res.setHeader('Access-Control-Allow-Credentials','true');
+    res.setHeader('Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time');
+    res.setHeader('Access-Control-Max-Age', '1000');
+    
     return tbl_parametros
       .findAll({
         /*include: [{
@@ -279,13 +286,14 @@ module.exports = {
     let whereClause= {};  
     var filtro = req.params.filtro;
     var campos = filtro.split(',');
+    var cantidad = 0;
     for(var i=0; i<campos.length; i++){
         var datos = campos[i].split(':');
         whereClause[datos[0]] = datos[1];
     }
 
     return tbl_parametros
-      .find( {
+      .findAll( {
         // ACA VAN LOS INCLUDES PARA RELACION
         where: whereClause,
       })
@@ -298,13 +306,13 @@ module.exports = {
         }
         tbl_parametros
             .destroy({
-                where: whereClause, 
-            })
-            .then(() => res.status(204).send())
+                where: whereClause,
+            })  
+            .then(function(rowDeleted){cantidad = rowDeleted},() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
         return res.status(200).send({
             code: '0',  
-            message: 'OK: Registro eliminado exitosamente',
+            message: 'OK: '+cantidad+'Registro eliminado exitosamente',
         });
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
