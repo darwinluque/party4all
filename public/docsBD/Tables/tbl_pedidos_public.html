@@ -48,14 +48,14 @@
 <TH WIDTH="14%"><P CLASS="Base2"><B>Default</B></P>
 <TH WIDTH="18%"><P CLASS="Base2"><B>Description</B></P>
 <TR>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">id</P></TD>
-<TD><P CLASS="Base2">integer</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">id</P></TD>
+<TD><P CLASS="Base2">serial</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">nextval('tbl_pedidos_id_seq'::regclass)</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 <TR>
@@ -84,8 +84,8 @@
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">id_metodo_pago</P></TD>
-<TD><P CLASS="Base2">integer</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">varchar(10)</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
@@ -124,6 +124,17 @@
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
+<TR>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">id_pedido</P></TD>
+<TD><P CLASS="Base2">varchar(10)</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
 </TABLE>
 
 <P CLASS="Base">&nbsp;</P>
@@ -132,7 +143,33 @@
 <P CLASS="Header1">Check Constraints</P>
 <P CLASS="Base">There are no check constraints for table tbl_pedidos</P><P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Indices</P>
-<P CLASS="Base">There are no indices for table tbl_pedidos</P><P CLASS="Base">&nbsp;</P>
+<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Name</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Type</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Function</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Fields</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Primary Key</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Unique</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Description</B></P>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Indices/tbl_pedidos_idx__tbl_pedidos.html">tbl_pedidos_idx</A></TD><TD><P CLASS="Base2">btree</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">id_pedido</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Indices/tbl_pedidos_pkey__tbl_pedidos.html">tbl_pedidos_pkey</A></TD><TD><P CLASS="Base2">btree</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">id</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+</TABLE>
+
+<P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Triggers</P>
 <P CLASS="Base">There are no triggers for table tbl_pedidos</P><P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Rules</P>
@@ -140,7 +177,30 @@
 <P CLASS="Header1">Policies</P>
 <P CLASS="Base">There are no policies for table tbl_pedidos</P><P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Referenced</P>
-<P CLASS="Base">There are no tables referenced by table tbl_pedidos</P><P CLASS="Base">&nbsp;</P>
+<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Table</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Schema</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Foreign Key</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Fields</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>FK Table</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>FK Fields</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Delete Action</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Update Action</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Deferrable</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Check Time</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Description</B></P>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_pedidos_public.html">tbl_productos_pedidos</A></TD><TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_productos_pedidos_fk2__tbl_productos_pedidos.html">tbl_productos_pedidos_fk2</A></TD><TD><P CLASS="Base2">id_pedido</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_pedidos_public.html">public.tbl_pedidos</A></TD><TD><P CLASS="Base2">id_pedido</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+</TABLE>
+
+<P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Properties</P>
 <TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=50%>
 <TH WIDTH="10%"><P CLASS="Base2"><B>Property</B></P>
@@ -194,23 +254,26 @@
 #Exception {background-color: #800000; color: #FFFFFF;}
 #Current_line {background-color: #FFFFE1;}
 #Parenthesis_matching {background-color: #C0C0C0; color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
-#Selected_text {background-color: #0A246A; color: #FFFFFF;}
-#Search_mark {background-color: #0A246A; color: #FFFFFF;}
+#Selected_text {background-color: #0078D7; color: #FFFFFF;}
+#Search_mark {background-color: #0078D7; color: #FFFFFF;}
 #Breakpoint {background-color: #FF0000; color: #FFFFFF; font-weight: normal; font-style: normal; text-decoration: none;}
-#Debug_line {background-color: #000080; color: #FFFFFF;}
-#Marked_block {background-color: #0A246A; color: #FFFFFF;}
+#Debug_line {background-color: #0066CC; color: #FFFFFF;}
+#Marked_block {background-color: #0078D7; color: #FFFFFF;}
 #DiffLinesFormat {background-color: #CCFFFF;}
 #AddedLinesFormat {background-color: #CCCCCC;}
 #AdditionalLinesFormat {background-color: #FFFFCC;}
 #DeletedLinesFormat {background-color: #FF9999;}
 </STYLE><span id="seDefault"><SPAN id="SQL_keyword">CREATE TABLE public</span><SPAN id="Symbol">.</span>tbl_pedidos <SPAN id="Symbol">(</span><br>
- &nbsp;id <SPAN id="SQL_datatype">INTEGER</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;id <SPAN id="SQL_datatype">SERIAL</span><SPAN id="Symbol">,</span><br>
  &nbsp;id_mesa <SPAN id="SQL_datatype">INTEGER</span><SPAN id="Symbol">,</span><br>
  &nbsp;vlr_total <SPAN id="SQL_datatype">NUMERIC</span><SPAN id="Symbol">,</span><br>
- &nbsp;id_metodo_pago <SPAN id="SQL_datatype">INTEGER</span><SPAN id="Symbol">,</span><br>
+ &nbsp;id_metodo_pago <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">10</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;dtm_fecha_pedido <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE</span><SPAN id="Symbol">,</span><br>
  &nbsp;"createdAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE NOT NULL</span><SPAN id="Symbol">,</span><br>
- &nbsp;"updatedAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE NOT NULL</span><br>
+ &nbsp;"updatedAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;id_pedido <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">10</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_pedidos_idx <SPAN id="SQL_keyword">UNIQUE</span><SPAN id="Symbol">(</span>id_pedido<SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
+ &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_pedidos_pkey <SPAN id="SQL_keyword">PRIMARY KEY</span><SPAN id="Symbol">(</span>id<SPAN id="Symbol">)</span><br>
 <SPAN id="Symbol">)</span> <br>
 <SPAN id="SQL_keyword">WITH</span> <SPAN id="Symbol">(</span><SPAN id="SQL_keyword">oids</span> <SPAN id="Symbol">=</span> <SPAN id="SQL_keyword">false</span><SPAN id="Symbol">)</span>;
 </span>
@@ -220,7 +283,7 @@
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
     <TR VALIGN="middle">
     <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku
-This file was generated with SQL Manager for PostgreSQL at 07/08/2018 04:37 p.m.</pre></TD>
+This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 11/09/2018 3:10 p. m.</pre></TD>
       <TD ALIGN="left" WIDTH="54px" NOWRAP>
         <A HREF="tbl_parametros_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
         <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>

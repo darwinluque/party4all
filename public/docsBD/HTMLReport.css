@@ -1,277 +1,288 @@
-body {
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-	background: #ffffff;
-	color: #000000;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	width: 100%;
-}
-
-div#nsbanner {
-	position: relative;
-	left: 0px;
-	padding: 0px 0px 5px 0px;
-	border-bottom: 1px solid #999999;
-	background-color: #ffffff;
-}
-
-div#bannerrow1 {
-	background-color: #ffffff;
-}
-
-div#titlerow {
-	width: 100%; /* Forces tables to have correct right margin */
-	padding: 0px 10px 0px 20px;
-	background-color: #ffffff;
-}
+body
+        {
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        background: #fcfcec;
+        color: #000000;
+        font-family: Verdana, Arial, 
+Helvetica, sans-serif;
+        font-size: 100%;
+        width: 100%;
+        }
 
 
-div.tablediv {
-	width: 100%;
-	margin-top: -4px;
-}
+div#nsbanner
+        {
+        position: relative;
+        left: 0px;
+        padding: 0px 0px 5px 0px;
+        border-bottom: 1px solid #
+999999;
+        background-color: #fcfcec;
+        }
 
-.dtH1, .dtH2, .dtH3, .dtH4 {
-	margin-left: -16px;
-	font-weight: bold;
-	font-size: 11px;
-}
+div#bannerrow1
+        {
+        background-color: #fcfcec;
+        }
 
-table {
-	margin-top: 5px;
-	margin-bottom: 4px;
-	font-size: 11px; /* Text in Table is same size as text outside table */
-}
+div#titlerow
+        {
+        width: 100%; /* Forces tables to 
+have correct right margin */
+        padding: 0px 10px 0px 22px;
+        background-color: #fcfcec;
+        }
 
-table.bannerparthead, table.bannertitle {
-	position: relative;
-	left: 0px;
-	top: 0px;
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
-	width: 100%;
-	height: 21px;
-	border-collapse: collapse;
-	border-style: solid;
-	border-width: 0px;
-	background-color: #ffffff;
-}
-table.bannerparthead td {
-	margin: 0px 0px 0px 0px;
-	padding: 2px 0px 0px 8px;
-	vertical-align: top;
-	/*border-width: 0px 0px 1px 0px; */
-	border-width: 0px
-	border-style: solid;
-	border-color: #999999;
-	background: transparent;
-	font-style: italic;
-	font-weight: normal;
-}
 
-table.bannerparthead td.product {/* Values for top right cell in running head *//* Allows for a second text block in the running head */
-	text-align: right;
-	padding: 2px 5px 0px 5px;
-}
+div.tablediv
+        {
+        width: 100%;
+        margin-top: -.4em;
+        }
 
-table.bannertitle td {/* General Values for cells in the bottom row of running head */
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 3px;
-	vertical-align: middle;
-	border-width: 0px 0px 1px 0px;
-	border-style: solid;
-	border-color: #999999;
-	background: transparent;
-	font-weight: bold;
-}
-td.button1 {/* Values for button cells */
-	width: 13px;
-	cursor: hand;
-}
+.dtH1, .dtH2, .dtH3, .dtH4
+        {
+        margin-left: -16px;
+        font-weight: bold;
+        font-size: 13px;
+        }
 
-.dtTABLE {
-	border-width: 1px 1px 0px 0px;
-	border-style: solid;
-	border-color: #999999;
-}
-table.dtTABLE th, table.dtTABLE td {
-	border-style: solid; /* Creates the cell border and color */
-	border-width: 0px 0px 1px 1px;
-	border-style: solid;
-	border-color: #999999;
-	text-align: left;
-}
+
+table
+        {
+
+        margin-top: .6em;
+        margin-bottom: .3em;
+        font-size: 100%; /* Text in Table 
+is same size as text outside table */
+        }
+
+
+table.bannerparthead, 
+table.bannertitle
+        {
+        position: relative;
+        left: 0px;
+        top: 0px;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+        width: 100%;
+        height: 21px;
+        border-collapse: collapse;
+        border-style: solid;
+        border-width: 0px;
+        background-color: #fcfcec;
+        }
+table.bannerparthead td
+        {
+        margin: 0px 0px 0px 0px;
+        padding: 2px 0px 0px 8px;
+        vertical-align: top;
+        /*border-width: 0px 0px 1px 0px; 
+*/
+        border-width: 0px
+        border-style: solid;
+        border-color: #999999;
+        background: transparent;
+        font-style: italic;
+        font-weight: normal;
+        }
+table.bannerparthead td.product /* 
+Values for top right cell in running 
+head */
+        {                       /* Allows for a 
+second text block in the running head 
+*/
+        text-align: right;
+        padding: 2px 5px 0px 5px;
+        }
+table.bannertitle td /* General Values 
+for cells in the bottom row of running 
+head */
+        {
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 3px;
+        vertical-align: middle;
+        border-width: 0px 0px 1px 0px;
+        border-style: solid;
+        border-color: #999999;
+        background: transparent;
+        font-weight: bold;
+        }
+td.button1 /* Values for button cells */
+        {
+        width: 13px;
+        cursor: hand;
+        }
+
+.dtTABLE
+        {
+        border-width: 1px 1px 0px 0px;
+        border-style: solid;
+        border-color: #999999;
+        }
+table.dtTABLE th, table.dtTABLE td
+        {
+        border-style: solid; /* Creates the 
+cell border and color */
+        border-width: 0px 0px 1px 1px;
+        border-style: solid;
+        border-color: #999999;
+        text-align: left;
+        }
 
 /* Arguments table  */
-.dtArg {
-	margin-left: 25px;
-	border-width: 1px 1px 0px 0px;
-	border-style: solid;
-	border-color: #999999;
-}
 
-table.dtArg th {
-	border-style: solid; /* Creates the cell border and color */
-	border-width: 0px 0px 1px 1px;
-	border-style: solid;
-	border-color: #999999;
-	background: #E0E0E0;
-	text-align: left;
-	vertical-align: top;
-}
+.dtArg
+        {
+        margin-left: 25px;
+        border-width: 1px 1px 0px 0px;
+        border-style: solid;
+        border-color: #999999;
+        }
+table.dtArg th
+        {
+        border-style: solid; /* Creates the 
+cell border and color */
+        border-width: 0px 0px 1px 1px;
+        border-style: solid;
+        border-color: #999999;
+        background: #CFC890;
+        text-align: left;
+        vertical-align: top;
+        }
+table.dtArg td
+        {
+        border-style: solid; /* Creates the 
+cell border and color */
+        border-width: 0px 0px 1px 1px;
+        border-style: solid;
+        border-color: #999999;
+        background: #FFFFCF;
+        vertical-align: top;
+        }
 
-table.dtArg td {
-	border-style: solid; /* Creates the cell border and color */
-	border-width: 0px 0px 1px 1px;
-	border-style: solid;
-	border-color: #999999;
-	vertical-align: top;
-}
+
 
 .Base   {
-	font-size: 12px;
-	margin: 4px  4px  3px  25px;
-}
+        font-size: 13px;
+        margin: 4px  4px  3px  25px;
+        }
 
 .Base2  {
-	font-size: 12px;
-	margin: 2px  2px  3px  5px
-}
+        font-size: 13px;
+        margin: 2px  2px  3px  5px
+        }
 
-.Header1 {
-	font-size: 12px;
-	font-weight: bold;
-	margin: 4px  4px  3px  5px
-}
+.Header1
+        {
+        font-size: 13px;
+        font-weight: bold;
+        margin: 4px  4px  3px  5px
+        }
 
-.RedHeader {
-	font-size: 12px;
-	font-weight: bold;
-	margin: 4px  4px  3px  5px;
-	color: red
-}
+.RedHeader
+        {
+        font-size: 13px;
+        font-weight: bold;
+        margin: 4px  4px  3px  5px;
+        color: red
+        }
 
-.Syntax { 
-	font-size: 12px ; 
-	margin: 2px  2px  3px  20px ; 
-	font-family: Courier New;  
-}
+     .Syntax { font-size: 13px ; margin: 
+2px  2px  3px  0.2in ; font-family: 
+Courier New;  }
+     .Syntax2 { font-size: 13px ; margin: 
+0px  0px  0px  0.05in; font-family: 
+Courier New;  }
+     .Bullet { font-size: 13px ; margin: 2px  
+2px  3px  0.2in ; font-family: 
+Wingdings;  }
 
-.Syntax2 { 
-	font-size: 12px ; 
-	margin: 0px  0px  0px  5px; 
-	font-family: Courier New;  
-}
+     .Tbl {position: relative; left: 0.23px; 
+width: 96%}
 
-.Bullet { 
-	font-size: 12px ; 
-	margin: 2px 2px  3px  20px ; 
-	font-family: Wingdings;  
-}
+.SyntaxTbl
+        {
+        position: relative;
+        left: 0.23px;
+        width: 96%;
+        }
 
-.Tbl {
-	position: relative; 
-	left: 0.23px; 
-	width: 96%
-}
+     .Tbl2 {position : relative; left: 
+0.25px}
+     .Tbl3 {margin: 2px 2px 3px 0.25px}
+     .NavTbl {position : relative; left: 
+0px; width: 100%}
+     .BannerBase { font-size: 13px ; font-
+style: italic; color: #0000a0; margin: 
+0px  0px  0px  0.05in ; font-family:
+Verdana;  fhname: "Banner
+Base"; }
+     .BannerBase1 { font-size: 13px ; 
+font-weight: bold; color: #0000a0; 
+margin: 0px  0px  0px  2px ; font-family:
+Verdana;  fhname: "Banner
+Base"; }
 
-.SyntaxTbl {
-	position: relative;
-	left: 0.23px;
-	width: 96%;
-}
 
-.Tbl2 {
-	position : relative; 
-	left: 0.25px
+     .Base1 { font-size: 13px ; margin: 2px  
+0px  3px  0px ; font-family: 
+ITCGaramondMM_350_550_,sans-
+serif;  fhname:
+"Base#1"; }
+     .Example { font-size: 13px ; margin: 
+2px  0px  3px  34px ; text-indent: -
+0.2291in ; font-family: MS Sans 
+Serif,sans-
+serif;  }
+     .IBMain { font-size: 13px ; margin: 
+2px  0px  3px  0px ; font-family: 
+Microsoft Sans Serif,sans-serif;  
+fhname:
+"IB_Main"; }
+     .Syntax1 { font-size: 13px ; font-
+family: Courier New,sans-serif;  
+fhname: "Syntax#1"; fhtype: 
+character; }
+     .UnderlinedHeader { font-size: 
+13px ; font-weight: bold; text-
+decoration: underline ; margin: 12px  
+10px  15px
+0.256in ; text-indent: -0.256in
+; font-family: MS Sans Serif,sans-serif;  
 }
+     .UnderlinedHeader1 { font-size: 
+13px ; font-weight: bold; margin: 2px  
+0px  5px  0px ; border: thin solid ; 
+border-
+left-width: 0; border-right-width: 0; 
+border-top-width: 0; font-family: 
+Tahoma,sans-serif;  fhname: 
+"UnderlinedHeader#1"; }
 
-.Tbl3 {
-	margin: 2px 2px 3px 0.25px
-}
-
-.NavTbl {
-	position : relative; 
-	left: 0px; 
-	width: 100%
-}
-
-.BannerBase { 
-	font-size: 11px ; 
-	font-style: italic; 
-	color: #0000a0; 
-	margin: 0px  0px  0px  5px ; 
-	font-family:Verdana;  fhname: "BannerBase"; 
-}
-
-.BannerBase1 { 
-	font-size: 11px ; 
-	font-weight: bold; color: #0000a0; 
-	margin: 0px  0px  0px  2px ; 
-	font-family:Verdana;  fhname: "BannerBase"; 
-}
-
-.Base1 { 
-	font-size: 12px ; 
-	margin: 2px 0px  3px  0px ; 
-	font-family: ITCGaramondMM_350_550_,sans-serif;  fhname:"Base#1"; 
-}
-
-.Example { 
-	font-size: 12px ; 
-	margin: 2px  0px  3px  34px ; 
-	text-indent: -0.2291in ; 
-	font-family: MS Sans Serif,sans-serif;  
-}
-
-.IBMain { 
-	font-size: 12px ; 
-	margin: 2px  0px  3px  0px ; 
-	font-family: Microsoft Sans Serif,sans-serif; fhname:"IB_Main"; 
-}
-
-.Syntax1 { 
-	font-size: 12px ; 
-	font-family: Courier New,sans-serif;  fhname: "Syntax#1"; fhtype: character; 
-}
-
-.UnderlinedHeader { 
-	font-size: 14px ; 
-	font-weight: bold; 
-	text-decoration: underline ; 
-	margin: 12px  10px  15px 25px ; 
-	text-indent: -25px; 
-	font-family: MS Sans Serif,sans-serif;  
-}
-
-.UnderlinedHeader1 { 
-	font-size: 14px ; 
-	font-weight: bold; 
-	margin: 2px  0px  5px  0px ; 
-	border: thin solid ; 
-	border-left-width: 0; 
-	border-right-width: 0; 
-	border-top-width: 0; 
-	font-family: Tahoma,sans-serif;  fhname: "UnderlinedHeader#1"; 
-}
-
-div.footer {
-	font-style: italic;
-}
-div.footer hr {
-	color: #999999;
-	height: 1px;
-}
+div.footer
+        {
+        font-style: italic;
+        }
+div.footer hr
+        {
+        color: #999999;
+        height: 1px;
+        }
 
 /* LINK STYLES */
 
-a:link {
-	color: #0000ff;
-}
-a:visited {
-	color: #0000ff;
-}
-a:hover {
-	color: #3366ff;
-}
+a:link
+        {
+        color: #0000ff;
+        }
+a:visited
+        {
+        color: #0000ff;
+        }
+a:hover
+        {
+        color: #3366ff;
+        }
