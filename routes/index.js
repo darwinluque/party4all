@@ -47,7 +47,7 @@ router.get('/api/tbl_parametros/id/:id', tbl_parametrosController.getById);
 router.get('/api/tbl_parametros/qry/:filtro', tbl_parametrosController.getFilter); 
 router.post('/api/tbl_parametros', tbl_parametrosController.add); 
 router.put('/api/tbl_parametros/id/:id', tbl_parametrosController.update); 
-router.put('/api/tbl_parametros/up/:filtro', tbl_parametrosController.updateFlter); 
+router.put('/api/tbl_parametros/up/:filtro', tbl_parametrosController.updateFilter); 
 router.delete('/api/tbl_parametros/id/:id', tbl_parametrosController.delete); 
 router.delete('/api/tbl_parametros/rem/:filtro', tbl_parametrosController.deleteFilter);
 //router.post('/api/tbl_parametros/add_with_artistas', tbl_parametrosController.addWithArtistas);
