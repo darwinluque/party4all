@@ -218,7 +218,7 @@ module.exports = {
   },
 
   updateFilter(req, res) {
-    let whereClause = {};  
+    let whereClause = {};  //condicion para actualizar
     var filtro = req.params.filtro;
     var camposUpdate = filtro.split('|');
     var campos = camposUpdate[0].split(',');
@@ -227,7 +227,7 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
-    let setClause = {};
+    let setClause = {}; //parametros a actualizar
     var camposSet = camposUpdate[1].split(',');
     for(var i=0; i<camposSet.length; i++){
         var datos = camposSet[i].split(':');
