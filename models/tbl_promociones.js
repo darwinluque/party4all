@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_promociones = sequelize.define('tbl_promociones', {
-    id_discoteca: DataTypes.INTEGER,
+    id_discoteca: DataTypes.STRING,
+    str_titulo: DataTypes.STRING,
     str_descripcion: DataTypes.STRING,
     vlr_porcentaje: DataTypes.DECIMAL,
     str_url_imagen: DataTypes.STRING,

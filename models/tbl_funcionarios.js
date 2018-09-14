@@ -1,8 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_funcionarios = sequelize.define('tbl_funcionarios', {
-    id_discoteca: DataTypes.INTEGER,
-    id_rol: DataTypes.INTEGER,
+    id_discoteca: DataTypes.STRING,
+    id_rol: DataTypes.STRING,
+    str_identificacion: DataTypes.STRING,
     str_primer_nombre: DataTypes.STRING,
     str_segundo_nombre: DataTypes.STRING,
     str_primer_apellido: DataTypes.STRING,

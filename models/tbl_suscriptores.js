@@ -1,8 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_suscriptores = sequelize.define('tbl_suscriptores', {
-    id_persona: DataTypes.INTEGER,
-    id_discoteca: DataTypes.INTEGER,
+    id_persona: DataTypes.STRING,
+    id_discoteca: DataTypes.STRING,
     dtm_fecha_suscripcion: DataTypes.DATE
   }, {});
   tbl_suscriptores.associate = function(models) {

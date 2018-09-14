@@ -1,10 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_discotecas = sequelize.define('tbl_discotecas', {
-    id_vestuario: DataTypes.INTEGER,
-    id_zona: DataTypes.INTEGER,
-    id_genero: DataTypes.INTEGER,
-    id_tipo_rumba: DataTypes.INTEGER,
+    str_identificacion: DataTypes.STRING,
     str_nombre: DataTypes.STRING,
     num_estrellas: DataTypes.INTEGER,
     str_rango_precios: DataTypes.STRING,
@@ -15,8 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     str_url_ubicacion: DataTypes.STRING,
     str_horarios: DataTypes.STRING,
     str_telefono_reserva: DataTypes.STRING,
-    str_identificacion: DataTypes.STRING,
-    str_estado: DataTypes.STRING
+    str_estado: DataTypes.STRING, 
+    id_vestuario: DataTypes.STRING,
+    id_zona: DataTypes.STRING,
+    id_genero: DataTypes.STRING,
+    id_tipo_rumba: DataTypes.STRING,
   }, {});
   tbl_discotecas.associate = function(models) {
     // associations can be defined here

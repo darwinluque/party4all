@@ -1,9 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_personas = sequelize.define('tbl_personas', {
-    id_genero_sexo: DataTypes.INTEGER,
-    id_estado_civil: DataTypes.INTEGER,
-    id_bebida: DataTypes.INTEGER,
+    id_genero_sexo: DataTypes.STRING,
+    id_estado_civil: DataTypes.STRING,
+    id_bebida: DataTypes.STRING,
     num_estrellas: DataTypes.INTEGER,
     str_primer_nombre: DataTypes.STRING,
     str_segundo_nombre: DataTypes.STRING,

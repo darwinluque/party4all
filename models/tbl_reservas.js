@@ -1,8 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_reservas = sequelize.define('tbl_reservas', {
-    id_persona: DataTypes.INTEGER,
-    id_discoteca: DataTypes.INTEGER,
+    id_reserva: DataTypes.STRING,
+    id_persona: DataTypes.STRING,
+    id_discoteca: DataTypes.STRING,
     dtm_fecha_reserva: DataTypes.DATE,
     str_hora: DataTypes.STRING,
     num_cantidad_personas: DataTypes.INTEGER,

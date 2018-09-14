@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_precios_boletas = sequelize.define('tbl_precios_boletas', {
-    id_evento: DataTypes.INTEGER,
+    id_evento: DataTypes.STRING,
     str_titulo_boleta: DataTypes.STRING,
     str_descripcion: DataTypes.STRING,
     vlr_precio: DataTypes.DECIMAL

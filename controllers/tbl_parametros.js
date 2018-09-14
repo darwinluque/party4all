@@ -196,49 +196,6 @@ module.exports = {
   update(req, res) {
     return tbl_parametros
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_artista,
-            as: 'artistas'
-        }],
-          /*
-        include: [{
-          model: tbl_discotecas,
-          as: 'vestuarios'
-        },{
-          model: tbl_discotecas,
-          as: 'zonas'
-        },{
-            model: tbl_discotecas,
-            as: 'generos'
-        },{
-            model: tbl_discotecas,
-            as: 'tipos_rumba'
-        },{
-            model: tbl_personas,
-            as: 'generos_sexo'
-        },{
-            model: tbl_personas,
-            as: 'estados_civiles'
-        },{
-            model: tbl_personas,
-            as: 'bebidas'
-        },{
-            model: tbl_servicios_discotecateca,
-            as: 'servicios'
-        },{
-            model: tbl_generos_fav,
-            as: 'generos_favoritos'
-        },{
-            model: tbl_artista,
-            as: 'generos_artistas'
-        },{
-            model: tbl_pqrs,
-            as: 'tipos_pqr'
-        },{
-            model: tbl_funcionarios,
-            as: 'roles'
-        }],
-        */
       })
       .then(tbl_parametros => {
         if (!tbl_parametros) {
@@ -253,6 +210,50 @@ module.exports = {
             str_valor: req.body.str_valor,
             str_descripcion: req.body.str_descripcion,
             str_estado: req.body.str_estado,
+          })
+          .then(() => res.status(200).send(tbl_parametros))
+          .catch((error) => res.status(400).send(error));
+      })
+      .catch((error) => res.status(400).send(error));
+  },
+
+  updateFilter(req, res) {
+    let whereClause = {};  
+    var filtro = req.params.filtro;
+    var camposUpdate = filtro.split('|');
+    var campos = camposUpdate[0].split(',');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        whereClause[datos[0]] = datos[1];
+    }
+
+    let setClause = {};
+    var camposSet = camposUpdate[1].split(',');
+    for(var i=0; i<camposSet.length; i++){
+        var datos = camposSet[i].split(':');
+        setClause[datos[0]] = datos[1];
+    }
+
+    return tbl_parametros
+      .findAll( {
+        // ACA VAN LOS INCLUDES PARA RELACION
+        where: whereClause,
+      })
+      .then(tbl_parametros => {
+        if (!tbl_parametros) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        return tbl_parametros
+          .update({
+            setClause,
+            /*str_dominio: req.body.str_dominio,
+            str_valor: req.body.str_valor,
+            str_descripcion: req.body.str_descripcion,
+            str_estado: req.body.str_estado,
+            */
           })
           .then(() => res.status(200).send(tbl_parametros))
           .catch((error) => res.status(400).send(error));
