@@ -98,6 +98,9 @@ module.exports = {
       .create({
         str_titulo: req.body.str_titulo,
         id_artista: req.body.id_artista,
+        id_cancion: req.body.id_cancion, 
+        id_genero: req.body.id_genero, 
+        id_lista: req.body.id_lista
       })
       .then((tbl_canciones) => res.status(201).send(tbl_canciones))
       .catch((error) => res.status(400).send(error));
@@ -124,7 +127,10 @@ module.exports = {
         return tbl_canciones
           .update({
             str_titulo: req.body.str_titulo,
-            id_artista: req.body.id_artista,   
+            id_artista: req.body.id_artista,
+            id_cancion: req.body.id_cancion, 
+            id_genero: req.body.id_genero, 
+            id_lista: req.body.id_lista  
           })
           .then(() => res.status(200).send(tbl_canciones))
           .catch((error) => res.status(400).send(error));

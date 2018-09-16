@@ -115,6 +115,7 @@ module.exports = {
   add(req, res) {
     return tbl_artista
       .create({
+        id_artista: req.body.id_artista,
         id_genero: req.body.id_genero,
         str_nombre: req.body.str_nombre,
       })
@@ -152,8 +153,9 @@ module.exports = {
         }
         return tbl_artista
           .update({
+            id_artista: req.body.id_artista,
             id_genero: req.body.id_genero,
-            str_nombre: req.body.str_nombre,    
+            str_nombre: req.body.str_nombre, 
           })
           .then(() => res.status(200).send(tbl_artista))
           .catch((error) => res.status(400).send(error));

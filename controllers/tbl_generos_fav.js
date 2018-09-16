@@ -96,15 +96,9 @@ module.exports = {
   add(req, res) {
     return tbl_generos_fav
       .create({
-        id_discoteca: req.body.id_discoteca,
-        id_rol: req.body.id_rol,
-        num_votos: req.body.num_votos,
-        str_primer_nombre: req.body.str_primer_nombre,
-        str_segundo_nombre: req.body.str_segundo_nombre,
-        str_primer_apellido: req.body.str_primer_apellido,
-        str_segundo_apellido: req.body.str_segundo_apellido,
-        str_email: req.body.str_email,
-        str_token: req.body.str_token,
+        id_genero: req.body.id_genero,
+        id_persona: req.body.id_persona,
+        str_like: req.body.str_like,
       })
       .then((tbl_generos_fav) => res.status(201).send(tbl_generos_fav))
       .catch((error) => res.status(400).send(error));
@@ -130,15 +124,9 @@ module.exports = {
         }
         return tbl_generos_fav
           .update({
-            id_discoteca: req.body.id_discoteca,
-            id_rol: req.body.id_rol,
-            num_votos: req.body.num_votos,
-            str_primer_nombre: req.body.str_primer_nombre,
-            str_segundo_nombre: req.body.str_segundo_nombre,
-            str_primer_apellido: req.body.str_primer_apellido,
-            str_segundo_apellido: req.body.str_segundo_apellido,
-            str_email: req.body.str_email,
-            str_token: req.body.str_token,
+            id_genero: req.body.id_genero,
+            id_persona: req.body.id_persona,
+            str_like: req.body.str_like,
           })
           .then(() => res.status(200).send(tbl_generos_fav))
           .catch((error) => res.status(400).send(error));

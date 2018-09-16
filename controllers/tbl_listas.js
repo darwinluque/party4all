@@ -96,6 +96,7 @@ module.exports = {
   add(req, res) {
     return tbl_listas
       .create({
+        id_lista: req.body.id_lista,
         id_discoteca: req.body.id_discoteca,
         str_titulo_lista: req.body.str_titulo_lista,
       })
@@ -123,6 +124,7 @@ module.exports = {
         }
         return tbl_listas
           .update({
+            id_lista: req.body.id_lista,
             id_discoteca: req.body.id_discoteca,
             str_titulo_lista: req.body.str_titulo_lista, 
           })

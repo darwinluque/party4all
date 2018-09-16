@@ -102,6 +102,7 @@ module.exports = {
   add(req, res) {
     return tbl_mesas
       .create({
+        id_mesa: req.body.id_mesa,
         id_discoteca: req.body.id_discoteca,
         id_persona: req.body.id_persona,
         num_mesa: req.body.num_mesa,
@@ -135,6 +136,7 @@ module.exports = {
         }
         return tbl_mesas
           .update({
+            id_mesa: req.body.id_mesa,
             id_discoteca: req.body.id_discoteca,
             id_persona: req.body.id_persona,
             num_mesa: req.body.num_mesa,

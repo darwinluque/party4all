@@ -96,6 +96,7 @@ module.exports = {
   add(req, res) {
     return tbl_pedidos
       .create({
+        id_pedido: req.body.id_pedido,
         id_mesa: req.body.id_mesa,
         vlr_total: req.body.vlr_total,
         id_metodo_pago: req.body.id_metodo_pago,
@@ -125,6 +126,7 @@ module.exports = {
         }
         return tbl_pedidos
           .update({
+            id_pedido: req.body.id_pedido,
             id_mesa: req.body.id_mesa,
             vlr_total: req.body.vlr_total,
             id_metodo_pago: req.body.id_metodo_pago,
