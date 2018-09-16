@@ -1,0 +1,431 @@
+<HTML>
+<HEAD>
+<TITLE>Foreign Keys</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<LINK HREF="../HTMLReport.css" type=text/css rel=STYLESHEET>
+</HEAD>
+<BODY>
+<DIV ID="nsbanner">
+  <DIV ID="bannerrow1">
+    <TABLE CLASS="bannerparthead" CELLSPACING=0>
+      <TR ID="hdr" VALIGN="middle">
+        <TD CLASS="runninghead"><pre>BD PARTY4ALL</pre></TD>
+                <TD ALIGN="left" WIDTH="54px" NOWRAP>
+          <A HREF="../Index.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+          <A HREF="../Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
+          <A HREF="tbl_artista_fk__tbl_artista.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
+        </TD>
+      </TR>
+    </TABLE>
+  </DIV>
+  <DIV ID="TitleRow">
+    <P CLASS="dtH1">Foreign Keys</P>
+  </DIV>
+</DIV>
+<P CLASS="Base">&nbsp;</P>
+<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Schema</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Table</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Foreign Key</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Fields</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>FK Table</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>FK Fields</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Delete Action</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Update Action</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Deferrable</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Check Time</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Description</B></P>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_artista_public.html">tbl_artista</A></TD><TD><P CLASS="Base2"><A HREF="tbl_artista_fk__tbl_artista.html">tbl_artista_fk</A></TD><TD><P CLASS="Base2">id_genero</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">No Action</P></TD>
+<TD><P CLASS="Base2">No Action</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_canciones_public.html">tbl_canciones</A></TD><TD><P CLASS="Base2"><A HREF="tbl_canciones_fk__tbl_canciones.html">tbl_canciones_fk</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_artista_public.html">public.tbl_artista</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_canciones_public.html">tbl_canciones</A></TD><TD><P CLASS="Base2"><A HREF="tbl_canciones_lista_fk__tbl_canciones.html">tbl_canciones_lista_fk</A></TD><TD><P CLASS="Base2">id_lista</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_listas_public.html">public.tbl_listas</A></TD><TD><P CLASS="Base2">id_lista</P></TD>
+<TD><P CLASS="Base2">Set Null</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_cartas_public.html">tbl_cartas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_cartas_fk__tbl_cartas.html">tbl_cartas_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">tbl_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_discotecas_genero_fk__tbl_discotecas.html">tbl_discotecas_genero_fk</A></TD><TD><P CLASS="Base2">id_genero</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">tbl_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_discotecas_tio_rumba_fk__tbl_discotecas.html">tbl_discotecas_tio_rumba_fk</A></TD><TD><P CLASS="Base2">id_tipo_rumba</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">tbl_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_discotecas_vestuario_fk__tbl_discotecas.html">tbl_discotecas_vestuario_fk</A></TD><TD><P CLASS="Base2">id_vestuario</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">tbl_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_discotecas_zona_fk__tbl_discotecas.html">tbl_discotecas_zona_fk</A></TD><TD><P CLASS="Base2">id_zona</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_encuesta_public.html">tbl_encuesta</A></TD><TD><P CLASS="Base2"><A HREF="tbl_encuesta_artista_fk__tbl_encuesta.html">tbl_encuesta_artista_fk</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_artista_public.html">public.tbl_artista</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_encuesta_public.html">tbl_encuesta</A></TD><TD><P CLASS="Base2"><A HREF="tbl_encuesta_discoteca_fk__tbl_encuesta.html">tbl_encuesta_discoteca_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_eventos_public.html">tbl_eventos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_eventos_artista_fk__tbl_eventos.html">tbl_eventos_artista_fk</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_artista_public.html">public.tbl_artista</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_eventos_public.html">tbl_eventos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_eventos_discoteca_fk__tbl_eventos.html">tbl_eventos_discoteca_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_funcionarios_public.html">tbl_funcionarios</A></TD><TD><P CLASS="Base2"><A HREF="tbl_funcionarios_discoteca_fk__tbl_funcionarios.html">tbl_funcionarios_discoteca_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_funcionarios_public.html">tbl_funcionarios</A></TD><TD><P CLASS="Base2"><A HREF="tbl_funcionarios_fk__tbl_funcionarios.html">tbl_funcionarios_fk</A></TD><TD><P CLASS="Base2">id_rol</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_generos_favs_public.html">tbl_generos_favs</A></TD><TD><P CLASS="Base2"><A HREF="tbl_generos_favs_genero_fk__tbl_generos_favs.html">tbl_generos_favs_genero_fk</A></TD><TD><P CLASS="Base2">id_genero</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_generos_favs_public.html">tbl_generos_favs</A></TD><TD><P CLASS="Base2"><A HREF="tbl_generos_favs_persona_fk__tbl_generos_favs.html">tbl_generos_favs_persona_fk</A></TD><TD><P CLASS="Base2">id_persona</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">public.tbl_personas</A></TD><TD><P CLASS="Base2">str_num_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_listas_public.html">tbl_listas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_listas_discoteca_fk__tbl_listas.html">tbl_listas_discoteca_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_mesas_public.html">tbl_mesas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_mesas_discoteca_fk__tbl_mesas.html">tbl_mesas_discoteca_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_mesas_public.html">tbl_mesas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_mesas_persona_fk__tbl_mesas.html">tbl_mesas_persona_fk</A></TD><TD><P CLASS="Base2">id_persona</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">public.tbl_personas</A></TD><TD><P CLASS="Base2">str_num_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">tbl_personas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_personas_bebida_fk__tbl_personas.html">tbl_personas_bebida_fk</A></TD><TD><P CLASS="Base2">id_bebida</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">tbl_personas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_personas_est_civil_fk__tbl_personas.html">tbl_personas_est_civil_fk</A></TD><TD><P CLASS="Base2">id_estado_civil</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">tbl_personas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_personas_sexo_fk__tbl_personas.html">tbl_personas_sexo_fk</A></TD><TD><P CLASS="Base2">id_genero_sexo</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">tbl_personas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_personas_tipo_id_fk__tbl_personas.html">tbl_personas_tipo_id_fk</A></TD><TD><P CLASS="Base2">str_tipo_id</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_discos_public.html">tbl_personas_discos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_personas_discos_fk__tbl_personas_discos.html">tbl_personas_discos_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_discos_public.html">tbl_personas_discos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_personas_discos_fk1__tbl_personas_discos.html">tbl_personas_discos_fk1</A></TD><TD><P CLASS="Base2">id_persona</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">public.tbl_personas</A></TD><TD><P CLASS="Base2">str_num_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_pqrs_public.html">tbl_pqrs</A></TD><TD><P CLASS="Base2"><A HREF="tbl_pqrs_discoteca_fk__tbl_pqrs.html">tbl_pqrs_discoteca_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_pqrs_public.html">tbl_pqrs</A></TD><TD><P CLASS="Base2"><A HREF="tbl_pqrs_persona_fk__tbl_pqrs.html">tbl_pqrs_persona_fk</A></TD><TD><P CLASS="Base2">id_persona</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">public.tbl_personas</A></TD><TD><P CLASS="Base2">str_num_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_pqrs_public.html">tbl_pqrs</A></TD><TD><P CLASS="Base2"><A HREF="tbl_pqrs_tipo_pqr_fk__tbl_pqrs.html">tbl_pqrs_tipo_pqr_fk</A></TD><TD><P CLASS="Base2">id_tipo_pqr</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_parametros_public.html">public.tbl_parametros</A></TD><TD><P CLASS="Base2">str_valor</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_precios_boletas_public.html">tbl_precios_boletas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_precios_boletas_fk__tbl_precios_boletas.html">tbl_precios_boletas_fk</A></TD><TD><P CLASS="Base2">id_evento</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_eventos_public.html">public.tbl_eventos</A></TD><TD><P CLASS="Base2">id_evento</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_carta_public.html">tbl_productos_carta</A></TD><TD><P CLASS="Base2"><A HREF="tbl_productos_carta_fk__tbl_productos_carta.html">tbl_productos_carta_fk</A></TD><TD><P CLASS="Base2">id_carta</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_cartas_public.html">public.tbl_cartas</A></TD><TD><P CLASS="Base2">id_carta</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_carta_public.html">tbl_productos_carta</A></TD><TD><P CLASS="Base2"><A HREF="tbl_productos_carta_fk1__tbl_productos_carta.html">tbl_productos_carta_fk1</A></TD><TD><P CLASS="Base2">id_producto</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_public.html">public.tbl_productos</A></TD><TD><P CLASS="Base2">id_producto</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_pedidos_public.html">tbl_productos_pedidos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_productos_pedidos_fk__tbl_productos_pedidos.html">tbl_productos_pedidos_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_pedidos_public.html">tbl_productos_pedidos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_productos_pedidos_fk1__tbl_productos_pedidos.html">tbl_productos_pedidos_fk1</A></TD><TD><P CLASS="Base2">id_producto</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_public.html">public.tbl_productos</A></TD><TD><P CLASS="Base2">id_producto</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_productos_pedidos_public.html">tbl_productos_pedidos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_productos_pedidos_fk2__tbl_productos_pedidos.html">tbl_productos_pedidos_fk2</A></TD><TD><P CLASS="Base2">id_pedido</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_pedidos_public.html">public.tbl_pedidos</A></TD><TD><P CLASS="Base2">id_pedido</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_promociones_public.html">tbl_promociones</A></TD><TD><P CLASS="Base2"><A HREF="tbl_promociones_fk__tbl_promociones.html">tbl_promociones_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_reservas_public.html">tbl_reservas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_reservas_fk__tbl_reservas.html">tbl_reservas_fk</A></TD><TD><P CLASS="Base2">id_persona</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">public.tbl_personas</A></TD><TD><P CLASS="Base2">str_num_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_reservas_public.html">tbl_reservas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_reservas_fk1__tbl_reservas.html">tbl_reservas_fk1</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_servicios_discotecas_public.html">tbl_servicios_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_servicios_discotecas_fk__tbl_servicios_discotecas.html">tbl_servicios_discotecas_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_suscriptores_public.html">tbl_suscriptores</A></TD><TD><P CLASS="Base2"><A HREF="tbl_suscriptores_fk__tbl_suscriptores.html">tbl_suscriptores_fk</A></TD><TD><P CLASS="Base2">id_persona</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_personas_public.html">public.tbl_personas</A></TD><TD><P CLASS="Base2">str_num_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_suscriptores_public.html">tbl_suscriptores</A></TD><TD><P CLASS="Base2"><A HREF="tbl_suscriptores_fk1__tbl_suscriptores.html">tbl_suscriptores_fk1</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_votos_canciones_public.html">tbl_votos_canciones</A></TD><TD><P CLASS="Base2"><A HREF="tbl_votos_canciones_fk__tbl_votos_canciones.html">tbl_votos_canciones_fk</A></TD><TD><P CLASS="Base2">id_lista</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_listas_public.html">public.tbl_listas</A></TD><TD><P CLASS="Base2">id_lista</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_votos_canciones_public.html">tbl_votos_canciones</A></TD><TD><P CLASS="Base2"><A HREF="tbl_votos_canciones_fk1__tbl_votos_canciones.html">tbl_votos_canciones_fk1</A></TD><TD><P CLASS="Base2">id_cancion</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_canciones_public.html">public.tbl_canciones</A></TD><TD><P CLASS="Base2">id_cancion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+</TABLE>
+
+<DIV CLASS="footer"><BR><HR></DIV>
+    <TABLE CLASS="bannerparthead" CELLSPACING=0>
+    <TR VALIGN="middle">
+    <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku
+This file was generated with SQL Manager for PostgreSQL at 16/09/2018 03:52 p.m.</pre></TD>
+      <TD ALIGN="left" WIDTH="54px" NOWRAP>
+        <A HREF="../Index.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+        <A HREF="../Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
+        <A HREF="tbl_artista_fk__tbl_artista.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
+      </TD>
+    </TR>
+  </TABLE>
+<P CLASS="Base">&nbsp;</P></BODY>
+</HTML>

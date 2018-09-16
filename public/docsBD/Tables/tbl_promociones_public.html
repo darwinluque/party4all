@@ -48,22 +48,22 @@
 <TH WIDTH="14%"><P CLASS="Base2"><B>Default</B></P>
 <TH WIDTH="18%"><P CLASS="Base2"><B>Description</B></P>
 <TR>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">id</P></TD>
-<TD><P CLASS="Base2">integer</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">id</P></TD>
+<TD><P CLASS="Base2">serial</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">nextval('tbl_promociones_id_seq'::regclass)</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 <TR>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD><P CLASS="Base2">id_discoteca</P></TD>
-<TD><P CLASS="Base2">integer</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">varchar(15)</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
@@ -85,7 +85,7 @@
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">vlr_porcentaje</P></TD>
 <TD><P CLASS="Base2">numeric</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
@@ -107,7 +107,7 @@
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">dtm_fecha_promocion</P></TD>
 <TD><P CLASS="Base2">timestamptz</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
@@ -121,7 +121,7 @@
 <TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">now()</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 <TR>
@@ -132,18 +132,68 @@
 <TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">now()</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">str_titulo</P></TD>
+<TD><P CLASS="Base2">varchar(255)</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">''::character varying</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 </TABLE>
 
 <P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Foreign Keys</P>
-<P CLASS="Base">There are no foreign keys for table tbl_promociones</P><P CLASS="Base">&nbsp;</P>
+<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
+<TH WIDTH="5%"><P CLASS="Base2"><B>Name</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Fields</B></P>
+<TH WIDTH="5%"><P CLASS="Base2"><B>FK Table</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>FK Fields</B></P>
+<TH WIDTH="5%"><P CLASS="Base2"><B>Delete Action</B></P>
+<TH WIDTH="5%"><P CLASS="Base2"><B>Update Action</B></P>
+<TH WIDTH="3%"><P CLASS="Base2"><B>Deferrable</B></P>
+<TH WIDTH="5%"><P CLASS="Base2"><B>Check Time</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Description</B></P>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_promociones_fk__tbl_promociones.html">tbl_promociones_fk</A></TD><TD><P CLASS="Base2">id_discoteca</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_discotecas_public.html">public.tbl_discotecas</A></TD><TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+</TABLE>
+
+<P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Check Constraints</P>
 <P CLASS="Base">There are no check constraints for table tbl_promociones</P><P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Indices</P>
-<P CLASS="Base">There are no indices for table tbl_promociones</P><P CLASS="Base">&nbsp;</P>
+<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Name</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Type</B></P>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Function</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Fields</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Primary Key</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Unique</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Description</B></P>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Indices/tbl_promociones_pkey__tbl_promociones.html">tbl_promociones_pkey</A></TD><TD><P CLASS="Base2">btree</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">id</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+</TABLE>
+
+<P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Triggers</P>
 <P CLASS="Base">There are no triggers for table tbl_promociones</P><P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Rules</P>
@@ -162,11 +212,11 @@
 </TR>
 <TR>
 <TD><P CLASS="Base2">Rows</P></TD>
-<TD ALIGN="center"><P CLASS="Base2">0</P></TD>
+<TD ALIGN="center"><P CLASS="Base2">1</P></TD>
 </TR>
 <TR>
 <TD><P CLASS="Base2">Pages</P></TD>
-<TD ALIGN="center"><P CLASS="Base2">0</P></TD>
+<TD ALIGN="center"><P CLASS="Base2">1</P></TD>
 </TR>
 <TR>
 <TD><P CLASS="Base2">System</P></TD>
@@ -185,7 +235,7 @@
 <P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Definition</P>
 <P CLASS="Base">
-<blockquote><code><basefont size=1 face="Courier New"><font size= +1>
+<blockquote><code><basefont size=1 face="Courier New"><font size= +2>
 <STYLE TYPE="text/css" TITLE="Bright Colours">
 #seDefault { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
 #Default { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
@@ -215,14 +265,21 @@
 #AdditionalLinesFormat {background-color: #FFFFCC;}
 #DeletedLinesFormat {background-color: #FF9999;}
 </STYLE><span id="seDefault"><SPAN id="SQL_keyword">CREATE TABLE public</span><SPAN id="Symbol">.</span>tbl_promociones <SPAN id="Symbol">(</span><br>
- &nbsp;id <SPAN id="SQL_datatype">INTEGER</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
- &nbsp;id_discoteca <SPAN id="SQL_datatype">INTEGER</span><SPAN id="Symbol">,</span><br>
+ &nbsp;id <SPAN id="SQL_datatype">SERIAL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;id_discoteca <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">15</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;str_descripcion <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">255</span><SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
- &nbsp;vlr_porcentaje <SPAN id="SQL_datatype">NUMERIC</span><SPAN id="Symbol">,</span><br>
+ &nbsp;vlr_porcentaje <SPAN id="SQL_datatype">NUMERIC</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;str_url_imagen <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">255</span><SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
- &nbsp;dtm_fecha_promocion <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE</span><SPAN id="Symbol">,</span><br>
- &nbsp;"createdAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE NOT NULL</span><SPAN id="Symbol">,</span><br>
- &nbsp;"updatedAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE NOT NULL</span><br>
+ &nbsp;dtm_fecha_promocion <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;"createdAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;"updatedAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;str_titulo <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">255</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">DEFAULT</span> <SPAN id="String">''</span><SPAN id="Symbol">::</span><SPAN id="SQL_datatype">character varying</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_promociones_pkey <SPAN id="SQL_keyword">PRIMARY KEY</span><SPAN id="Symbol">(</span>id<SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
+ &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_promociones_fk <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_discoteca<SPAN id="Symbol">)</span><br>
+ &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_discotecas<SPAN id="Symbol">(</span>str_identificacion<SPAN id="Symbol">)</span><br>
+ &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">ON DELETE RESTRICT<br>
+ &nbsp;&nbsp;&nbsp;ON UPDATE CASCADE<br>
+ &nbsp;&nbsp;&nbsp;NOT DEFERRABLE</span><br>
 <SPAN id="Symbol">)</span> <br>
 <SPAN id="SQL_keyword">WITH</span> <SPAN id="Symbol">(</span><SPAN id="SQL_keyword">oids</span> <SPAN id="Symbol">=</span> <SPAN id="SQL_keyword">false</span><SPAN id="Symbol">)</span>;
 </span>
@@ -232,7 +289,7 @@
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
     <TR VALIGN="middle">
     <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku
-This file was generated with SQL Manager for PostgreSQL at 07/08/2018 04:37 p.m.</pre></TD>
+This file was generated with SQL Manager for PostgreSQL at 16/09/2018 03:52 p.m.</pre></TD>
       <TD ALIGN="left" WIDTH="54px" NOWRAP>
         <A HREF="tbl_productos_pedidos_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
         <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
