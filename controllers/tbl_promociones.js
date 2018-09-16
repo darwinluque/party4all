@@ -91,6 +91,7 @@ module.exports = {
     return tbl_promociones
       .create({
         id_discoteca: req.body.id_discoteca,
+        str_titulo: req.body.str_titulo,
         str_descripcion: req.body.str_descripcion,
         vlr_porcentaje: req.body.vlr_porcentaje,
         str_url_imagen: req.body.str_url_imagen,
@@ -118,6 +119,7 @@ module.exports = {
         return tbl_promociones
           .update({
             id_discoteca: req.body.id_discoteca,
+            str_titulo: req.body.str_titulo,
             str_descripcion: req.body.str_descripcion,
             vlr_porcentaje: req.body.vlr_porcentaje,
             str_url_imagen: req.body.str_url_imagen,

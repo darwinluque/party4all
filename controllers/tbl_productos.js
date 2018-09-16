@@ -96,7 +96,7 @@ module.exports = {
   add(req, res) {
     return tbl_productos
       .create({
-        id_discoteca: req.body.id_discoteca,
+        id_producto: req.body.id_producto,
         str_descripcion: req.body.str_descripcion,
         str_tamano: req.body.str_tamano,
         str_url_imagen: req.body.str_url_imagen,
@@ -127,7 +127,7 @@ module.exports = {
         }
         return tbl_productos
           .update({
-            id_discoteca: req.body.id_discoteca,
+            id_producto: req.body.id_producto,
             str_descripcion: req.body.str_descripcion,
             str_tamano: req.body.str_tamano,
             str_url_imagen: req.body.str_url_imagen,

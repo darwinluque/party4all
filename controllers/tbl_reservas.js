@@ -96,6 +96,7 @@ module.exports = {
   add(req, res) {
     return tbl_reservas
       .create({
+        id_reserva: req.body.id_reserva,
         id_discoteca: req.body.id_discoteca,
         id_persona: req.body.id_persona,
         dtm_fecha_reserva: req.body.dtm_fecha_reserva,
@@ -128,6 +129,7 @@ module.exports = {
         }
         return tbl_reservas
           .update({
+            id_reserva: req.body.id_reserva,
             id_discoteca: req.body.id_discoteca,
             id_persona: req.body.id_persona,
             dtm_fecha_reserva: req.body.dtm_fecha_reserva,
