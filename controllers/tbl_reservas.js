@@ -28,17 +28,17 @@ module.exports = {
   list(req, res) {
     return tbl_reservas
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_personas,
             as: 'personas'
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
+            as: 'discotecas',
         }],
         order: [
           ['createdAt', 'DESC'],
-          //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
-        ],*/
+          //[{ model: tbl_personas, as: 'personas' }, 'createdAt', 'DESC'],
+        ],
       })
       .then((tbl_reservas) => res.status(200).send(tbl_reservas))
       .catch((error) => { res.status(400).send(error); });
@@ -47,13 +47,13 @@ module.exports = {
   getById(req, res) {
     return tbl_reservas
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_personas,
-            as: 'personas'
+            as: 'personas',
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discotecas',
+        }],
       })
       .then((tbl_reservas) => {
         if (!tbl_reservas) {
@@ -78,7 +78,13 @@ module.exports = {
 
     return tbl_reservas
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+            model: tbl_personas,
+            as: 'personas',
+        },{
+            model: tbl_discotecas,
+            as: 'discotecas',
+        }],
         where: whereClause,
       })
       .then((tbl_reservas) => {
@@ -112,13 +118,13 @@ module.exports = {
   update(req, res) {
     return tbl_reservas
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_personas,
-            as: 'personas'
+            as: 'personas',
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discotecas',
+        }],
       })
       .then(tbl_reservas => {
         if (!tbl_reservas) {

@@ -28,6 +28,15 @@ module.exports = {
   list(req, res) {
     return tbl_discotecas
       .findAll({
+        include:[
+          {
+            model: tbl_reservas,
+            as: 'reservas',
+          },{
+            model: tbl_promociones,
+            as: 'promociones'
+          }
+        ],
         /*include: [{
             model: tbl_parametros,
             as: 'vestuarios'
@@ -81,7 +90,7 @@ module.exports = {
             as: 'funcionarios'
           }],*/
         order: [
-          ['createdAt', 'DESC'],
+          ['str_nombre', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
         ],
       })
@@ -92,6 +101,15 @@ module.exports = {
   getById(req, res) {
     return tbl_discotecas
       .findById(req.params.id, {
+        include:[
+          {
+            model: tbl_reservas,
+            as: 'reservas'
+          },{
+            model: tbl_promociones,
+            as: 'promociones'
+          }
+        ],
         /*include: [{
             model: tbl_parametros,
             as: 'cartas'
@@ -101,9 +119,6 @@ module.exports = {
           },{
             model: tbl_parametros,
             as: 'cartas'
-          },{
-            model: tbl_promociones,
-            as: 'promociones'
           },{
             model: tbl_cartas,
             as: 'cartas'
@@ -169,6 +184,12 @@ module.exports = {
     return tbl_discotecas
       .findAll( {
         // ACA VAN LOS INCLUDES PARA RELACION
+        /*include:[
+          {
+            model: tbl_reservas,
+            as: 'reservas',
+          }
+        ],*/
         where: whereClause,
       })
       .then((tbl_discotecas) => {
@@ -210,6 +231,12 @@ module.exports = {
   update(req, res) {
     return tbl_discotecas
       .findById(req.params.id, {
+        /*include:[
+          {
+            model: tbl_reservas,
+            as: 'reservas',
+          }
+        ],
         /*include: [{
             model: tbl_parametros,
             as: 'cartas'

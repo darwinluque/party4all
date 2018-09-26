@@ -8,7 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     id_lista: DataTypes.STRING
   }, {});
   tbl_canciones.associate = function(models) {
-    // associations can be defined here
+    tbl_canciones.belongsTo(models.tbl_artista, {
+      foreignKey: 'id_artista', 
+      targetKey: 'id_artista',
+      as: 'artista'
+    });
   };
   return tbl_canciones;
 };

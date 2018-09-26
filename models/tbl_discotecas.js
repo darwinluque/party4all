@@ -19,7 +19,16 @@ module.exports = (sequelize, DataTypes) => {
     id_tipo_rumba: DataTypes.STRING,
   }, {});
   tbl_discotecas.associate = function(models) {
-    // associations can be defined here
+    tbl_discotecas.hasMany(models.tbl_reservas, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'reservas'      
+    });
+    tbl_discotecas.hasMany(models.tbl_promociones, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'promociones'      
+    });
   };
   return tbl_discotecas;
 };

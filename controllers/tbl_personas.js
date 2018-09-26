@@ -28,9 +28,15 @@ module.exports = {
   list(req, res) {
     return tbl_personas
       .findAll({
-        /*include: [{
+        include: [{
+          model: tbl_reservas,
+          as: 'reservas'
+        },{
+          model: tbl_generos_fav,
+          as: 'generos_favoritos'
+        },{
           model: tbl_parametros,
-          as: 'genero_sexo'
+          as: 'generos'
         },{
           model: tbl_parametros,
           as: 'estado_civil'
@@ -38,20 +44,21 @@ module.exports = {
           model: tbl_parametros,
           as: 'bebida'
         },{
+          model: tbl_parametros,
+          as: 'tipo_id'
+        }/*,{
+          model: tbl_parametros,
+          as: 'condiciones'
+        }*/],
+        /*include: [,{
           model: tbl_suscriptores,
           as: 'suscripciones'
-        },{
-          model: tbl_reservas,
-          as: 'reservas'
         },{
           model: tbl_personas_discoteca,
           as: 'personas_disco'
         },{
           model: tbl_pqrs,
           as: 'pqrs'
-        },{
-          model: tbl_generos_fav,
-          as: 'generos_favoritos'
         },{
           model: tbl_servicios_discoteca,
           as: 'servicios_discoteca'
@@ -71,6 +78,12 @@ module.exports = {
   getById(req, res) {
     return tbl_personas
       .findById(req.params.id, {
+        /*include: [
+          {
+            model: tbl_reservas,
+            as: 'reservas'
+          }
+        ],
         /*include: [{
           model: tbl_parametros,
           as: 'genero_sexo'
@@ -126,7 +139,12 @@ module.exports = {
 
     return tbl_personas
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        /*include: [
+          {
+            model: tbl_reservas,
+            as: 'reservas',
+          }
+        ],*/
         where: whereClause,
       })
       .then((tbl_personas) => {
@@ -167,6 +185,12 @@ module.exports = {
   update(req, res) {
     return tbl_personas
       .findById(req.params.id, {
+        /*include: [
+          {
+            model: tbl_reservas,
+            as: 'reservas',
+          }
+        ],
         /*include: [{
           model: tbl_parametros,
           as: 'genero_sexo'

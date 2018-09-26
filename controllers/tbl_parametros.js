@@ -26,62 +26,13 @@ const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
 module.exports = {
   list(req, res) {
-    //res.header('Access-Control-Allow-Origin','*');
-    //res.header('Access-Control-Allow-Methods','*');
-    //res.header('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token');
-    //res.header('Access-Control-Allow-Credentials','true');
-    //res.header('Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time');
-    //res.header('Access-Control-Max-Age', '1000');
 
     return tbl_parametros
       .findAll({
-        /*include: [{
-            model: tbl_artista,
-            as: 'artistas'
-        }],
-          /*
         include: [{
-            model: tbl_discotecas,
-            as: 'vestuarios',
-            foreignKey: 'id_vestuario'
-        }],
-        
-        /*,{
-            model: tbl_discotecas,
-            as: 'zonas'
-        },{
-            model: tbl_discotecas,
-            as: 'generos'
-        },{
-            model: tbl_discotecas,
-            as: 'tipos_rumba'
-        },{
-            model: tbl_personas,
-            as: 'generos_sexo'
-        },{
-            model: tbl_personas,
-            as: 'estados_civiles'
-        },{
-            model: tbl_personas,
-            as: 'bebidas'
-        },{
-            model: tbl_servicios_discoteca,
-            as: 'servicios'
-        },{
-            model: tbl_generos_fav,
-            as: 'generos_favoritos'
-        },{
             model: tbl_artista,
-            as: 'generos_artistas',
-            foreignKey: 'id_genero'
-        },{
-            model: tbl_pqrs,
-            as: 'tipos_pqr'
-        },{
-            model: tbl_funcionarios,
-            as: 'roles'
+            as: 'artistas',
         }],
-        */
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_artista, as: 'artistas' }, 'createdAt', 'DESC'],
@@ -94,49 +45,10 @@ module.exports = {
   getById(req, res) {
     return tbl_parametros
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_artista,
-            as: 'artistas'
-        }],
-        /*
         include: [{
-            model: tbl_discotecas,
-            as: 'vestuarios'
-          },{
-            model: tbl_discotecas,
-            as: 'zonas'
-          },{
-              model: tbl_discotecas,
-              as: 'generos'
-          },{
-              model: tbl_discotecas,
-              as: 'tipos_rumba'
-          },{
-              model: tbl_personas,
-              as: 'generos_sexo'
-          },{
-              model: tbl_personas,
-              as: 'estados_civiles'
-          },{
-              model: tbl_personas,
-              as: 'bebidas'
-          },{
-              model: tbl_servicios_discotecateca,
-              as: 'servicios'
-          },{
-              model: tbl_generos_fav,
-              as: 'generos_favoritos'
-          },{
-              model: tbl_artista,
-              as: 'generos_artistas'
-          },{
-              model: tbl_pqrs,
-              as: 'tipos_pqr'
-          },{
-              model: tbl_funcionarios,
-              as: 'roles'
-          }],
-          */
+          model: tbl_artista,
+          as: 'artistas',
+        }],
       })
       .then((tbl_parametros) => {
         if (!tbl_parametros) {
@@ -161,7 +73,10 @@ module.exports = {
 
     return tbl_parametros
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_artista,
+          as: 'artistas',
+        }],
         where: whereClause,
         order: [
           ['str_dominio'],
@@ -196,6 +111,10 @@ module.exports = {
   update(req, res) {
     return tbl_parametros
       .findById(req.params.id, {
+        include: [{
+          model: tbl_artista,
+          as: 'artistas',
+        }],
       })
       .then(tbl_parametros => {
         if (!tbl_parametros) {
@@ -236,7 +155,10 @@ module.exports = {
 
     return tbl_parametros
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_artista,
+          as: 'artistas',
+        }],
         where: whereClause,
       })
       .then(tbl_parametros => {
@@ -295,7 +217,6 @@ module.exports = {
 
     return tbl_parametros
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
         where: whereClause,
       })
       .then(tbl_parametros => {

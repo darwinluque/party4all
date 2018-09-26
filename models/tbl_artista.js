@@ -6,7 +6,16 @@ module.exports = (sequelize, DataTypes) => {
     id_genero: DataTypes.STRING    
   }, {});
   tbl_artista.associate = function(models) {
-    // associations can be defined here
+    tbl_artista.hasMany(models.tbl_canciones, {
+      foreignKey: 'id_artista', 
+      sourceKey: 'id_artista',
+      as: 'canciones'
+    });
+    tbl_artista.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_genero', 
+      targetKey: 'str_valor',
+      as: 'genero_musical'
+    });
   };
   return tbl_artista; 
 };

@@ -9,7 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha_promocion: DataTypes.DATE
   }, {});
   tbl_promociones.associate = function(models) {
-    // associations can be defined here
+    tbl_promociones.belongsTo(models.tbl_discotecas, {
+      foreignKey: 'id_discoteca', 
+      targetKey: 'str_identificacion',
+      as: 'discotecas'
+    });
   };
   return tbl_promociones;
 };

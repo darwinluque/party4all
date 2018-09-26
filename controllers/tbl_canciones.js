@@ -28,13 +28,13 @@ module.exports = {
   list(req, res) {
     return tbl_canciones
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_artista,
             as: 'artista'
           },{
             model: tbl_votos_canciones,
             as: 'votos_canciones'
-          }],*/
+          }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +47,13 @@ module.exports = {
   getById(req, res) {
     return tbl_canciones
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_artista,
             as: 'artista'
           },{
             model: tbl_votos_canciones,
             as: 'votos_canciones'
-          }],*/
+          }],
       })
       .then((tbl_canciones) => {
         if (!tbl_canciones) {
@@ -78,7 +78,13 @@ module.exports = {
 
     return tbl_canciones
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_artista,
+          as: 'artista'
+        },{
+          model: tbl_votos_canciones,
+          as: 'votos_canciones'
+        }],
         where: whereClause,
       })
       .then((tbl_canciones) => {
@@ -109,13 +115,13 @@ module.exports = {
   update(req, res) {
     return tbl_canciones
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_artista,
             as: 'artista'
           },{
             model: tbl_votos_canciones,
             as: 'votos_canciones'
-          }],*/
+          }],
       })
       .then(tbl_canciones => {
         if (!tbl_canciones) {

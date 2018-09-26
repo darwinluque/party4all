@@ -1,5 +1,14 @@
 var express = require('express');
+var firebase = require('firebase');
 var router = express.Router();
+/*var config = {
+  apiKey: "AIzaSyBboJ5-nXHQXM6YxHYn9PedTe1E2NqopZg",
+  authDomain: "party4all-fb.firebaseapp.com",
+  databaseURL: "https://party4all-fb.firebaseio.com",
+  projectId: "party4all-fb",
+  storageBucket: "party4all-fb.appspot.com",
+  messagingSenderId: "294374515402"
+};*/
 
 const tbl_parametrosController = require('../controllers').tbl_parametros;
 const tbl_artistaController = require('../controllers').tbl_artista;
@@ -22,6 +31,7 @@ const tbl_productosController = require('../controllers').tbl_productos;
 const tbl_productos_cartaController = require('../controllers').tbl_productos_carta;
 const tbl_promocionesController = require('../controllers').tbl_promociones;
 const tbl_reservasController = require('../controllers').tbl_reservas;
+const tbl_reservasvController = require('../controllers').tbl_reservasv;
 const tbl_servicios_discotecaController = require('../controllers').tbl_servicios_discoteca;
 const tbl_suscriptoresController = require('../controllers').tbl_suscriptores;
 const tbl_votos_cancionesController = require('../controllers').tbl_votos_canciones;
@@ -38,7 +48,7 @@ router.use('/', function(req, res, next) {
   res.header('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token');
   res.header('Access-Control-Allow-Credentials','false');
   //res.header('Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time');
-  //res.header('Access-Control-Max-Age', '1000');
+  res.header('Access-Control-Max-Age', '10000');
   next();
 });
 

@@ -19,43 +19,44 @@ const tbl_productos = require('../models').tbl_productos;
 const tbl_productos_carta = require('../models').tbl_productos_carta;
 const tbl_promociones = require('../models').tbl_promociones;
 const tbl_reservas = require('../models').tbl_reservas;
+const tbl_reservasv = require('../models').tbl_reservasv;
 const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
-
 module.exports = {
   list(req, res) {
-    return tbl_artista
+    return tbl_reservas_v
       .findAll({
-          include: [{
-            model: tbl_parametros,
-            as: 'genero_musical'
-          }],
-        order: [
+        /*order: [
           ['createdAt', 'DESC'],
-        ],
+          //[{ model: tbl_personas, as: 'personas' }, 'createdAt', 'DESC'],
+        ],*/
       })
-      .then((tbl_artista) => res.status(200).send(tbl_artista))
+      .then((tbl_reservas_v) => res.status(200).send(tbl_reservas_v))
       .catch((error) => { res.status(400).send(error); });
   },
 
   getById(req, res) {
-    return tbl_artista 
+    return tbl_reservas_v
       .findById(req.params.id, {
+        /*
         include: [{
-          model: tbl_parametros,
-          as: 'genero_musical'
-        }],
+            model: tbl_personas,
+            as: 'personas',
+        },{
+            model: tbl_discotecas,
+            as: 'discotecas',
+        }],*/
       })
-      .then((tbl_artista) => {
-        if (!tbl_artista) {
+      .then((tbl_reservas_v) => {
+        if (!tbl_reservas_v) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_artista);
+        return res.status(200).send(tbl_reservas_v);
       })
       .catch((error) => res.status(400).send(error));
   },
@@ -69,84 +70,28 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
-    return tbl_artista
+    return tbl_reservas_v
       .findAll( {
+        /*
         include: [{
-          model: tbl_parametros,
-          as: 'genero_musical'
-        }],
+            model: tbl_personas,
+            as: 'personas',
+        },{
+            model: tbl_discotecas,
+            as: 'discotecas',
+        }],*/
         where: whereClause,
       })
-      .then((tbl_artista) => {
-        if (!tbl_artista) {
+      .then((tbl_reservas_v) => {
+        if (!tbl_reservas_v) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_artista);
+        return res.status(200).send(tbl_reservas_v);
       })
       .catch((error) => { res.status(400).send(error); });
-  },
-
-  add(req, res) {
-    return tbl_artista
-      .create({
-        id_artista: req.body.id_artista,
-        id_genero: req.body.id_genero,
-        str_nombre: req.body.str_nombre,
-      })
-      .then((tbl_artista) => res.status(201).send(tbl_artista))
-      .catch((error) => res.status(400).send(error));
-  },
-
-  update(req, res) {
-    return tbl_artista
-      .findById(req.params.id, {
-        include: [{
-          model: tbl_parametros,
-          as: 'genero_musical'
-        }],
-      })
-      .then(tbl_artista => {
-        if (!tbl_artista) {
-          return res.status(404).send({
-            code: '1',  
-            message: 'ERROR: Registro no encontrado',
-          });
-        }
-        return tbl_artista
-          .update({
-            id_artista: req.body.id_artista,
-            id_genero: req.body.id_genero,
-            str_nombre: req.body.str_nombre, 
-          })
-          .then(() => res.status(200).send(tbl_artista))
-          .catch((error) => res.status(400).send(error));
-      })
-      .catch((error) => res.status(400).send(error));
-  },
-
-  delete(req, res) {
-    return tbl_artista
-      .findById(req.params.id)
-      .then(tbl_artista => {
-        if (!tbl_artista) {
-          return res.status(400).send({
-            code: '1',  
-            message: 'ERROR: Registro no encontrado',
-          });
-        }
-        tbl_artista
-            .destroy()
-            .then(() => res.status(204).send())
-            .catch((error) => res.status(400).send("1-ERROR: "+error));
-        return res.status(200).send({
-            code: '0',  
-            message: 'OK: Registro eliminado exitosamente',
-        });
-      })
-      .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
 };
 

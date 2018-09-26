@@ -7,7 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     str_estado: DataTypes.STRING
   }, {});
   tbl_parametros.associate = function(models) {
-    // associations can be defined here
+    // No tiene relación porque no nteresa saber e parametro en donde tiene persistencia
+    tbl_parametros.hasMany(models.tbl_artista, {
+      foreignKey: 'id_genero', 
+      sourceKey: 'str_valor',
+      as: 'artistas'
+    });
   };
   return tbl_parametros;
 };

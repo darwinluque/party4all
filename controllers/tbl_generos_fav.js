@@ -28,13 +28,10 @@ module.exports = {
   list(req, res) {
     return tbl_generos_fav
       .findAll({
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        },{
+        include: [{
             model: tbl_personas,
             as: 'personas'
-        }],*/
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +44,10 @@ module.exports = {
   getById(req, res) {
     return tbl_generos_fav
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        },{
+        include: [{
             model: tbl_personas,
             as: 'personas'
-        }],*/
+        }],
       })
       .then((tbl_generos_fav) => {
         if (!tbl_generos_fav) {
@@ -78,7 +72,10 @@ module.exports = {
 
     return tbl_generos_fav
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_personas,
+          as: 'personas'
+        }],
         where: whereClause,
       })
       .then((tbl_generos_fav) => {
@@ -107,13 +104,10 @@ module.exports = {
   update(req, res) {
     return tbl_generos_fav
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        },{
+        include: [{
             model: tbl_personas,
             as: 'personas'
-        }],*/
+        }],
       })
       .then(tbl_generos_fav => {
         if (!tbl_generos_fav) {
