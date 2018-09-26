@@ -53,6 +53,9 @@ module.exports = {
       dtm_fecha_acepta_trat: {
         type: Sequelize.DATE
       },
+      dtm_fecha_nacimiento: {
+        type: Sequelize.DATE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

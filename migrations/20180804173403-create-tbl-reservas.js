@@ -8,11 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_persona: {
-        type: Sequelize.INTEGER
+      id_persona : {
+        allowNull: false,
+        foreingKey: true,
+        type: Sequelize.STRING
       },
       id_discoteca: {
-        type: Sequelize.INTEGER
+        allowNull: false,
+        foreingKey: true,
+        type: Sequelize.STRING
       },
       dtm_fecha_reserva: {
         type: Sequelize.DATE
