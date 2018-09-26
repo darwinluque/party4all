@@ -33,7 +33,7 @@ module.exports = {
             as: 'artista'
           },{
             model: tbl_votos_canciones,
-            as: 'votos_canciones'
+            as: 'votos'
           }],
         order: [
           ['createdAt', 'DESC'],
@@ -52,7 +52,7 @@ module.exports = {
             as: 'artista'
           },{
             model: tbl_votos_canciones,
-            as: 'votos_canciones'
+            as: 'votos'
           }],
       })
       .then((tbl_canciones) => {
@@ -83,7 +83,7 @@ module.exports = {
           as: 'artista'
         },{
           model: tbl_votos_canciones,
-          as: 'votos_canciones'
+          as: 'votos'
         }],
         where: whereClause,
       })
@@ -120,7 +120,7 @@ module.exports = {
             as: 'artista'
           },{
             model: tbl_votos_canciones,
-            as: 'votos_canciones'
+            as: 'votos'
           }],
       })
       .then(tbl_canciones => {

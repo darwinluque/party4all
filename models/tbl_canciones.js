@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     id_lista: DataTypes.STRING
   }, {});
   tbl_canciones.associate = function(models) {
+    tbl_canciones.hasMany(models.tbl_votos_canciones, {
+      foreignKey: 'id_cancion', 
+      sourceKey: 'id_cancion',
+      as: 'votos'
+    });
     tbl_canciones.belongsTo(models.tbl_artista, {
       foreignKey: 'id_artista', 
       targetKey: 'id_artista',

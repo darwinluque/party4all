@@ -177,6 +177,8 @@ module.exports = {
         str_condiciones: req.body.str_condiciones,
         str_acepta_tart: req.body.str_acepta_tart,
         dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
+        dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
+        //password: req.body.password
       })
       .then((tbl_personas) => res.status(201).send(tbl_personas))
       .catch((error) => res.status(400).send(error));
@@ -247,6 +249,8 @@ module.exports = {
             str_condiciones: req.body.str_condiciones,
             str_acepta_tart: req.body.str_acepta_tart,
             dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
+            dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
+            //password: req.body.password,
           })
           .then(() => res.status(200).send(tbl_personas))
           .catch((error) => res.status(400).send(error));
