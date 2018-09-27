@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     str_acepta_tart: DataTypes.STRING,
     dtm_fecha_acepta_trat: DataTypes.DATE,
     dtm_fecha_nacimiento: DataTypes.DATE,
-    num_celular: DataTypes.STRING
+    str_celular: DataTypes.STRING
     //password: DataTypes.STRING
   }, {});
   tbl_personas.associate = function(models) {
