@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha_acepta_trat: DataTypes.DATE,
     dtm_fecha_nacimiento: DataTypes.DATE,
     str_celular: DataTypes.STRING,
-    str_password: DataTypes.STRING
+    //str_password: DataTypes.STRING
   }, {});
   tbl_personas.associate = function(models) {
     tbl_personas.hasMany(models.tbl_reservas, {
