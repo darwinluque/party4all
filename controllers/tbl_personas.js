@@ -25,6 +25,21 @@ const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
 
 module.exports = {
+  login(req, res) {
+    return tbl_personas 
+      .findOne({
+        str_email: req.body.email.toLowerCase(),
+        str_password:  req.body.password,
+      }, function(err, user) {
+        // Comprobar si hay errores
+          // Si el usuario existe o no
+          // Y si la contraseña es correcta
+          return res
+            .status(200)
+            .send({token: service.createToken(tbl_personas)});
+      });
+  },
+
   list(req, res) {
     return tbl_personas
       .findAll({
@@ -36,7 +51,7 @@ module.exports = {
           as: 'generos_favoritos'
         },{
           model: tbl_parametros,
-          as: 'generos'
+          as: 'genero'
         },{
           model: tbl_parametros,
           as: 'estado_civil'
@@ -46,10 +61,11 @@ module.exports = {
         },{
           model: tbl_parametros,
           as: 'tipo_id'
-        }/*,{
+        }],
+        /*,{
           model: tbl_parametros,
           as: 'condiciones'
-        }*/],
+        }*/
         /*include: [,{
           model: tbl_suscriptores,
           as: 'suscripciones'
@@ -78,15 +94,15 @@ module.exports = {
   getById(req, res) {
     return tbl_personas
       .findById(req.params.id, {
-        /*include: [
-          {
-            model: tbl_reservas,
-            as: 'reservas'
-          }
-        ],
-        /*include: [{
+        include: [{
+          model: tbl_reservas,
+          as: 'reservas'
+        },{
+          model: tbl_generos_fav,
+          as: 'generos_favoritos'
+        },{
           model: tbl_parametros,
-          as: 'genero_sexo'
+          as: 'genero'
         },{
           model: tbl_parametros,
           as: 'estado_civil'
@@ -94,27 +110,9 @@ module.exports = {
           model: tbl_parametros,
           as: 'bebida'
         },{
-          model: tbl_suscriptores,
-          as: 'suscripciones'
-        },{
-          model: tbl_reservas,
-          as: 'reservas'
-        },{
-          model: tbl_personas_discoteca,
-          as: 'personas_disco'
-        },{
-          model: tbl_pqrs,
-          as: 'pqrs'
-        },{
-          model: tbl_generos_fav,
-          as: 'generos_favoritos'
-        },{
-          model: tbl_servicios_discoteca,
-          as: 'servicios_discoteca'
-        },{
-            model: tbl_mesas,
-            as: 'mesas'
-        }],*/
+          model: tbl_parametros,
+          as: 'tipo_id'
+        }],
       })
       .then((tbl_personas) => {
         if (!tbl_personas) {
@@ -139,12 +137,25 @@ module.exports = {
 
     return tbl_personas
       .findAll( {
-        /*include: [
-          {
-            model: tbl_reservas,
-            as: 'reservas',
-          }
-        ],*/
+        include: [{
+          model: tbl_reservas,
+          as: 'reservas'
+        },{
+          model: tbl_generos_fav,
+          as: 'generos_favoritos'
+        },{
+          model: tbl_parametros,
+          as: 'genero'
+        },{
+          model: tbl_parametros,
+          as: 'estado_civil'
+        },{
+          model: tbl_parametros,
+          as: 'bebida'
+        },{
+          model: tbl_parametros,
+          as: 'tipo_id'
+        }],
         where: whereClause,
       })
       .then((tbl_personas) => {
@@ -160,6 +171,8 @@ module.exports = {
   },
 
   add(req, res) {
+    
+
     return tbl_personas
       .create({
         id_genero_sexo: req.body.id_genero_sexo,
@@ -172,31 +185,34 @@ module.exports = {
         str_segundo_apellido: req.body.str_segundo_apellido,
         str_tipo_id: req.body.str_tipo_id,
         str_num_identificacion: req.body.str_num_identificacion,
-        str_email: req.body.str_email,
+        str_email: req.body.str_email.toLowerCase(),
         str_token: req.body.str_token,
         str_condiciones: req.body.str_condiciones,
         str_acepta_tart: req.body.str_acepta_tart,
         dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
         dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
         str_celular: req.body.str_celular,
-        //str_password: req.body.str_password
+        str_password: req.body.str_password,
       })
-      .then((tbl_personas) => res.status(201).send(tbl_personas))
+      .then((tbl_personas) => res.status(201).send({
+        token: service.createToken(tbl_personas)
+      }),
+      )
       .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
     return tbl_personas
       .findById(req.params.id, {
-        /*include: [
-          {
-            model: tbl_reservas,
-            as: 'reservas',
-          }
-        ],
-        /*include: [{
+        include: [{
+          model: tbl_reservas,
+          as: 'reservas'
+        },{
+          model: tbl_generos_fav,
+          as: 'generos_favoritos'
+        },{
           model: tbl_parametros,
-          as: 'genero_sexo'
+          as: 'genero'
         },{
           model: tbl_parametros,
           as: 'estado_civil'
@@ -204,27 +220,9 @@ module.exports = {
           model: tbl_parametros,
           as: 'bebida'
         },{
-          model: tbl_suscriptores,
-          as: 'suscripciones'
-        },{
-          model: tbl_reservas,
-          as: 'reservas'
-        },{
-          model: tbl_personas_discoteca,
-          as: 'personas_disco'
-        },{
-          model: tbl_pqrs,
-          as: 'pqrs'
-        },{
-          model: tbl_generos_fav,
-          as: 'generos_favoritos'
-        },{
-          model: tbl_servicios_discoteca,
-          as: 'servicios_discoteca'
-        },{
-            model: tbl_mesas,
-            as: 'mesas'
-        }],*/
+          model: tbl_parametros,
+          as: 'tipo_id'
+        }],
       })
       .then(tbl_personas => {
         if (!tbl_personas) {
@@ -245,14 +243,14 @@ module.exports = {
             str_segundo_apellido: req.body.str_segundo_apellido,
             str_tipo_id: req.body.str_tipo_id,
             str_num_identificacion: req.body.str_num_identificacion,
-            str_email: req.body.str_email,
+            str_email: req.body.str_email.toLowerCase(),
             str_token: req.body.str_token,
             str_condiciones: req.body.str_condiciones,
             str_acepta_tart: req.body.str_acepta_tart,
             dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
             dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
             str_celular: req.body.str_celular,
-            //str_password: req.body.str_password
+            str_password: req.body.str_password,
           })
           .then(() => res.status(200).send(tbl_personas))
           .catch((error) => res.status(400).send(error));
@@ -271,12 +269,12 @@ module.exports = {
           });
         }
         tbl_personas
-            .destroy()
-            .then(() => res.status(204).send())
-            .catch((error) => res.status(400).send("1-ERROR: "+error));
+          .destroy()
+          .then(() => res.status(204).send())
+          .catch((error) => res.status(400).send("1-ERROR: "+error));
         return res.status(200).send({
-            code: '0',  
-            message: 'OK: Registro eliminado exitosamente',
+          code: '0',  
+          message: 'OK: Registro eliminado exitosamente',
         });
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));

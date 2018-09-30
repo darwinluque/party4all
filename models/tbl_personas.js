@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha_acepta_trat: DataTypes.DATE,
     dtm_fecha_nacimiento: DataTypes.DATE,
     str_celular: DataTypes.STRING,
-    //str_password: DataTypes.STRING
+    str_password: DataTypes.STRING
   }, {});
   tbl_personas.associate = function(models) {
     tbl_personas.hasMany(models.tbl_reservas, {
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     tbl_personas.belongsTo(models.tbl_parametros, {
       foreignKey: 'id_genero_sexo', 
       targetKey: 'str_valor',
-      as: 'generos'
+      as: 'genero'
     });
     tbl_personas.belongsTo(models.tbl_parametros, {
       foreignKey: 'id_estado_civil', 

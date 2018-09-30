@@ -1,14 +1,8 @@
-var express = require('express');
-var firebase = require('firebase');
+const express = require('express');
+var bodyParser = require('body-parser');
+var cors = require('cors');
 var router = express.Router();
-/*var config = {
-  apiKey: "AIzaSyBboJ5-nXHQXM6YxHYn9PedTe1E2NqopZg",
-  authDomain: "party4all-fb.firebaseapp.com",
-  databaseURL: "https://party4all-fb.firebaseio.com",
-  projectId: "party4all-fb",
-  storageBucket: "party4all-fb.appspot.com",
-  messagingSenderId: "294374515402"
-};*/
+var service = require('../config/services');
 
 const tbl_parametrosController = require('../controllers').tbl_parametros;
 const tbl_artistaController = require('../controllers').tbl_artista;
@@ -31,10 +25,27 @@ const tbl_productosController = require('../controllers').tbl_productos;
 const tbl_productos_cartaController = require('../controllers').tbl_productos_carta;
 const tbl_promocionesController = require('../controllers').tbl_promociones;
 const tbl_reservasController = require('../controllers').tbl_reservas;
-//const tbl_reservasvController = require('../controllers').tbl_reservasv;
+const tbl_reservas_vController = require('../controllers').tbl_reservas_v;
 const tbl_servicios_discotecaController = require('../controllers').tbl_servicios_discoteca;
 const tbl_suscriptoresController = require('../controllers').tbl_suscriptores;
 const tbl_votos_cancionesController = require('../controllers').tbl_votos_canciones;
+
+var middleware = require('../config/middleware');
+
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended: true}));
+router.use(cors());
+router.use('/', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin','*');
+  res.header('Access-Control-Allow-Methods','*');
+  res.header('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token');
+  res.header('Access-Control-Allow-Credentials','false');
+  //res.header('Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time');
+  res.header('Access-Control-Max-Age', '10000');
+  next();
+});
+
+//const session = require('express-session');
 
 
 /* GET home page. */
@@ -42,15 +53,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API' });  
 });
 
-router.use('/', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin','*');
-  res.header('Access-Control-Allow-Methods','*');
-  res.header('Access-Control-Allow-Headers', 'Origin, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token');
-  res.header('Access-Control-Allow-Credentials','false');
-  res.header('Access-Control-Max-Age', '3600000');
-  next();
-});
-
+//router.get('/api/tbl_parametros/all/', middleware.ensureAuthenticated, tbl_parametrosController.list); 
 router.get('/api/tbl_parametros/all/', tbl_parametrosController.list); 
 router.get('/api/tbl_parametros/id/:id', tbl_parametrosController.getById); 
 router.get('/api/tbl_parametros/qry/:filtro', tbl_parametrosController.getFilter); 
@@ -138,6 +141,7 @@ router.post('/api/tbl_pedidos', tbl_pedidosController.add);
 router.put('/api/tbl_pedidos/:id', tbl_pedidosController.update); 
 router.delete('/api/tbl_pedidos/:id', tbl_pedidosController.delete); 
 
+router.post('/api/tbl_personas/login/', tbl_personasController.login);
 router.get('/api/tbl_personas/all/', tbl_personasController.list); 
 router.get('/api/tbl_personas/id/:id', tbl_personasController.getById); 
 router.get('/api/tbl_personas/qry/:filtro', tbl_personasController.getFilter); 
@@ -193,6 +197,8 @@ router.get('/api/tbl_promociones/qry/:filtro', tbl_promocionesController.getFilt
 router.post('/api/tbl_promociones', tbl_promocionesController.add); 
 router.put('/api/tbl_promociones/:id', tbl_promocionesController.update); 
 router.delete('/api/tbl_promociones/:id', tbl_promocionesController.delete); 
+
+router.get('/api/tbl_reservas_v/all/', tbl_reservas_vController.list); 
 
 router.get('/api/tbl_reservas/all/', tbl_reservasController.list); 
 router.get('/api/tbl_reservas/id/:id', tbl_reservasController.getById); 
