@@ -26,7 +26,6 @@ const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
 module.exports = {
   list(req, res) {
-
     return tbl_parametros
       .findAll({
         include: [{

@@ -53,8 +53,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API' });  
 });
 
-//router.get('/api/tbl_parametros/all/', middleware.ensureAuthenticated, tbl_parametrosController.list); 
-router.get('/api/tbl_parametros/all/', tbl_parametrosController.list); 
+router.get('/api/tbl_parametros/all/', middleware.ensureAuthenticated, tbl_parametrosController.list); 
+//router.get('/api/tbl_parametros/all/', tbl_parametrosController.list); 
 router.get('/api/tbl_parametros/id/:id', tbl_parametrosController.getById); 
 router.get('/api/tbl_parametros/qry/:filtro', tbl_parametrosController.getFilter); 
 router.post('/api/tbl_parametros', tbl_parametrosController.add); 
@@ -227,6 +227,5 @@ router.get('/api/tbl_votos_canciones/qry/:filtro', tbl_votos_cancionesController
 router.post('/api/tbl_votos_canciones', tbl_votos_cancionesController.add); 
 router.put('/api/tbl_votos_canciones/:id', tbl_votos_cancionesController.update); 
 router.delete('/api/tbl_votos_canciones/:id', tbl_votos_cancionesController.delete); 
-
 
 module.exports = router;

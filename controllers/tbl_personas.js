@@ -45,7 +45,7 @@ module.exports = {
         }
         return res.status(200).send({
           tbl_personas,
-          tokenSession: service.createToken(email+passEncriptada),
+          tokenSession: service.createToken(email+password),
         });
       })
       .catch((error) => { res.status(400).send(error); });
@@ -205,7 +205,7 @@ module.exports = {
       })
       .then((tbl_personas) => res.status(201).send({
           tbl_personas,
-          tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),req.body.str_password)),
+          tokenSession: service.createToken(req.body.str_email.toLowerCase()+req.body.str_password),
       }),
       )
       .catch((error) => res.status(400).send(error));
