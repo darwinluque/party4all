@@ -19,10 +19,11 @@ const tbl_productos = require('./tbl_productos');
 const tbl_productos_carta = require('./tbl_productos_carta');
 const tbl_promociones = require('./tbl_promociones');
 const tbl_reservas = require('./tbl_reservas');
-const tbl_reservas_v = require('./tbl_reservas_v');
 const tbl_servicios_discoteca = require('./tbl_servicios_discoteca');
 const tbl_suscriptores = require('./tbl_suscriptores');
 const tbl_votos_canciones = require('./tbl_votos_canciones');
+
+const v_reservas = require('./v_reservas');
 
 module.exports = {
     tbl_parametros,
@@ -46,8 +47,9 @@ module.exports = {
     tbl_productos_carta,
     tbl_promociones,
     tbl_reservas,
-    tbl_reservas_v,
     tbl_servicios_discoteca,
     tbl_suscriptores,
     tbl_votos_canciones,
+
+    v_reservas,
 };

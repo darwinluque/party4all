@@ -25,10 +25,11 @@ const tbl_productosController = require('../controllers').tbl_productos;
 const tbl_productos_cartaController = require('../controllers').tbl_productos_carta;
 const tbl_promocionesController = require('../controllers').tbl_promociones;
 const tbl_reservasController = require('../controllers').tbl_reservas;
-const tbl_reservas_vController = require('../controllers').tbl_reservas_v;
 const tbl_servicios_discotecaController = require('../controllers').tbl_servicios_discoteca;
 const tbl_suscriptoresController = require('../controllers').tbl_suscriptores;
 const tbl_votos_cancionesController = require('../controllers').tbl_votos_canciones;
+
+const v_reservasController = require('../controllers').v_reservas;
 
 var middleware = require('../config/middleware');
 
@@ -198,7 +199,7 @@ router.post('/api/tbl_promociones', tbl_promocionesController.add);
 router.put('/api/tbl_promociones/:id', tbl_promocionesController.update); 
 router.delete('/api/tbl_promociones/:id', tbl_promocionesController.delete); 
 
-router.get('/api/tbl_reservas_v/all/', tbl_reservas_vController.list); 
+router.get('/api/views/v_reservas/all/', v_reservasController.list); 
 
 router.get('/api/tbl_reservas/all/', tbl_reservasController.list); 
 router.get('/api/tbl_reservas/id/:id', tbl_reservasController.getById); 

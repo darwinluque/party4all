@@ -8,7 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha_encuesta: DataTypes.DATE
   }, {});
   tbl_encuesta.associate = function(models) {
-    // associations can be defined here
+    tbl_encuesta.belongsTo(models.tbl_artista, {
+      foreignKey: 'id_artista', 
+      targetKey: 'id_artista',
+      as: 'artista'
+    });
   };
   return tbl_encuesta;
 };
