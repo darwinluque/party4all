@@ -53,8 +53,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API' });  
 });
 
-router.get('/api/tbl_parametros/all/', middleware.ensureAuthenticated, tbl_parametrosController.list); 
-//router.get('/api/tbl_parametros/all/', tbl_parametrosController.list); 
+//router.get('/api/tbl_parametros/all/', middleware.ensureAuthenticated, tbl_parametrosController.list); 
+router.get('/api/tbl_parametros/all/', tbl_parametrosController.list); 
 router.get('/api/tbl_parametros/id/:id', tbl_parametrosController.getById); 
 router.get('/api/tbl_parametros/qry/:filtro', tbl_parametrosController.getFilter); 
 router.post('/api/tbl_parametros', tbl_parametrosController.add); 
