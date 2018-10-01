@@ -35,6 +35,9 @@ module.exports = {
           },{
             model: tbl_promociones,
             as: 'promociones'
+          },{
+            model: tbl_listas,
+            as: 'listas'
           }
         ],
         /*include: [{
@@ -108,6 +111,9 @@ module.exports = {
           },{
             model: tbl_promociones,
             as: 'promociones'
+          },{
+            model: tbl_listas,
+            as: 'listas'
           }
         ],
         /*include: [{
@@ -183,13 +189,18 @@ module.exports = {
 
     return tbl_discotecas
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
-        /*include:[
+        include:[
           {
             model: tbl_reservas,
-            as: 'reservas',
+            as: 'reservas'
+          },{
+            model: tbl_promociones,
+            as: 'promociones'
+          },{
+            model: tbl_listas,
+            as: 'listas'
           }
-        ],*/
+        ],
         where: whereClause,
       })
       .then((tbl_discotecas) => {
@@ -231,64 +242,18 @@ module.exports = {
   update(req, res) {
     return tbl_discotecas
       .findById(req.params.id, {
-        /*include:[
+        include:[
           {
             model: tbl_reservas,
-            as: 'reservas',
-          }
-        ],
-        /*include: [{
-            model: tbl_parametros,
-            as: 'cartas'
-          },{
-            model: tbl_parametros,
-            as: 'cartas'
-          },{
-            model: tbl_parametros,
-            as: 'cartas'
+            as: 'reservas'
           },{
             model: tbl_promociones,
             as: 'promociones'
           },{
-            model: tbl_cartas,
-            as: 'cartas'
-          },{
             model: tbl_listas,
             as: 'listas'
-          },{
-            model: tbl_eventos,
-            as: 'eventos'
-          },{
-            model: tbl_encuesta,
-            as: 'encuestas'
-          },{
-            model: tbl_productos,
-            as: 'productos'
-          },{
-            model: tbl_productos_pedido,
-            as: 'productos_pedido'
-          },{
-            model: tbl_mesas,
-            as: 'mesas'
-          },{
-            model: tbl_suscriptores,
-            as: 'suscriptores'
-          },{
-            model: tbl_reservas,
-            as: 'reservas'
-          },{
-            model: tbl_personas_discoteca,
-            as: 'personas_disco'
-          },{
-            model: tbl_servicios_discoteca,
-            as: 'servicios'
-          },{
-            model: tbl_pqrs,
-            as: 'pqrs'
-          },{
-            model: tbl_funcionarios,
-            as: 'funcionarios'
-          }],*/
+          }
+        ],
       })
       .then(tbl_discotecas => {
         if (!tbl_discotecas) {

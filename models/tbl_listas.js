@@ -6,7 +6,21 @@ module.exports = (sequelize, DataTypes) => {
     str_titulo_lista: DataTypes.STRING
   }, {});
   tbl_listas.associate = function(models) {
-    // associations can be defined here
+    tbl_listas.hasMany(models.tbl_canciones, {
+      foreignKey: 'id_lista', 
+      sourceKey: 'id_lista',
+      as: 'canciones'
+    });
+    tbl_listas.hasMany(models.tbl_votos_canciones, {
+      foreignKey: 'id_lista', 
+      sourceKey: 'id_lista',
+      as: 'votos'
+    });
+    tbl_listas.belongsTo(models.tbl_discotecas, {
+      foreignKey: 'id_discoteca', 
+      targetKey: 'str_identificacion',
+      as: 'discoteca'
+    });
   };
   return tbl_listas;
 };

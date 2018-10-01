@@ -18,6 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       targetKey: 'id_artista',
       as: 'artista'
     });
+    tbl_canciones.belongsTo(models.tbl_canciones, {
+      foreignKey: 'id_lista', 
+      targetKey: 'id_lista',
+      as: 'lista'
+    });
   };
   return tbl_canciones;
 };

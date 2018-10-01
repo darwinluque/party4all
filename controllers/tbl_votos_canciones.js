@@ -28,13 +28,13 @@ module.exports = {
   list(req, res) {
     return tbl_votos_canciones
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_listas,
             as: 'listas'
         },{
             model: tbl_canciones,
             as: 'canciones'
-        }],*/
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +47,13 @@ module.exports = {
   getById(req, res) {
     return tbl_votos_canciones
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_listas,
             as: 'listas'
         },{
             model: tbl_canciones,
             as: 'canciones'
-        }],*/
+        }],
       })
       .then((tbl_votos_canciones) => {
         if (!tbl_votos_canciones) {
@@ -78,7 +78,13 @@ module.exports = {
 
     return tbl_votos_canciones
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_listas,
+          as: 'listas'
+        },{
+          model: tbl_canciones,
+          as: 'canciones'
+        }],
         where: whereClause,
       })
       .then((tbl_votos_canciones) => {
@@ -98,6 +104,7 @@ module.exports = {
       .create({
         id_lista: req.body.id_lista,
         id_cancion: req.body.id_cancion,
+        id_discoteca: req.body.id_discoteca,
       })
       .then((tbl_votos_canciones) => res.status(201).send(tbl_votos_canciones))
       .catch((error) => res.status(400).send(error));
@@ -125,6 +132,7 @@ module.exports = {
           .update({
             id_lista: req.body.id_lista,
             id_cancion: req.body.id_cancion,
+            id_discoteca: req.body.id_discoteca,
           })
           .then(() => res.status(200).send(tbl_votos_canciones))
           .catch((error) => res.status(400).send(error));

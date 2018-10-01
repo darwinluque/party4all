@@ -28,13 +28,16 @@ module.exports = {
   list(req, res) {
     return tbl_listas
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_discotecas,
-            as: 'discotecas'
-          },{
+            as: 'discoteca'
+        },{
+            model: tbl_canciones,
+            as: 'canciones'
+        },{
             model: tbl_votos_canciones,
-            as: 'votos_canciones'
-          }],*/
+            as: 'votos'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +50,16 @@ module.exports = {
   getById(req, res) {
     return tbl_listas
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-          },{
-            model: tbl_votos_canciones,
-            as: 'votos_canciones'
-          }],*/
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_canciones,
+          as: 'canciones'
+        },{
+          model: tbl_votos_canciones,
+          as: 'votos'
+        }],
       })
       .then((tbl_listas) => {
         if (!tbl_listas) {
@@ -78,7 +84,16 @@ module.exports = {
 
     return tbl_listas
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+            model: tbl_discotecas,
+            as: 'discoteca'
+        },{
+            model: tbl_canciones,
+            as: 'canciones'
+        },{
+            model: tbl_votos_canciones,
+            as: 'votos'
+        }],
         where: whereClause,
       })
       .then((tbl_listas) => {
@@ -107,13 +122,16 @@ module.exports = {
   update(req, res) {
     return tbl_listas
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_discotecas,
-            as: 'discotecas'
-          },{
+            as: 'discoteca'
+        },{
+            model: tbl_canciones,
+            as: 'canciones'
+        },{
             model: tbl_votos_canciones,
-            as: 'votos_canciones'
-          }],*/
+            as: 'votos'
+        }],
       })
       .then(tbl_listas => {
         if (!tbl_listas) {
