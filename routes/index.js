@@ -141,7 +141,7 @@ router.post('/api/tbl_pedidos', tbl_pedidosController.add);
 router.put('/api/tbl_pedidos/:id', tbl_pedidosController.update); 
 router.delete('/api/tbl_pedidos/:id', tbl_pedidosController.delete); 
 
-router.post('/api/tbl_personas/login/', tbl_personasController.login);
+router.post('/api/login/', tbl_personasController.login);
 router.get('/api/tbl_personas/all/', tbl_personasController.list); 
 router.get('/api/tbl_personas/id/:id', tbl_personasController.getById); 
 router.get('/api/tbl_personas/qry/:filtro', tbl_personasController.getFilter); 

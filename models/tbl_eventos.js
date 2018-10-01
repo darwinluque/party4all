@@ -12,7 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     str_estado: DataTypes.STRING
   }, {});
   tbl_eventos.associate = function(models) {
-    // associations can be defined here
+    tbl_eventos.belongsTo(models.tbl_artista, {
+      foreignKey: 'id_artista', 
+      targetKey: 'id_artista',
+      as: 'artista'
+    });
   };
   return tbl_eventos;
 };

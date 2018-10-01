@@ -22,22 +22,33 @@ const tbl_reservas = require('../models').tbl_reservas;
 const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
-
+const service = require('../config/services');
 
 module.exports = {
   login(req, res) {
-    return tbl_personas 
+    var email = req.body.email.toLowerCase();
+    var password = req.body.password;
+    var passEncriptada = encriptar(email,password);
+    return tbl_personas
       .findOne({
-        str_email: req.body.email.toLowerCase(),
-        str_password:  req.body.password,
-      }, function(err, user) {
-        // Comprobar si hay errores
-          // Si el usuario existe o no
-          // Y si la contraseña es correcta
-          return res
-            .status(200)
-            .send({token: service.createToken(tbl_personas)});
-      });
+        where: {
+          str_email: email,
+          str_password: passEncriptada,
+        },
+      })
+      .then((tbl_personas) => {
+        if (!tbl_personas) {
+          return res.status(404).send({
+            code: '2',  
+            message: 'ERROR: Usuario o constraseña errados',
+          });
+        }
+        return res.status(200).send({
+          tbl_personas,
+          tokenSession: service.createToken(email+passEncriptada),
+        });
+      })
+      .catch((error) => { res.status(400).send(error); });
   },
 
   list(req, res) {
@@ -171,8 +182,6 @@ module.exports = {
   },
 
   add(req, res) {
-    
-
     return tbl_personas
       .create({
         id_genero_sexo: req.body.id_genero_sexo,
@@ -192,10 +201,11 @@ module.exports = {
         dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
         dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
         str_celular: req.body.str_celular,
-        str_password: req.body.str_password,
+        str_password: encriptar(req.body.str_email.toLowerCase(),req.body.str_password),
       })
       .then((tbl_personas) => res.status(201).send({
-        token: service.createToken(tbl_personas)
+          tbl_personas,
+          tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),req.body.str_password)),
       }),
       )
       .catch((error) => res.status(400).send(error));
@@ -250,7 +260,7 @@ module.exports = {
             dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
             dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
             str_celular: req.body.str_celular,
-            str_password: req.body.str_password,
+            str_password: encriptar(req.body.str_email.toLowerCase(),req.body.str_password),
           })
           .then(() => res.status(200).send(tbl_personas))
           .catch((error) => res.status(400).send(error));
@@ -281,6 +291,11 @@ module.exports = {
   },
 };
 
-
+function encriptar(user, pass) {
+  var crypto = require('crypto')
+  // usamos el metodo CreateHmac y le pasamos el parametro user y actualizamos el hash con la password
+  var hmac = crypto.createHmac('sha1', user).update(pass).digest('hex')
+  return hmac
+}
 
 
