@@ -4,6 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     id_lista: DataTypes.STRING,
     id_cancion: DataTypes.STRING,
     id_discoteca: DataTypes.STRING,
+    dtm_fecha_voto: DataTypes.DATE,
+    cantidad: DataTypes.INTEGER,
   }, {});
   tbl_votos_canciones.associate = function(models) {
     tbl_votos_canciones.hasMany(models.tbl_canciones, {
