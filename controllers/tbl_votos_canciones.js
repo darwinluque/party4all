@@ -140,6 +140,7 @@ module.exports = {
         id_lista: req.body.id_lista,
         id_cancion: req.body.id_cancion,
         id_discoteca: req.body.id_discoteca,
+        cantidad: 1,
       })
       .then((tbl_votos_canciones) => res.status(201).send(tbl_votos_canciones))
       .catch((error) => res.status(400).send(error));
@@ -169,6 +170,7 @@ module.exports = {
             id_cancion: req.body.id_cancion,
             id_discoteca: req.body.id_discoteca,
             dtm_fecha_voto: new Date(),
+            cantidad: cantidad + 1,
           })
           .then(() => res.status(200).send(tbl_votos_canciones))
           .catch((error) => res.status(400).send(error));
