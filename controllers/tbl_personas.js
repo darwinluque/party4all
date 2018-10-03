@@ -202,6 +202,7 @@ module.exports = {
         dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
         str_celular: req.body.str_celular,
         str_password: encriptar(req.body.str_email.toLowerCase(),req.body.str_password),
+        str_facebook_id: req.body.str_facebook_id,
       })
       .then((tbl_personas) => res.status(201).send({
           tbl_personas,
@@ -241,7 +242,6 @@ module.exports = {
             message: 'ERROR: Registro no encontrado',
           });
         }
-//          if(!!req.body.str_password.trim() && req.body.str_password!=null && req.body.str_password.tirm() != ''){
             return tbl_personas
             .update({
               id_genero_sexo: req.body.id_genero_sexo,
@@ -252,6 +252,7 @@ module.exports = {
               str_segundo_nombre: req.body.str_segundo_nombre,
               str_primer_apellido: req.body.str_primer_apellido,
               str_segundo_apellido: req.body.str_segundo_apellido,
+              str_facebook_id: req.body.str_facebook_id,
               //str_tipo_id: req.body.str_tipo_id,
               //str_num_identificacion: req.body.str_num_identificacion,
               //str_email: req.body.str_email.toLowerCase(),
@@ -264,31 +265,7 @@ module.exports = {
               //str_password: encriptar(req.body.str_email.toLowerCase(),req.body.str_password),
             })
             .then(() => res.status(200).send(tbl_personas))
-            .catch((error) => res.status(400).send(error));
-/*          }
-          else {
-            return tbl_personas
-            .update({
-              id_genero_sexo: req.body.id_genero_sexo,
-              id_estado_civil: req.body.id_estado_civil,
-              id_bebida: req.body.id_bebida,
-              num_estrellas: req.body.num_estrellas,
-              str_primer_nombre: req.body.str_primer_nombre,
-              str_segundo_nombre: req.body.str_segundo_nombre,
-              str_primer_apellido: req.body.str_primer_apellido,
-              str_segundo_apellido: req.body.str_segundo_apellido,
-              str_token: req.body.str_token,
-              str_condiciones: req.body.str_condiciones,
-              str_acepta_tart: req.body.str_acepta_tart,
-              dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
-              dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
-              str_celular: req.body.str_celular,
-            })
-            .then(() => res.status(200).send(tbl_personas))
-            .catch((error) => res.status(400).send(error));
-          }
-*/
-          
+            .catch((error) => res.status(400).send(error));         
       })
       .catch((error) => res.status(400).send(error));
   },
