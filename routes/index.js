@@ -225,6 +225,7 @@ router.delete('/api/tbl_suscriptores/:id', tbl_suscriptoresController.delete);
 router.get('/api/tbl_votos_canciones/all/', tbl_votos_cancionesController.list); 
 router.get('/api/tbl_votos_canciones/id/:id', tbl_votos_cancionesController.getById); 
 router.get('/api/tbl_votos_canciones/qry/:filtro', tbl_votos_cancionesController.getFilter); 
+router.get('/api/tbl_votos_canciones/view/:filtro', tbl_votos_cancionesController.getFilterView); 
 router.post('/api/tbl_votos_canciones', tbl_votos_cancionesController.add); 
 router.put('/api/tbl_votos_canciones/:id', tbl_votos_cancionesController.update); 
 router.delete('/api/tbl_votos_canciones/:id', tbl_votos_cancionesController.delete); 
