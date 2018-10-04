@@ -26,10 +26,36 @@ const service = require('../config/services');
 
 module.exports = {
   login(req, res) {
-    var email = req.body.email.toLowerCase();
-    var password = req.body.password;
-    var passEncriptada = encriptar(email,password);
-    return tbl_personas
+    var facebookId = req.body.facebookId;
+    var token = req.body.token;
+    
+    if(token != null && token.trim() != '' && facebookId != null && facebookId.trim() != ''){
+      return tbl_personas
+      .findOne({
+        where: {
+          str_facebook_id: facebookId,
+          str_token: token,
+        },
+      })
+      .then((tbl_personas) => {
+        if (!tbl_personas) {
+          return res.status(404).send({
+            code: '2',  
+            message: 'ERROR: Usuario facebook o token errados',
+          });
+        }
+        return res.status(200).send({
+          tbl_personas,
+          tokenSession: service.createToken(facebookId+token),
+        });
+      })
+      .catch((error) => { res.status(400).send(error); });
+    }
+    else {
+      var email = req.body.email.toLowerCase();
+      var password = req.body.password;
+      var passEncriptada = encriptar(email,password);
+      return tbl_personas
       .findOne({
         where: {
           str_email: email,
@@ -49,6 +75,8 @@ module.exports = {
         });
       })
       .catch((error) => { res.status(400).send(error); });
+    }
+    
   },
 
   list(req, res) {
@@ -201,12 +229,12 @@ module.exports = {
         dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
         dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
         str_celular: req.body.str_celular,
-        str_password: encriptar(req.body.str_email.toLowerCase(),req.body.str_password),
+        str_password: encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' )),
         str_facebook_id: req.body.str_facebook_id,
       })
       .then((tbl_personas) => res.status(201).send({
           tbl_personas,
-          tokenSession: service.createToken(req.body.str_email.toLowerCase()+req.body.str_password),
+          //tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ))),
       }),
       )
       .catch((error) => res.status(400).send(error));

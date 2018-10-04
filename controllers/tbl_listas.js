@@ -127,7 +127,7 @@ module.exports = {
         },{
             model: tbl_canciones,
             attributes: ['str_titulo'],
-            as: 'canciones'
+            as: 'canciones',
         },{
             model: tbl_votos_canciones,
             attributes: ['cantidad'],
