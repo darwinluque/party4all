@@ -22,6 +22,7 @@ const tbl_reservas = require('./tbl_reservas');
 const tbl_servicios_discoteca = require('./tbl_servicios_discoteca');
 const tbl_suscriptores = require('./tbl_suscriptores');
 const tbl_votos_canciones = require('./tbl_votos_canciones');
+const tbl_atencion_mesas = require('./tbl_atencion_mesas');
 
 const v_reservas = require('./v_reservas');
 
@@ -50,6 +51,6 @@ module.exports = {
     tbl_servicios_discoteca,
     tbl_suscriptores,
     tbl_votos_canciones,
-
+    tbl_atencion_mesas,
     v_reservas,
 };

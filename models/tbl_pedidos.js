@@ -5,10 +5,15 @@ module.exports = (sequelize, DataTypes) => {
     id_mesa: DataTypes.STRING,
     vlr_total: DataTypes.DECIMAL,
     id_metodo_pago: DataTypes.STRING,
+    sr_estado: DataTypes.STRING,
     dtm_fecha_pedido: DataTypes.DATE
   }, {});
   tbl_pedidos.associate = function(models) {
-    // associations can be defined here
+    tbl_pedidos.hasMany(models.tbl_productos_pedido, {
+      foreignKey: 'id_pedido', 
+      sourceKey: 'id_pedido',
+      as: 'productos_pedidos'
+    });
   };
   return tbl_pedidos;
 };

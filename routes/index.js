@@ -28,6 +28,8 @@ const tbl_reservasController = require('../controllers').tbl_reservas;
 const tbl_servicios_discotecaController = require('../controllers').tbl_servicios_discoteca;
 const tbl_suscriptoresController = require('../controllers').tbl_suscriptores;
 const tbl_votos_cancionesController = require('../controllers').tbl_votos_canciones;
+const tbl_atencion_mesasController = require('../controllers').tbl_atencion_mesas;
+
 
 const v_reservasController = require('../controllers').v_reservas;
 
@@ -229,5 +231,11 @@ router.get('/api/tbl_votos_canciones/view/:filtro', tbl_votos_cancionesControlle
 router.post('/api/tbl_votos_canciones', tbl_votos_cancionesController.add); 
 router.put('/api/tbl_votos_canciones/:id', tbl_votos_cancionesController.update); 
 router.delete('/api/tbl_votos_canciones/:id', tbl_votos_cancionesController.delete); 
+
+router.get('/api/tbl_atencion_mesas/all/', tbl_atencion_mesasController.list); 
+router.get('/api/tbl_atencion_mesas/qry/:filtro', tbl_atencion_mesasController.getFilter); 
+router.post('/api/tbl_atencion_mesas', tbl_atencion_mesasController.add); 
+router.put('/api/tbl_atencion_mesas/:id', tbl_atencion_mesasController.update); 
+router.delete('/api/tbl_atencion_mesas/:id', tbl_atencion_mesasController.delete); 
 
 module.exports = router;

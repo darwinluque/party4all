@@ -22,49 +22,19 @@ const tbl_reservas = require('../models').tbl_reservas;
 const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
+const tbl_atencion_mesas = require('../models').tbl_atencion_mesas;
 
 
 module.exports = {
   list(req, res) {
-    return tbl_pedidos
+    return tbl_atencion_mesas
       .findAll({
-        include: [{
-          model: tbl_mesas,
-          as: 'mesa'
-        },{
-          model: tbl_productos_pedido,
-          as: 'productos_pedido'
-        }],
         order: [
           ['createdAt', 'DESC'],
-          //[{ model: tbl_mesas, as: 'vestuarios' }, 'createdAt', 'DESC'],
         ],
       })
-      .then((tbl_pedidos) => res.status(200).send(tbl_pedidos))
+      .then((tbl_atencion_mesas) => res.status(200).send(tbl_atencion_mesas))
       .catch((error) => { res.status(400).send(error); });
-  },
-
-  getById(req, res) {
-    return tbl_pedidos
-      .findById(req.params.id, {
-        include: [{
-            model: tbl_mesas,
-            as: 'mesa'
-          },{
-            model: tbl_productos_pedido,
-            as: 'productos_pedido'
-          }],
-      })
-      .then((tbl_pedidos) => {
-        if (!tbl_pedidos) {
-          return res.status(404).send({
-            code: '1',  
-            message: 'ERROR: Registro no encontrado',
-          });
-        }
-        return res.status(200).send(tbl_pedidos);
-      })
-      .catch((error) => res.status(400).send(error));
   },
 
   getFilter(req, res) {
@@ -76,86 +46,68 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
-    return tbl_pedidos
+    return tbl_atencion_mesas
       .findAll( {
-        include: [{
-          model: tbl_mesas,
-          as: 'mesa'
-        },{
-          model: tbl_productos_pedido,
-          as: 'productos_pedido'
-        }],
         where: whereClause,
       })
-      .then((tbl_pedidos) => {
-        if (!tbl_pedidos) {
+      .then((tbl_atencion_mesas) => {
+        if (!tbl_atencion_mesas) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_pedidos);
+        return res.status(200).send(tbl_atencion_mesas);
       })
       .catch((error) => { res.status(400).send(error); });
   },
 
   add(req, res) {
-    return tbl_pedidos
+    return tbl_atencion_mesas
       .create({
-        id_pedido: req.body.id_pedido,
-        id_mesa: req.body.id_mesa,
-        vlr_total: req.body.vlr_total,
-        id_metodo_pago: req.body.id_metodo_pago,
-        dtm_fecha_pedido: req.body.dtm_fecha_pedido,
+        id_artista: req.body.id_artista,
+        id_genero: req.body.id_genero,
+        str_nombre: req.body.str_nombre,
       })
-      .then((tbl_pedidos) => res.status(201).send(tbl_pedidos))
+      .then((tbl_atencion_mesas) => res.status(201).send(tbl_atencion_mesas))
       .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
-    return tbl_pedidos
+    return tbl_atencion_mesas
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_mesas,
-            as: 'mesas'
-          },{
-            model: tbl_productos_pedido,
-            as: 'productos_pedido'
-          }],*/
+        //
       })
-      .then(tbl_pedidos => {
-        if (!tbl_pedidos) {
+      .then(tbl_atencion_mesas => {
+        if (!tbl_atencion_mesas) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_pedidos
+        return tbl_atencion_mesas
           .update({
-            id_pedido: req.body.id_pedido,
-            id_mesa: req.body.id_mesa,
-            vlr_total: req.body.vlr_total,
-            id_metodo_pago: req.body.id_metodo_pago,
-            dtm_fecha_pedido: req.body.dtm_fecha_pedido,
-            str_estado: req.body.str_estado,
+            id_artista: req.body.id_artista,
+            id_genero: req.body.id_genero,
+            str_nombre: req.body.str_nombre, 
           })
-          .then(() => res.status(200).send(tbl_pedidos))
+          .then(() => res.status(200).send(tbl_atencion_mesas))
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
   },
 
   delete(req, res) {
-    return tbl_pedidos
+    return tbl_atencion_mesas
       .findById(req.params.id)
-      .then(tbl_pedidos => {
-        if (!tbl_pedidos) {
+      .then(tbl_atencion_mesas => {
+        if (!tbl_atencion_mesas) {
           return res.status(400).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_pedidos
+        tbl_atencion_mesas
             .destroy()
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
@@ -167,6 +119,4 @@ module.exports = {
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
 };
-
-
 
