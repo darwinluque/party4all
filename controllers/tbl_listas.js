@@ -108,6 +108,45 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
+  view(req, res) {
+    let whereClause= {};  
+    var filtro = req.params.filtro;
+    var campos = filtro.split(',');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        whereClause[datos[0]] = datos[1];
+    }
+
+    return tbl_listas
+      .findAll( {
+        attributes: ['str_titulo_lista'],
+        include: [{
+            model: tbl_discotecas,
+            attributes: ['str_identificacion','str_nombre','str_direccion','str_barrio','str_num_telefono','str_num_celular','str_url_ubicacion','str_horarios','str_telefono_reserva','str_rango_precios','num_estrellas'],
+            as: 'discoteca'
+        },{
+            model: tbl_canciones,
+            attributes: ['str_titulo'],
+            as: 'canciones'
+        },{
+            model: tbl_votos_canciones,
+            attributes: ['cantidad'],
+            as: 'votos'
+        }],
+        where: whereClause,
+      })
+      .then((tbl_listas) => {
+        if (!tbl_listas) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        return res.status(200).send(tbl_listas);
+      })
+      .catch((error) => { res.status(400).send(error); });
+  },
+
   add(req, res) {
     return tbl_listas
       .create({

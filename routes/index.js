@@ -129,6 +129,7 @@ router.get('/api/tbl_listas/qry/:filtro', tbl_listasController.getFilter);
 router.post('/api/tbl_listas', tbl_listasController.add); 
 router.put('/api/tbl_listas/:id', tbl_listasController.update); 
 router.delete('/api/tbl_listas/:id', tbl_listasController.delete); 
+router.get('/api/tbl_listas/view/:filtro', tbl_listasController.view); 
 
 router.get('/api/tbl_mesas/all/', tbl_mesasController.list); 
 router.get('/api/tbl_mesas/id/:id', tbl_mesasController.getById); 
