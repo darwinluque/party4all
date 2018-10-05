@@ -203,6 +203,7 @@ router.put('/api/tbl_promociones/:id', tbl_promocionesController.update);
 router.delete('/api/tbl_promociones/:id', tbl_promocionesController.delete); 
 
 router.get('/api/views/v_reservas/all/', v_reservasController.list); 
+router.get('/api/views/v_reservas/qry/:filtro', v_reservasController.getFilter); 
 
 router.get('/api/tbl_reservas/all/', tbl_reservasController.list); 
 router.get('/api/tbl_reservas/id/:id', tbl_reservasController.getById); 
