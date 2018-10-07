@@ -28,16 +28,10 @@ module.exports = {
   list(req, res) {
     return tbl_mesas
       .findAll({
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        },{
-            model: tbl_personas,
-            as: 'personas'
-        },{
+        include: [{
             model: tbl_pedidos,
             as: 'pedidos'
-        }],*/
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -50,16 +44,10 @@ module.exports = {
   getById(req, res) {
     return tbl_mesas
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        },{
-            model: tbl_personas,
-            as: 'personas'
-        },{
-            model: tbl_pedidos,
-            as: 'pedidos'
-        }],*/
+        include: [{
+          model: tbl_pedidos,
+          as: 'pedidos'
+      }],
       })
       .then((tbl_mesas) => {
         if (!tbl_mesas) {
@@ -84,7 +72,10 @@ module.exports = {
 
     return tbl_mesas
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_pedidos,
+          as: 'pedidos'
+      }],
         where: whereClause,
       })
       .then((tbl_mesas) => {
@@ -116,16 +107,10 @@ module.exports = {
   update(req, res) {
     return tbl_mesas
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        },{
-            model: tbl_personas,
-            as: 'personas'
-        },{
-            model: tbl_pedidos,
-            as: 'pedidos'
-        }],*/
+        include: [{
+          model: tbl_pedidos,
+          as: 'pedidos'
+      }],
       })
       .then(tbl_mesas => {
         if (!tbl_mesas) {

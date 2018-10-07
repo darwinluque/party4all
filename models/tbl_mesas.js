@@ -9,7 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha: DataTypes.DATE
   }, {});
   tbl_mesas.associate = function(models) {
-    // associations can be defined here
+    tbl_mesas.hasMany(models.tbl_pedidos, {
+      foreignKey: 'id_mesa', 
+      sourceKey: 'id_mesa',
+      as: 'pedidos'
+    });
   };
   return tbl_mesas;
 };

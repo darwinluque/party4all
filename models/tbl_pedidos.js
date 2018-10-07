@@ -5,14 +5,19 @@ module.exports = (sequelize, DataTypes) => {
     id_mesa: DataTypes.STRING,
     vlr_total: DataTypes.DECIMAL,
     id_metodo_pago: DataTypes.STRING,
-    sr_estado: DataTypes.STRING,
+    str_estado: DataTypes.STRING,
     dtm_fecha_pedido: DataTypes.DATE
   }, {});
   tbl_pedidos.associate = function(models) {
     tbl_pedidos.hasMany(models.tbl_productos_pedido, {
       foreignKey: 'id_pedido', 
       sourceKey: 'id_pedido',
-      as: 'productos_pedidos'
+      as: 'productos_pedido'
+    });
+    tbl_pedidos.belongsTo(models.tbl_mesas, {
+      foreignKey: 'id_mesa', 
+      targetKey: 'id_mesa',
+      as: 'mesa'
     });
   };
   return tbl_pedidos;
