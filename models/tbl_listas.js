@@ -16,11 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: 'id_lista',
       as: 'votos'
     });
-    tbl_listas.belongsTo(models.tbl_discotecas, {
+    /*tbl_listas.belongsTo(models.tbl_discotecas, {
       foreignKey: 'id_discoteca', 
       targetKey: 'str_identificacion',
       as: 'discoteca'
-    });
+    });*/
   };
   return tbl_listas;
 };

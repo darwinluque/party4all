@@ -8,6 +8,7 @@ const tbl_eventos = require('../models').tbl_eventos;
 const tbl_funcionarios = require('../models').tbl_funcionarios;
 const tbl_generos_fav = require('../models').tbl_generos_fav;
 const tbl_listas = require('../models').tbl_listas;
+const tbl_listas_dj = require('../models').tbl_listas_dj;
 const tbl_mesas = require('../models').tbl_mesas;
 const tbl_pedidos = require('../models').tbl_pedidos;
 const tbl_personas = require('../models').tbl_personas;
@@ -36,11 +37,11 @@ module.exports = {
             model: tbl_promociones,
             as: 'promociones'
           },{
-            model: tbl_listas,
+            model: tbl_listas_dj,
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista_libre'
+            as: 'lista'
           }
         ],
         /*include: [{
@@ -115,11 +116,11 @@ module.exports = {
             model: tbl_promociones,
             as: 'promociones'
           },{
-            model: tbl_listas,
+            model: tbl_listas_d,
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista_libre'
+            as: 'lista'
           }
         ],
         /*include: [{
@@ -203,11 +204,11 @@ module.exports = {
             model: tbl_promociones,
             as: 'promociones'
           },{
-            model: tbl_listas,
+            model: tbl_listas_dj,
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista_libre'
+            as: 'lista'
           }
         ],
         where: whereClause,
@@ -260,11 +261,11 @@ module.exports = {
             model: tbl_promociones,
             as: 'promociones'
           },{
-            model: tbl_listas,
+            model: tbl_listas_dj,
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista_libre'
+            as: 'lista'
           }
         ],
       })

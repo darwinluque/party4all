@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: 'id_lista',
       as: 'canciones'
     });
-    tbl_listas_dj.belongsTo(models.tbl_discotecas, {
+    /*tbl_listas_dj.hasOne(models.tbl_discotecas, {
       foreignKey: 'id_discoteca', 
       targetKey: 'str_identificacion',
       as: 'discoteca'
-    });
+    });*/
   };
   return tbl_listas_dj;
 };
