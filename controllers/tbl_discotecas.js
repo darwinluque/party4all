@@ -116,7 +116,7 @@ module.exports = {
             model: tbl_promociones,
             as: 'promociones'
           },{
-            model: tbl_listas_d,
+            model: tbl_listas_dj,
             as: 'lista_dj'
           },{
             model: tbl_listas,
