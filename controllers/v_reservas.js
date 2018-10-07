@@ -29,7 +29,7 @@ module.exports = {
   list(req, res) {
     return v_reservas
       .findAll({
-        attributes: ['reser_id_reserva', 'reser_id_persona', 'reser_id_discoteca', 'reser_dtm_fecha_reserva', 'reser_str_hora', 'reser_num_cantidad_personas', 'reser_str_motivo', 'reser_servicio_decoracion', 'per_str_primer_nombre', 'per_str_segundo_nombre', 'per_str_primer_apellido', 'per_str_segundo_apellido', 'per_str_email', 'disco_str_nombre', 'disco_str_direccion', 'disco_str_barrio', 'disco_str_num_telefono', 'disco_str_num_celular', 'disco_str_url_ubicacion', 'disco_str_telefono_reserva'],
+        attributes: ['reser_id_reserva', 'reser_id_persona', 'reser_id_discoteca', 'reser_dtm_fecha_reserva', 'reser_str_hora', 'reser_num_cantidad_personas', 'reser_str_motivo', 'reser_servicio_decoracion', 'reser_str_estado', 'per_str_primer_nombre', 'per_str_segundo_nombre', 'per_str_primer_apellido', 'per_str_segundo_apellido', 'per_str_email', 'disco_str_nombre', 'disco_str_direccion', 'disco_str_barrio', 'disco_str_num_telefono', 'disco_str_num_celular', 'disco_str_url_ubicacion', 'disco_str_telefono_reserva'],
       })
       .then((v_reservas) => res.status(200).send(v_reservas))
       .catch((error) => { res.status(400).send(error); });
@@ -45,9 +45,9 @@ module.exports = {
     }
 
     return v_reservas
-      .findAll( {
-        attributes: ['reser_id_reserva', 'reser_id_persona', 'reser_id_discoteca', 'reser_dtm_fecha_reserva', 'reser_str_hora', 'reser_num_cantidad_personas', 'reser_str_motivo', 'reser_servicio_decoracion', 'per_str_primer_nombre', 'per_str_segundo_nombre', 'per_str_primer_apellido', 'per_str_segundo_apellido', 'per_str_email', 'disco_str_nombre', 'disco_str_direccion', 'disco_str_barrio', 'disco_str_num_telefono', 'disco_str_num_celular', 'disco_str_url_ubicacion', 'disco_str_telefono_reserva'],
-        where: whereClause,
+      .findAll({
+          where: whereClause,
+          attributes: ['reser_id_reserva', 'reser_id_persona', 'reser_id_discoteca', 'reser_dtm_fecha_reserva', 'reser_str_hora', 'reser_num_cantidad_personas', 'reser_str_motivo', 'reser_servicio_decoracion', 'reser_str_estado', 'per_str_primer_nombre', 'per_str_segundo_nombre', 'per_str_primer_apellido', 'per_str_segundo_apellido', 'per_str_email', 'disco_str_nombre', 'disco_str_direccion', 'disco_str_barrio', 'disco_str_num_telefono', 'disco_str_num_celular', 'disco_str_url_ubicacion', 'disco_str_telefono_reserva'],
       })
       .then((v_reservas) => {
         if (!v_reservas) {
@@ -56,7 +56,7 @@ module.exports = {
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_reservas_v);
+        return res.status(200).send(v_reservas);
       })
       .catch((error) => { res.status(400).send(error); });
   },

@@ -37,7 +37,10 @@ module.exports = {
             as: 'promociones'
           },{
             model: tbl_listas,
-            as: 'listas'
+            as: 'lista_dj'
+          },{
+            model: tbl_listas,
+            as: 'lista_libre'
           }
         ],
         /*include: [{
@@ -113,7 +116,10 @@ module.exports = {
             as: 'promociones'
           },{
             model: tbl_listas,
-            as: 'listas'
+            as: 'lista_dj'
+          },{
+            model: tbl_listas,
+            as: 'lista_libre'
           }
         ],
         /*include: [{
@@ -198,7 +204,10 @@ module.exports = {
             as: 'promociones'
           },{
             model: tbl_listas,
-            as: 'listas'
+            as: 'lista_dj'
+          },{
+            model: tbl_listas,
+            as: 'lista_libre'
           }
         ],
         where: whereClause,
@@ -234,6 +243,7 @@ module.exports = {
         str_telefono_reserva: req.body.str_telefono_reserva,
         str_identificacion: req.body.str_identificacion,
         str_estado: req.body.str_estado,
+        num_cupo_reservas: req.body.num_cupo_reservas,
       })
       .then((tbl_discotecas) => res.status(201).send(tbl_discotecas))
       .catch((error) => res.status(400).send(error));
@@ -251,7 +261,10 @@ module.exports = {
             as: 'promociones'
           },{
             model: tbl_listas,
-            as: 'listas'
+            as: 'lista_dj'
+          },{
+            model: tbl_listas,
+            as: 'lista_libre'
           }
         ],
       })
@@ -280,6 +293,7 @@ module.exports = {
             str_telefono_reserva: req.body.str_telefono_reserva,
             str_identificacion: req.body.str_identificacion,
             str_estado: req.body.str_estado,
+            num_cupo_reservas: req.body.num_cupo_reservas,
           })
           .then(() => res.status(200).send(tbl_discotecas))
           .catch((error) => res.status(400).send(error));

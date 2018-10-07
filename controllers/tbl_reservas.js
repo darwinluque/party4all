@@ -113,6 +113,7 @@ module.exports = {
         num_cantidad_personas: req.body.num_cantidad_personas,
         str_motivo: req.body.str_motivo,
         servicio_decoracion: req.body.servicio_decoracion,
+        str_estado: req.body.str_estado,
       })
       .then((tbl_reservas) => res.status(201).send(tbl_reservas))
       .catch((error) => res.status(400).send(error));
@@ -146,6 +147,7 @@ module.exports = {
             num_cantidad_personas: req.body.num_cantidad_personas,
             str_motivo: req.body.str_motivo,
             servicio_decoracion: req.body.servicio_decoracion,
+            str_estado: req.body.str_estado,
           })
           .then(() => res.status(200).send(tbl_reservas))
           .catch((error) => res.status(400).send(error));

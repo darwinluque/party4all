@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     reser_num_cantidad_personas: DataTypes.INTEGER,
     reser_str_motivo: DataTypes.STRING,
     reser_servicio_decoracion: DataTypes.STRING,
+    reser_str_estado: DataTypes.STRING,
     per_str_primer_nombre: DataTypes.STRING,
     per_str_segundo_nombre: DataTypes.STRING,
     per_str_primer_apellido: DataTypes.STRING,

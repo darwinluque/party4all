@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     str_hora: DataTypes.STRING,
     num_cantidad_personas: DataTypes.INTEGER,
     str_motivo: DataTypes.STRING,
-    servicio_decoracion: DataTypes.STRING
+    servicio_decoracion: DataTypes.STRING,
+    str_estado: DataTypes.STRING,
   }, {});
   tbl_reservas.associate = function(models) {
     tbl_reservas.belongsTo(models.tbl_discotecas, {

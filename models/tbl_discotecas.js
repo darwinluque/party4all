@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     id_zona: DataTypes.STRING,
     id_genero: DataTypes.STRING,
     id_tipo_rumba: DataTypes.STRING,
+    num_cupo_reservas: DataTypes.INTEGER,
   }, {});
   tbl_discotecas.associate = function(models) {
     tbl_discotecas.hasMany(models.tbl_reservas, {
@@ -32,7 +33,12 @@ module.exports = (sequelize, DataTypes) => {
     tbl_discotecas.hasMany(models.tbl_listas, {
       foreignKey: 'id_discoteca',
       sourceKey: 'str_identificacion',
-      as: 'listas'      
+      as: 'lista_dj'      
+    });
+    tbl_discotecas.hasMany(models.tbl_listas, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'lista_libre'      
     });
   };
   
