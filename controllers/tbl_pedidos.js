@@ -33,7 +33,12 @@ module.exports = {
           as: 'mesa'
         },{
           model: tbl_productos_pedido,
-          as: 'productos_pedido'
+          as: 'productos_pedido',
+          include: [{
+            model: tbl_productos,
+            attributes: ['str_descripcion'],
+            as: 'productos',
+          }],
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -84,6 +89,45 @@ module.exports = {
         },{
           model: tbl_productos_pedido,
           as: 'productos_pedido'
+        }],
+        where: whereClause,
+      })
+      .then((tbl_pedidos) => {
+        if (!tbl_pedidos) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        return res.status(200).send(tbl_pedidos);
+      })
+      .catch((error) => { res.status(400).send(error); });
+  },
+
+  view(req, res) {
+    let whereClause= {};  
+    var filtro = req.params.filtro;
+    var campos = filtro.split(',');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        whereClause[datos[0]] = datos[1];
+    }
+
+    return tbl_pedidos
+      .findAll( {
+        include: [{
+          model: tbl_mesas,
+          attributes: ['num_mesa'],
+          as: 'mesa',
+        },{
+          model: tbl_productos_pedido,
+          attributes: ['id_producto', 'num_cantidad'],
+          as: 'productos_pedido',
+          include: [{
+            model: tbl_productos,
+            attributes: ['str_descripcion'],
+            as: 'productos',
+          }],
         }],
         where: whereClause,
       })

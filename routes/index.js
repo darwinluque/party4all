@@ -93,6 +93,7 @@ router.get('/api/tbl_discotecas/all/', tbl_discotecasController.list);
 router.get('/api/tbl_discotecas/id/:id', tbl_discotecasController.getById); 
 router.get('/api/tbl_discotecas/qry/:filtro', tbl_discotecasController.getFilter); 
 router.post('/api/tbl_discotecas', tbl_discotecasController.add); 
+router.post('/api/tbl_discotecas/addWithListas', tbl_discotecasController.addWithListas); 
 router.put('/api/tbl_discotecas/:id', tbl_discotecasController.update); 
 router.delete('/api/tbl_discotecas/:id', tbl_discotecasController.delete); 
 
@@ -150,6 +151,7 @@ router.delete('/api/tbl_mesas/:id', tbl_mesasController.delete);
 router.get('/api/tbl_pedidos/all/', tbl_pedidosController.list); 
 router.get('/api/tbl_pedidos/id/:id', tbl_pedidosController.getById); 
 router.get('/api/tbl_pedidos/qry/:filtro', tbl_pedidosController.getFilter); 
+router.get('/api/tbl_pedidos/view/:filtro', tbl_pedidosController.view); 
 router.post('/api/tbl_pedidos', tbl_pedidosController.add); 
 router.put('/api/tbl_pedidos/:id', tbl_pedidosController.update); 
 router.delete('/api/tbl_pedidos/:id', tbl_pedidosController.delete); 

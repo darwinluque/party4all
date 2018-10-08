@@ -250,6 +250,41 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+  addWithListas(req, res) {
+    return tbl_discotecas
+      .create({
+        id_vestuario: req.body.id_vestuario,
+        id_zona: req.body.id_zona,
+        id_genero: req.body.id_genero,
+        id_tipo_rumba: req.body.id_tipo_rumba,
+        str_nombre: req.body.str_nombre,
+        num_estrellas: req.body.num_estrellas,
+        str_rango_precios: req.body.str_rango_precios,
+        str_num_telefono: req.body.str_num_telefono,
+        str_direccion: req.body.str_direccion,
+        str_barrio: req.body.str_barrio,
+        str_num_celular: req.body.str_num_celular,
+        str_url_ubicacion: req.body.str_url_ubicacion,
+        str_horarios: req.body.str_horarios,
+        str_telefono_reserva: req.body.str_telefono_reserva,
+        str_identificacion: req.body.str_identificacion,
+        str_estado: req.body.str_estado,
+        num_cupo_reservas: req.body.num_cupo_reservas,
+        lista: req.body.lista,
+        lista_dj: req.body.lista_dj,
+      }, {
+        include: [{
+          model: tbl_listas,
+          as: 'lista',
+        },{
+          model: tbl_listas_dj,
+          as: 'lista_dj'
+        }]
+      })
+      .then((lecturer) => res.status(201).send(lecturer))
+      .catch((error) => res.status(400).send(error));
+  },
+
   update(req, res) {
     return tbl_discotecas
       .findById(req.params.id, {
