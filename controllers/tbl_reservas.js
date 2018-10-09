@@ -105,7 +105,7 @@ module.exports = {
   add(req, res) {
     return tbl_reservas
       .create({
-        id_reserva: 'R'+substring(req.body.id_persona),//req.body.id_reserva,
+        id_reserva: 'R'+req.body.id_persona.substring(req.body.id_persona.length-3)+req.body.id_discoteca.substring(req.body.id_discoteca.length-3)+zfill(req.body.num_cantidad_personas, 3),//req.body.id_reserva,
         id_discoteca: req.body.id_discoteca,
         id_persona: req.body.id_persona,
         dtm_fecha_reserva: req.body.dtm_fecha_reserva,
@@ -178,7 +178,25 @@ module.exports = {
   },
 };
 
-
+function zfill(number, width) {
+  var numberOutput = Math.abs(number); /* Valor absoluto del número */
+  var length = number.toString().length; /* Largo del número */ 
+  var zero = "0"; /* String de cero */  
+  
+  if (width <= length) {
+      if (number < 0) {
+           return ("-" + numberOutput.toString()); 
+      } else {
+           return numberOutput.toString(); 
+      }
+  } else {
+      if (number < 0) {
+          return ("-" + (zero.repeat(width - length)) + numberOutput.toString()); 
+      } else {
+          return ((zero.repeat(width - length)) + numberOutput.toString()); 
+      }
+  }
+}
 
 
 

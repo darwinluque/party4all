@@ -124,7 +124,7 @@ module.exports = {
             id_persona: req.body.id_persona,
             num_mesa: req.body.num_mesa,
             str_disponible: req.body.str_disponible,
-            dtm_fecha: req.body.dtm_fecha,
+            dtm_fecha: new Date(),
           })
           .then(() => res.status(200).send(tbl_mesas))
           .catch((error) => res.status(400).send(error));
