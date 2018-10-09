@@ -23,6 +23,8 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 const service = require('../config/services');
+var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
   login(req, res) {
@@ -209,6 +211,37 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
+  addOne(req, res) {
+    return tbl_personas
+      .create({
+        id_genero_sexo: req.body.id_genero_sexo,
+        id_estado_civil: req.body.id_estado_civil,
+        id_bebida: req.body.id_bebida,
+        num_estrellas: req.body.num_estrellas,
+        str_primer_nombre: req.body.str_primer_nombre,
+        str_segundo_nombre: req.body.str_segundo_nombre,
+        str_primer_apellido: req.body.str_primer_apellido,
+        str_segundo_apellido: req.body.str_segundo_apellido,
+        str_tipo_id: req.body.str_tipo_id,
+        str_num_identificacion: req.body.str_num_identificacion,
+        str_email: req.body.str_email.toLowerCase(),
+        str_token: req.body.str_token,
+        str_condiciones: req.body.str_condiciones,
+        str_acepta_tart: req.body.str_acepta_tart,
+        dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
+        dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
+        str_celular: req.body.str_celular,
+        str_password: encriptar(req.body.str_email.toLowerCase(),(req.body.str_password!=null ? (req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ) : 'passw0rd')),
+        str_facebook_id: req.body.str_facebook_id,
+      })
+      .then((tbl_personas) => res.status(201).send({
+          tbl_personas,
+          //tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ))),
+      }),
+      )
+      .catch((error) => res.status(400).send(msgerror(error)));
+  },
+
   add(req, res) {
     return tbl_personas
       .create({
@@ -322,10 +355,19 @@ module.exports = {
 };
 
 function encriptar(user, pass) {
-  var crypto = require('crypto')
+  var crypto = require('crypto');
   // usamos el metodo CreateHmac y le pasamos el parametro user y actualizamos el hash con la password
-  var hmac = crypto.createHmac('sha1', user).update(pass).digest('hex')
-  return hmac
+  var hmac = crypto.createHmac('sha1', user).update(pass).digest('hex');
+  return hmac;
+}
+
+function msgerror(error){
+  error = JSON.stringify(error);
+  if(error.includes("Ya existe la llave (str_num_identificacion)"))
+    return JSON.parse('{"code": "3", "message": "ERROR: El número de identificación ya se encuentra registrado"}');
+  if(error.includes("Ya existe la llave (str_email)"))
+    return JSON.parse('{"code": "4", "message": "ERROR: El correo ya se encuentra registrado"}');
+  return error;
 }
 
 

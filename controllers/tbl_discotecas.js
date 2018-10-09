@@ -275,7 +275,7 @@ module.exports = {
       }, {
         include: [{
           model: tbl_listas,
-          as: 'lista',
+          as: 'lista_peticiones',
         },{
           model: tbl_listas_dj,
           as: 'lista_dj'

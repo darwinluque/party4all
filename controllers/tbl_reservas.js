@@ -52,10 +52,10 @@ module.exports = {
             model: tbl_personas,
             attributes: ['str_primer_nombre', 'str_segundo_nombre', 'str_primer_apellido', 'str_segundo_apellido', 'str_num_identificacion', 'str_celular'],
             as: 'personas',
-        }/*,{
+        },{
             model: tbl_discotecas,
             as: 'discotecas',
-        }*/],
+        }],
       })
       .then((tbl_reservas) => {
         if (!tbl_reservas) {
@@ -84,10 +84,10 @@ module.exports = {
             model: tbl_personas,
             attributes: ['str_primer_nombre', 'str_segundo_nombre', 'str_primer_apellido', 'str_segundo_apellido', 'str_num_identificacion', 'str_celular'],
             as: 'personas',
-        }/*,{
+        },{
             model: tbl_discotecas,
             as: 'discotecas',
-        }*/],
+        }],
         where: whereClause,
       })
       .then((tbl_reservas) => {
