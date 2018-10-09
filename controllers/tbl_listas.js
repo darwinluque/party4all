@@ -31,12 +31,6 @@ module.exports = {
         include: [{
             model: tbl_discotecas,
             as: 'discoteca'
-        },{
-            model: tbl_canciones,
-            as: 'canciones'
-        },{
-            model: tbl_votos_canciones,
-            as: 'votos'
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -53,12 +47,6 @@ module.exports = {
         include: [{
           model: tbl_discotecas,
           as: 'discoteca'
-        },{
-          model: tbl_canciones,
-          as: 'canciones'
-        },{
-          model: tbl_votos_canciones,
-          as: 'votos'
         }],
       })
       .then((tbl_listas) => {
@@ -87,12 +75,6 @@ module.exports = {
         include: [{
             model: tbl_discotecas,
             as: 'discoteca'
-        },{
-            model: tbl_canciones,
-            as: 'canciones'
-        },{
-            model: tbl_votos_canciones,
-            as: 'votos'
         }],
         where: whereClause,
       })
@@ -124,14 +106,6 @@ module.exports = {
             model: tbl_discotecas,
             attributes: ['str_identificacion','str_nombre','str_direccion','str_barrio','str_num_telefono','str_num_celular','str_url_ubicacion','str_horarios','str_telefono_reserva','str_rango_precios','num_estrellas'],
             as: 'discoteca'
-        },{
-            model: tbl_canciones,
-            attributes: ['str_titulo'],
-            as: 'canciones',
-        },{
-            model: tbl_votos_canciones,
-            attributes: ['cantidad'],
-            as: 'votos'
         }],
         where: whereClause,
       })
@@ -163,12 +137,6 @@ module.exports = {
         include: [{
             model: tbl_discotecas,
             as: 'discoteca'
-        },{
-            model: tbl_canciones,
-            as: 'canciones'
-        },{
-            model: tbl_votos_canciones,
-            as: 'votos'
         }],
       })
       .then(tbl_listas => {

@@ -14,7 +14,9 @@ const tbl_eventosController = require('../controllers').tbl_eventos;
 const tbl_funcionariosController = require('../controllers').tbl_funcionarios;
 const tbl_generos_favController = require('../controllers').tbl_generos_fav;
 const tbl_listasController = require('../controllers').tbl_listas;
+const tbl_listas_peticionesController = require('../controllers').tbl_listas_peticiones;
 const tbl_listas_djController = require('../controllers').tbl_listas_dj;
+const tbl_listas_dj_cancionesController = require('../controllers').tbl_listas_dj_canciones;
 const tbl_mesasController = require('../controllers').tbl_mesas;
 const tbl_pedidosController = require('../controllers').tbl_pedidos;
 const tbl_personasController = require('../controllers').tbl_personas;
@@ -133,6 +135,13 @@ router.put('/api/tbl_listas/:id', tbl_listasController.update);
 router.delete('/api/tbl_listas/:id', tbl_listasController.delete); 
 router.get('/api/tbl_listas/view/:filtro', tbl_listasController.view); 
 
+router.get('/api/tbl_listas_peticiones/all/', tbl_listas_peticionesController.list); 
+router.get('/api/tbl_listas_peticiones/id/:id', tbl_listas_peticionesController.getById); 
+router.get('/api/tbl_listas_peticiones/qry/:filtro', tbl_listas_peticionesController.getFilter); 
+router.post('/api/tbl_listas_peticiones', tbl_listas_peticionesController.add); 
+router.put('/api/tbl_listas_peticiones/:id', tbl_listas_peticionesController.update); 
+router.delete('/api/tbl_listas_peticiones/:id', tbl_listas_peticionesController.delete); 
+
 router.get('/api/tbl_listas_dj/all/', tbl_listas_djController.list); 
 router.get('/api/tbl_listas_dj/id/:id', tbl_listas_djController.getById); 
 router.get('/api/tbl_listas_dj/qry/:filtro', tbl_listas_djController.getFilter); 
@@ -140,6 +149,14 @@ router.post('/api/tbl_listas_dj', tbl_listas_djController.add);
 router.put('/api/tbl_listas_dj/:id', tbl_listas_djController.update); 
 router.delete('/api/tbl_listas_dj/:id', tbl_listas_djController.delete); 
 router.get('/api/tbl_listas_dj/view/:filtro', tbl_listas_djController.view); 
+
+router.get('/api/tbl_listas_dj_canciones/all/', tbl_listas_dj_cancionesController.list); 
+router.get('/api/tbl_listas_dj_canciones/id/:id', tbl_listas_dj_cancionesController.getById); 
+router.get('/api/tbl_listas_dj_canciones/qry/:filtro', tbl_listas_dj_cancionesController.getFilter); 
+router.post('/api/tbl_listas_dj_canciones', tbl_listas_dj_cancionesController.add); 
+router.put('/api/tbl_listas_dj_canciones/:id', tbl_listas_dj_cancionesController.update); 
+router.delete('/api/tbl_listas_dj_canciones/:id', tbl_listas_dj_cancionesController.delete); 
+router.get('/api/tbl_listas_dj_canciones/view/:filtro', tbl_listas_dj_cancionesController.view); 
 
 router.get('/api/tbl_mesas/all/', tbl_mesasController.list); 
 router.get('/api/tbl_mesas/id/:id', tbl_mesasController.getById); 

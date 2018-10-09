@@ -8,7 +8,7 @@ const tbl_eventos = require('../models').tbl_eventos;
 const tbl_funcionarios = require('../models').tbl_funcionarios;
 const tbl_generos_fav = require('../models').tbl_generos_fav;
 const tbl_listas = require('../models').tbl_listas;
-const tbl_listas_dj = require('../models').tbl_listas_dj;
+const tbl_listas_peticiones = require('../models').tbl_listas_peticiones;
 const tbl_mesas = require('../models').tbl_mesas;
 const tbl_pedidos = require('../models').tbl_pedidos;
 const tbl_personas = require('../models').tbl_personas;
@@ -27,37 +27,36 @@ const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
 module.exports = {
   list(req, res) {
-    return tbl_listas_dj
+    return tbl_listas_peticiones
       .findAll({
         include: [{
-            model: tbl_discotecas,
-            as: 'discoteca'
+            model: tbl_listas,
+            as: 'lista'
         }],
         order: [
-          ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
         ],
       })
-      .then((tbl_listas_dj) => res.status(200).send(tbl_listas_dj))
+      .then((tbl_listas_peticiones) => res.status(200).send(tbl_listas_peticiones))
       .catch((error) => { res.status(400).send(error); });
   },
 
   getById(req, res) {
-    return tbl_listas_dj
+    return tbl_listas_peticiones
       .findById(req.params.id, {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
-        }],
+          model: tbl_listas,
+          as: 'lista'
+      }],
       })
-      .then((tbl_listas_dj) => {
-        if (!tbl_listas_dj) {
+      .then((tbl_listas_peticiones) => {
+        if (!tbl_listas_peticiones) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_listas_dj);
+        return res.status(200).send(tbl_listas_peticiones);
       })
       .catch((error) => res.status(400).send(error));
   },
@@ -71,104 +70,73 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
-    return tbl_listas_dj
+    return tbl_listas_peticiones
       .findAll( {
         include: [{
-            model: tbl_discotecas,
-            as: 'discoteca'
-        }],
+          model: tbl_listas,
+          as: 'lista'
+      }],
         where: whereClause,
       })
-      .then((tbl_listas_dj) => {
-        if (!tbl_listas_dj) {
+      .then((tbl_listas_peticiones) => {
+        if (!tbl_listas_peticiones) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_listas_dj);
-      })
-      .catch((error) => { res.status(400).send(error); });
-  },
-
-  view(req, res) {
-    let whereClause= {};  
-    var filtro = req.params.filtro;
-    var campos = filtro.split(',');
-    for(var i=0; i<campos.length; i++){
-        var datos = campos[i].split(':');
-        whereClause[datos[0]] = datos[1];
-    }
-
-    return tbl_listas_dj
-      .findAll( {
-        attributes: ['str_titulo_lista'],
-        include: [{
-            model: tbl_discotecas,
-            attributes: ['str_identificacion','str_nombre','str_direccion','str_barrio','str_num_telefono','str_num_celular','str_url_ubicacion','str_horarios','str_telefono_reserva','str_rango_precios','num_estrellas'],
-            as: 'discoteca'
-        }],
-        where: whereClause,
-      })
-      .then((tbl_listas_dj) => {
-        if (!tbl_listas_dj) {
-          return res.status(404).send({
-            code: '1',  
-            message: 'ERROR: Registro no encontrado',
-          });
-        }
-        return res.status(200).send(tbl_listas_dj);
+        return res.status(200).send(tbl_listas_peticiones);
       })
       .catch((error) => { res.status(400).send(error); });
   },
 
   add(req, res) {
-    return tbl_listas_dj
+    return tbl_listas_peticiones
       .create({
-        id_discoteca:req.body.id_discoteca,
-        str_titulo_lista: req.body.str_titulo_lista,
+        id_lista: req.body.id_lista,
+        str_nombre_cancion: req.body.str_nombre_cancion,
       })
-      .then((tbl_listas_dj) => res.status(201).send(tbl_listas_dj))
+      .then((tbl_listas_peticiones) => res.status(201).send(tbl_listas_peticiones))
       .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
-    return tbl_listas_dj
+    return tbl_listas_peticiones
       .findById(req.params.id, {
         include: [{
-            model: tbl_discotecas,
-            as: 'discoteca'
+          model: tbl_listas,
+          as: 'lista'
         }],
       })
-      .then(tbl_listas_dj => {
-        if (!tbl_listas_dj) {
+      .then(tbl_listas_peticiones => {
+        if (!tbl_listas_peticiones) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_listas_dj
+        return tbl_listas_peticiones
           .update({
-            id_discoteca:req.body.id_discoteca,
-            str_titulo_lista: req.body.str_titulo_lista,
+            id_lista: req.body.id_lista,
+            str_nombre_cancion: req.body.str_nombre_cancion,
           })
-          .then(() => res.status(200).send(tbl_listas_dj))
+          .then(() => res.status(200).send(tbl_listas_peticiones))
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
   },
 
   delete(req, res) {
-    return tbl_listas_dj
+    return tbl_listas_peticiones
       .findById(req.params.id)
-      .then(tbl_listas_dj => {
-        if (!tbl_listas_dj) {
+      .then(tbl_listas_peticiones => {
+        if (!tbl_listas_peticiones) {
           return res.status(400).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_listas_dj
+        tbl_listas_peticiones
             .destroy()
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
