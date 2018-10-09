@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       as: 'canciones'
     });
     tbl_votos_canciones.hasMany(models.tbl_listas, {
-      foreignKey: 'id_lista', 
+      foreignKey: 'id', 
       sourceKey: 'id_lista',
       as: 'listas'
     });

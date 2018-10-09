@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     tbl_discotecas.hasMany(models.tbl_listas, {
       foreignKey: 'id_discoteca',
       sourceKey: 'str_identificacion',
-      as: 'lista_libre'      
+      as: 'lista_peticiones'      
     });
   };
   
