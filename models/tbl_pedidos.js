@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var tbl_pedidos = sequelize.define('tbl_pedidos', {
     id_pedido: DataTypes.STRING,
-    id_mesa: DataTypes.STRING,
+    id_mesa: DataTypes.INTEGER,
     vlr_total: DataTypes.DECIMAL,
     id_metodo_pago: DataTypes.STRING,
     str_estado: DataTypes.STRING,
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     tbl_pedidos.belongsTo(models.tbl_mesas, {
       foreignKey: 'id_mesa', 
-      targetKey: 'id_mesa',
+      targetKey: 'id',
       as: 'mesa'
     });
   };

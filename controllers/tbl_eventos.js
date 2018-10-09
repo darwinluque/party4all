@@ -22,7 +22,8 @@ const tbl_reservas = require('../models').tbl_reservas;
 const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
-
+var Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 module.exports = {
   list(req, res) {
@@ -79,7 +80,10 @@ module.exports = {
     var campos = filtro.split(',');
     for(var i=0; i<campos.length; i++){
         var datos = campos[i].split(':');
-        whereClause[datos[0]] = datos[1];
+        if(datos[0]=='str_titulo')
+          whereClause[datos[0]] = {[Op.like]:'%'+datos[1]+'%'};
+        else
+          whereClause[datos[0]] = datos[1];
     }
 
     return tbl_eventos
