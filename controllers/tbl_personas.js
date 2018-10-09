@@ -365,6 +365,8 @@ function msgerror(error){
   error = JSON.stringify(error);
   if(error.includes("Ya existe la llave (str_num_identificacion)"))
     return JSON.parse('{"code": "3", "message": "ERROR: El número de identificación ya se encuentra registrado"}');
+  if(error.includes("str_num_identificacion must be unique"))
+    return JSON.parse('{"code": "3", "message": "ERROR: El número de identificación ya se encuentra registrado"}');
   if(error.includes("Ya existe la llave (str_email)"))
     return JSON.parse('{"code": "4  ", "message": "ERROR: El correo ya se encuentra registrado"}');
   return error;
