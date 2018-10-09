@@ -18,6 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     id_genero: DataTypes.STRING,
     id_tipo_rumba: DataTypes.STRING,
     num_cupo_reservas: DataTypes.INTEGER,
+    str_geolocalizacion: DataTypes.STRING,
+    str_facebook: DataTypes.STRING,
+    str_logo: DataTypes.STRING,
   }, {});
   tbl_discotecas.associate = function(models) {
     tbl_discotecas.hasMany(models.tbl_reservas, {
@@ -44,6 +47,31 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'id_discoteca',
       sourceKey: 'str_identificacion',
       as: 'lista_peticiones'      
+    });
+    tbl_discotecas.hasMany(models.tbl_eventos, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'eventos'      
+    });
+    tbl_discotecas.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_vestuario', 
+      targetKey: 'str_valor',
+      as: 'vestuario'
+    });
+    tbl_discotecas.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_zona', 
+      targetKey: 'str_valor',
+      as: 'zona'
+    });
+    tbl_discotecas.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_genero', 
+      targetKey: 'str_valor',
+      as: 'genero_musical'
+    });
+    tbl_discotecas.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_tipo_rumba', 
+      targetKey: 'str_valor',
+      as: 'tipo_rumba'
     });
   };
   

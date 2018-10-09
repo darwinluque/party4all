@@ -41,34 +41,23 @@ module.exports = {
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista'
-          }
-        ],
-        /*include: [{
+            as: 'lista_peticiones'
+          },{
             model: tbl_parametros,
-            as: 'vestuarios'
+            as: 'vestuario'
           },{
             model: tbl_parametros,
             as: 'zona'
           },{
             model: tbl_parametros,
-            as: 'genero'
+            as: 'genero_musical'
           },{
-            model: tbl_promociones,
-            as: 'promociones'
-          },{
-            model: tbl_cartas,
-            as: 'cartas'
-          },{
-            model: tbl_listas,
-            as: 'listas'
+            model: tbl_parametros,
+            as: 'tipo_rumba'
           },{
             model: tbl_eventos,
             as: 'eventos'
-          },{
-            model: tbl_encuesta,
-            as: 'encuestas'
-          },{
+          }],/*{
             model: tbl_productos,
             as: 'productos'
           },{
@@ -81,9 +70,6 @@ module.exports = {
             model: tbl_suscriptores,
             as: 'suscriptores'
           },{
-            model: tbl_reservas,
-            as: 'reservas'
-          },{
             model: tbl_personas_discoteca,
             as: 'personas_disco'
           },{
@@ -95,6 +81,9 @@ module.exports = {
           },{
             model: tbl_funcionarios,
             as: 'funcionarios'
+          },{
+            model: tbl_cartas,
+            as: 'cartas'
           }],*/
         order: [
           ['str_nombre', 'DESC'],
@@ -111,7 +100,7 @@ module.exports = {
         include:[
           {
             model: tbl_reservas,
-            as: 'reservas'
+            as: 'reservas',
           },{
             model: tbl_promociones,
             as: 'promociones'
@@ -120,58 +109,23 @@ module.exports = {
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista'
-          }
-        ],
-        /*include: [{
-            model: tbl_parametros,
-            as: 'cartas'
+            as: 'lista_peticiones'
           },{
             model: tbl_parametros,
-            as: 'cartas'
+            as: 'vestuario'
           },{
             model: tbl_parametros,
-            as: 'cartas'
+            as: 'zona'
           },{
-            model: tbl_cartas,
-            as: 'cartas'
+            model: tbl_parametros,
+            as: 'genero_musical'
           },{
-            model: tbl_listas,
-            as: 'listas'
+            model: tbl_parametros,
+            as: 'tipo_rumba'
           },{
             model: tbl_eventos,
             as: 'eventos'
-          },{
-            model: tbl_encuesta,
-            as: 'encuestas'
-          },{
-            model: tbl_productos,
-            as: 'productos'
-          },{
-            model: tbl_productos_pedido,
-            as: 'productos_pedido'
-          },{
-            model: tbl_mesas,
-            as: 'mesas'
-          },{
-            model: tbl_suscriptores,
-            as: 'suscriptores'
-          },{
-            model: tbl_reservas,
-            as: 'reservas'
-          },{
-            model: tbl_personas_discoteca,
-            as: 'personas_disco'
-          },{
-            model: tbl_servicios_discoteca,
-            as: 'servicios'
-          },{
-            model: tbl_pqrs,
-            as: 'pqrs'
-          },{
-            model: tbl_funcionarios,
-            as: 'funcionarios'
-          }],*/
+          }],
       })
       .then((tbl_discotecas) => {
         if (!tbl_discotecas) {
@@ -199,7 +153,7 @@ module.exports = {
         include:[
           {
             model: tbl_reservas,
-            as: 'reservas'
+            as: 'reservas',
           },{
             model: tbl_promociones,
             as: 'promociones'
@@ -208,9 +162,23 @@ module.exports = {
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista'
-          }
-        ],
+            as: 'lista_peticiones'
+          },{
+            model: tbl_parametros,
+            as: 'vestuario'
+          },{
+            model: tbl_parametros,
+            as: 'zona'
+          },{
+            model: tbl_parametros,
+            as: 'genero_musical'
+          },{
+            model: tbl_parametros,
+            as: 'tipo_rumba'
+          },{
+            model: tbl_eventos,
+            as: 'eventos'
+          }],
         where: whereClause,
       })
       .then((tbl_discotecas) => {
@@ -245,6 +213,9 @@ module.exports = {
         str_identificacion: req.body.str_identificacion,
         str_estado: req.body.str_estado,
         num_cupo_reservas: req.body.num_cupo_reservas,
+        str_geolocalizacion: req.body.str_geolocalizacion,
+        str_facebook: req.body.str_facebook,
+        str_logo: req.body.str_logo,
       })
       .then((tbl_discotecas) => res.status(201).send(tbl_discotecas))
       .catch((error) => res.status(400).send(error));
@@ -272,6 +243,9 @@ module.exports = {
         num_cupo_reservas: req.body.num_cupo_reservas,
         lista: req.body.lista,
         lista_dj: req.body.lista_dj,
+        str_geolocalizacion: req.body.str_geolocalizacion,
+        str_facebook: req.body.str_facebook,
+        str_logo: req.body.str_logo,
       }, {
         include: [{
           model: tbl_listas,
@@ -291,7 +265,7 @@ module.exports = {
         include:[
           {
             model: tbl_reservas,
-            as: 'reservas'
+            as: 'reservas',
           },{
             model: tbl_promociones,
             as: 'promociones'
@@ -300,9 +274,23 @@ module.exports = {
             as: 'lista_dj'
           },{
             model: tbl_listas,
-            as: 'lista'
-          }
-        ],
+            as: 'lista_peticiones'
+          },{
+            model: tbl_parametros,
+            as: 'vestuario'
+          },{
+            model: tbl_parametros,
+            as: 'zona'
+          },{
+            model: tbl_parametros,
+            as: 'genero_musical'
+          },{
+            model: tbl_parametros,
+            as: 'tipo_rumba'
+          },{
+            model: tbl_eventos,
+            as: 'eventos'
+          }],
       })
       .then(tbl_discotecas => {
         if (!tbl_discotecas) {
@@ -330,6 +318,9 @@ module.exports = {
             str_identificacion: req.body.str_identificacion,
             str_estado: req.body.str_estado,
             num_cupo_reservas: req.body.num_cupo_reservas,
+            str_geolocalizacion: req.body.str_geolocalizacion,
+            str_facebook: req.body.str_facebook,
+            str_logo: req.body.str_logo,
           })
           .then(() => res.status(200).send(tbl_discotecas))
           .catch((error) => res.status(400).send(error));
