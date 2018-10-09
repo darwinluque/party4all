@@ -270,7 +270,7 @@ module.exports = {
           //tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ))),
       }),
       )
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send(msgerror(error)));
   },
 
   update(req, res) {
@@ -366,7 +366,7 @@ function msgerror(error){
   if(error.includes("Ya existe la llave (str_num_identificacion)"))
     return JSON.parse('{"code": "3", "message": "ERROR: El número de identificación ya se encuentra registrado"}');
   if(error.includes("Ya existe la llave (str_email)"))
-    return JSON.parse('{"code": "4", "message": "ERROR: El correo ya se encuentra registrado"}');
+    return JSON.parse('{"code": "4  ", "message": "ERROR: El correo ya se encuentra registrado"}');
   return error;
 }
 
