@@ -215,13 +215,15 @@ module.exports = {
         num_cupo_reservas: req.body.num_cupo_reservas,
         str_geolocalizacion: req.body.str_geolocalizacion,
         str_facebook: req.body.str_facebook,
-        str_logo: req.body.str_logo,
+        str_logo: req.body.str_logo,  
       })
       .then((tbl_discotecas) => res.status(201).send(tbl_discotecas))
       .catch((error) => res.status(400).send(error));
   },
 
   addWithListas(req, res) {
+    var rlista = JSON.parse('{"id_discoteca": "' +req.body.id_discoteca+'"}');
+    var rlista_dj = JSON.parse('{"id_discoteca": "' +req.body.id_discoteca+'"}');
     return tbl_discotecas
       .create({
         id_vestuario: req.body.id_vestuario,
@@ -241,15 +243,15 @@ module.exports = {
         str_identificacion: req.body.str_identificacion,
         str_estado: req.body.str_estado,
         num_cupo_reservas: req.body.num_cupo_reservas,
-        lista: req.body.lista,
-        lista_dj: req.body.lista_dj,
+        lista: rlista,
+        lista_dj: rlista_dj,
         str_geolocalizacion: req.body.str_geolocalizacion,
         str_facebook: req.body.str_facebook,
         str_logo: req.body.str_logo,
       }, {
         include: [{
           model: tbl_listas,
-          as: 'lista_peticiones',
+          as: 'lista',
         },{
           model: tbl_listas_dj,
           as: 'lista_dj'
