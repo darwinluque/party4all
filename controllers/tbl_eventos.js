@@ -29,16 +29,13 @@ module.exports = {
   list(req, res) {
     return tbl_eventos
       .findAll({
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-          },{
-            model: tbl_artista,
-            as: 'artista'
-          },{
-            model: tbl_precios_boletas,
-            as: 'precios_boletas'
-          }],*/
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_artista,
+          as: 'artista'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -51,16 +48,13 @@ module.exports = {
   getById(req, res) {
     return tbl_eventos
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-          },{
-            model: tbl_artista,
-            as: 'artista'
-          },{
-            model: tbl_precios_boletas,
-            as: 'precios_boletas'
-          }],*/
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_artista,
+          as: 'artista'
+        }],
       })
       .then((tbl_eventos) => {
         if (!tbl_eventos) {
@@ -88,7 +82,13 @@ module.exports = {
 
     return tbl_eventos
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_artista,
+          as: 'artista'
+        }],
         where: whereClause,
       })
       .then((tbl_eventos) => {
@@ -122,16 +122,13 @@ module.exports = {
   update(req, res) {
     return tbl_eventos
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-          },{
-            model: tbl_artista,
-            as: 'artista'
-          },{
-            model: tbl_precios_boletas,
-            as: 'precios_boletas'
-          }],*/
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_artista,
+          as: 'artista'
+        }],
       })
       .then(tbl_eventos => {
         if (!tbl_eventos) {
