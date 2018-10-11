@@ -113,6 +113,7 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
+    
     return tbl_pedidos
       .findAll( {
         include: [{
