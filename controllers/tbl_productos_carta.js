@@ -44,6 +44,7 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
+  
   getById(req, res) {
     return tbl_productos_carta
       .findById(req.params.id, {

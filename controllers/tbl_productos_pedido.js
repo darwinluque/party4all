@@ -23,7 +23,6 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
-
 module.exports = {
   list(req, res) {
     return tbl_productos_pedido
@@ -102,7 +101,7 @@ module.exports = {
     return tbl_productos_pedido
       .create({
         id_pedido: req.body.id_pedido,
-        id_discoteca: req.body.id_discoteca,
+        id_carta: req.body.id_carta,
         id_producto: req.body.id_producto,
         num_cantidad: req.body.num_cantidad,
         vlr_costo: req.body.vlr_costo,
@@ -135,7 +134,7 @@ module.exports = {
         return tbl_productos_pedido
           .update({
             id_pedido: req.body.id_pedido,
-            id_discoteca: req.body.id_discoteca,
+            id_carta: req.body.id_carta,
             id_producto: req.body.id_producto,
             num_cantidad: req.body.num_cantidad,
             vlr_costo: req.body.vlr_costo,

@@ -96,11 +96,9 @@ module.exports = {
   add(req, res) {
     return tbl_productos
       .create({
-        id_producto: req.body.id_producto,
         str_descripcion: req.body.str_descripcion,
         str_tamano: req.body.str_tamano,
         str_url_imagen: req.body.str_url_imagen,
-        vlr_precio: req.body.vlr_precio,
         str_activo: req.body.str_activo,
       })
       .then((tbl_productos) => res.status(201).send(tbl_productos))
@@ -127,11 +125,9 @@ module.exports = {
         }
         return tbl_productos
           .update({
-            id_producto: req.body.id_producto,
             str_descripcion: req.body.str_descripcion,
             str_tamano: req.body.str_tamano,
             str_url_imagen: req.body.str_url_imagen,
-            vlr_precio: req.body.vlr_precio,
             str_activo: req.body.str_activo,
           })
           .then(() => res.status(200).send(tbl_productos))
@@ -140,6 +136,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+  
   delete(req, res) {
     return tbl_productos
       .findById(req.params.id)
