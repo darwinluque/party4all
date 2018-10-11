@@ -261,6 +261,7 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+  
   update(req, res) {
     return tbl_discotecas
       .findById(req.params.id, {
