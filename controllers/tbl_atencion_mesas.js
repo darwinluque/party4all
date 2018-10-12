@@ -65,9 +65,8 @@ module.exports = {
   add(req, res) {
     return tbl_atencion_mesas
       .create({
-        id_artista: req.body.id_artista,
-        id_genero: req.body.id_genero,
-        str_nombre: req.body.str_nombre,
+        id_mesa: req.body.id_mesa,
+        id_discoteca: req.body.id_discoteca,
       })
       .then((tbl_atencion_mesas) => res.status(201).send(tbl_atencion_mesas))
       .catch((error) => res.status(400).send(error));
@@ -87,9 +86,9 @@ module.exports = {
         }
         return tbl_atencion_mesas
           .update({
-            id_artista: req.body.id_artista,
-            id_genero: req.body.id_genero,
-            str_nombre: req.body.str_nombre, 
+            id_mesa: req.body.id_mesa,
+            id_discoteca: req.body.id_discoteca,
+            str_estado: req.body.str_estado,
           })
           .then(() => res.status(200).send(tbl_atencion_mesas))
           .catch((error) => res.status(400).send(error));
