@@ -166,13 +166,53 @@ module.exports = {
             id_lista:req.body.id_lista,
             id_cancion: req.body.id_cancion,
             str_estado: req.body.str_estado,
-            num_votos:req.body.num_votos,            
+            num_votos: num_votos+1,            
           })
           .then(() => res.status(200).send(tbl_listas_dj_canciones))
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
   },
+
+  votar(req, res) {
+    let whereClause= {};  
+    var filtro = req.params.filtro;
+    var campos = filtro.split(',');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        whereClause[datos[0]] = datos[1];
+    }
+
+    return tbl_listas_dj_canciones
+      .findAll( {
+        include: [{
+          model: tbl_listas_dj,
+          as: 'lista_dj'
+        },{
+          model: tbl_canciones,
+          as: 'canciones'
+        }],
+        where: whereClause,
+      })
+      .then(tbl_listas_dj_canciones => {
+        if (!tbl_listas_dj_canciones) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        return tbl_listas_dj_canciones
+          .update({
+            id_lista:req.body.id_lista,
+            id_cancion: req.body.id_cancion,
+            num_votos: num_votos+1,            
+          })
+          .then(() => res.status(200).send(tbl_listas_dj_canciones))
+          .catch((error) => res.status(400).send(error));
+      })
+      .catch((error) => res.status(400).send(error));
+  },
+
 
   delete(req, res) {
     return tbl_listas_dj_canciones
