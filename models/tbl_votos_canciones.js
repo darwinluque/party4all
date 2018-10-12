@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     cantidad: DataTypes.INTEGER,
   }, {});
   tbl_votos_canciones.associate = function(models) {
-    tbl_votos_canciones.hasMany(models.tbl_canciones, {
+    /*tbl_votos_canciones.hasMany(models.tbl_canciones, {
       foreignKey: 'id_cancion', 
       sourceKey: 'id_cancion',
       as: 'canciones'
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'id', 
       sourceKey: 'id_lista',
       as: 'listas'
-    });
+    });*/
   };
   return tbl_votos_canciones;
 };

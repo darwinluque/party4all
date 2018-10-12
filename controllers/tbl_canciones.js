@@ -31,9 +31,6 @@ module.exports = {
         include: [{
             model: tbl_artista,
             as: 'artista'
-          },{
-            model: tbl_votos_canciones,
-            as: 'votos'
           }],
         order: [
           ['createdAt', 'DESC'],
@@ -50,9 +47,6 @@ module.exports = {
         include: [{
             model: tbl_artista,
             as: 'artista'
-          },{
-            model: tbl_votos_canciones,
-            as: 'votos'
           }],
       })
       .then((tbl_canciones) => {
@@ -81,9 +75,6 @@ module.exports = {
         include: [{
           model: tbl_artista,
           as: 'artista'
-        },{
-          model: tbl_votos_canciones,
-          as: 'votos'
         }],
         where: whereClause,
       })
@@ -118,9 +109,6 @@ module.exports = {
         include: [{
             model: tbl_artista,
             as: 'artista'
-          },{
-            model: tbl_votos_canciones,
-            as: 'votos'
           }],
       })
       .then(tbl_canciones => {

@@ -73,6 +73,7 @@ module.exports = (sequelize, DataTypes) => {
       targetKey: 'str_valor',
       as: 'tipo_rumba'
     });
+    
   };
   
   return tbl_discotecas;

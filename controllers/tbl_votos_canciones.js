@@ -28,13 +28,13 @@ module.exports = {
   list(req, res) {
     return tbl_votos_canciones
       .findAll({
-        include: [{
+        /*include: [{
             model: tbl_listas,
             as: 'listas'
         },{
             model: tbl_canciones,
             as: 'canciones'
-        }],
+        }],*/
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +47,7 @@ module.exports = {
   getById(req, res) {
     return tbl_votos_canciones
       .findById(req.params.id, {
-        include: [{
-            model: tbl_listas,
-            as: 'listas'
-        },{
-            model: tbl_canciones,
-            as: 'canciones'
-        }],
+        //
       })
       .then((tbl_votos_canciones) => {
         if (!tbl_votos_canciones) {
@@ -78,13 +72,7 @@ module.exports = {
 
     return tbl_votos_canciones
       .findAll( {
-        include: [{
-          model: tbl_listas,
-          as: 'listas'
-        },{
-          model: tbl_canciones,
-          as: 'canciones'
-        }],
+        //
         where: whereClause,
       })
       .then((tbl_votos_canciones) => {
@@ -110,16 +98,8 @@ module.exports = {
 
     return tbl_votos_canciones
       .findAll( {
-        attributes: ['cantidad','dtm_fecha_voto'],
-        include: [{
-          model: tbl_listas,
-          attributes: ['str_titulo_lista'],
-          as: 'listas'
-        },{
-          model: tbl_canciones,
-          attributes: ['str_titulo'],
-          as: 'canciones'
-        }],
+        //attributes: ['cantidad','dtm_fecha_voto'],
+        //
         where: whereClause,
       })
       .then((tbl_votos_canciones) => {
