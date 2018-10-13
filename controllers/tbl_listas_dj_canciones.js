@@ -184,13 +184,13 @@ module.exports = {
 
     return tbl_listas_dj_canciones
       .findAll( {
-        include: [{
+        /*include: [{
           model: tbl_listas_dj,
           as: 'lista_dj'
         },{
           model: tbl_canciones,
           as: 'canciones'
-        }],
+        }],*/
         where: whereClause,
       })
       .then(tbl_listas_dj_canciones => {
