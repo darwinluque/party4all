@@ -194,7 +194,7 @@ module.exports = {
         where: whereClause,
       })
       .then(tbl_listas_dj_canciones => {
-        if (!tbl_listas_dj_canciones) {
+        if (tbl_listas_dj_canciones) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
