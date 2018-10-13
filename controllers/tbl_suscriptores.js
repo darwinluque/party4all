@@ -28,13 +28,13 @@ module.exports = {
   list(req, res) {
     return tbl_suscriptores
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_personas,
-            as: 'personas'
+            as: 'persona'
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discoteca'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +47,13 @@ module.exports = {
   getById(req, res) {
     return tbl_suscriptores
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_personas,
-            as: 'personas'
+            as: 'persona'
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discoteca'
+        }],
       })
       .then((tbl_suscriptores) => {
         if (!tbl_suscriptores) {
@@ -78,7 +78,13 @@ module.exports = {
 
     return tbl_suscriptores
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+            model: tbl_personas,
+            as: 'persona'
+        },{
+            model: tbl_discotecas,
+            as: 'discoteca'
+        }],
         where: whereClause,
       })
       .then((tbl_suscriptores) => {
@@ -107,13 +113,13 @@ module.exports = {
   update(req, res) {
     return tbl_suscriptores
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_personas,
-            as: 'personas'
+            as: 'persona'
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discoteca'
+        }],
       })
       .then(tbl_suscriptores => {
         if (!tbl_suscriptores) {

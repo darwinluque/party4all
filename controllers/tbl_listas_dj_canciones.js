@@ -165,8 +165,7 @@ module.exports = {
           .update({
             id_lista:req.body.id_lista,
             id_cancion: req.body.id_cancion,
-            str_estado: req.body.str_estado,
-            num_votos: num_votos+1,            
+            str_estado: req.body.str_estado,       
           })
           .then(() => res.status(200).send(tbl_listas_dj_canciones))
           .catch((error) => res.status(400).send(error));

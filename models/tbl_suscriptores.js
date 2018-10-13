@@ -6,7 +6,16 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha_suscripcion: DataTypes.DATE
   }, {});
   tbl_suscriptores.associate = function(models) {
-    // associations can be defined here
+    tbl_suscriptores.belongsTo(models.tbl_personas, {
+      foreignKey: 'id_persona', 
+      targetKey: 'str_num_identificacion',
+      as: 'persona'
+    });
+    tbl_suscriptores.belongsTo(models.tbl_discotecas, {
+      foreignKey: 'id_discoteca', 
+      targetKey: 'str_identificacion',
+      as: 'discoteca'
+    });
   };
   return tbl_suscriptores;
 };
