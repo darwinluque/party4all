@@ -198,6 +198,7 @@ module.exports = {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
+            votos: tbl_listas_dj_canciones.num_votos,
           });
         }
         return tbl_listas_dj_canciones
