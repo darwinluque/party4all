@@ -18,6 +18,7 @@ const tbl_listas_peticionesController = require('../controllers').tbl_listas_pet
 const tbl_listas_djController = require('../controllers').tbl_listas_dj;
 const tbl_listas_dj_cancionesController = require('../controllers').tbl_listas_dj_canciones;
 const tbl_mesasController = require('../controllers').tbl_mesas;
+const tbl_mensajesController = require('../controllers').tbl_mensajes;
 const tbl_pedidosController = require('../controllers').tbl_pedidos;
 const tbl_personasController = require('../controllers').tbl_personas;
 const tbl_personas_discosController = require('../controllers').tbl_personas_discos;
@@ -156,6 +157,7 @@ router.get('/api/tbl_listas_dj_canciones/qry/:filtro', tbl_listas_dj_cancionesCo
 router.post('/api/tbl_listas_dj_canciones', tbl_listas_dj_cancionesController.add); 
 router.put('/api/tbl_listas_dj_canciones/up/:id', tbl_listas_dj_cancionesController.update); 
 router.put('/api/tbl_listas_dj_canciones/votar/:filtro', tbl_listas_dj_cancionesController.votar); 
+router.post('/api/tbl_listas_dj_canciones/votar1/:filtro', tbl_listas_dj_cancionesController.votar); 
 router.delete('/api/tbl_listas_dj_canciones/:id', tbl_listas_dj_cancionesController.delete); 
 router.get('/api/tbl_listas_dj_canciones/view/:filtro', tbl_listas_dj_cancionesController.view); 
 
@@ -165,6 +167,13 @@ router.get('/api/tbl_mesas/qry/:filtro', tbl_mesasController.getFilter);
 router.post('/api/tbl_mesas', tbl_mesasController.add); 
 router.put('/api/tbl_mesas/:id', tbl_mesasController.update); 
 router.delete('/api/tbl_mesas/:id', tbl_mesasController.delete); 
+
+router.get('/api/tbl_mensajes/all/', tbl_mensajesController.list); 
+router.get('/api/tbl_mensajes/id/:id', tbl_mensajesController.getById); 
+router.get('/api/tbl_mensajes/qry/:filtro', tbl_mensajesController.getFilter); 
+router.post('/api/tbl_mensajes', tbl_mensajesController.add); 
+router.put('/api/tbl_mensajes/:id', tbl_mensajesController.update); 
+router.delete('/api/tbl_mensajes/:id', tbl_mensajesController.delete); 
 
 router.get('/api/tbl_pedidos/all/', tbl_pedidosController.list); 
 router.get('/api/tbl_pedidos/id/:id', tbl_pedidosController.getById); 

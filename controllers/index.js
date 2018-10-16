@@ -12,6 +12,7 @@ const tbl_listas_peticiones = require('./tbl_listas_peticiones');
 const tbl_listas_dj = require('./tbl_listas_dj');
 const tbl_listas_dj_canciones = require('./tbl_listas_dj_canciones');
 const tbl_mesas = require('./tbl_mesas');
+const tbl_mensajes = require('./tbl_mensajes');
 const tbl_pedidos = require('./tbl_pedidos');
 const tbl_personas = require('./tbl_personas');
 const tbl_personas_discos = require('./tbl_personas_discos');
@@ -45,6 +46,7 @@ module.exports = {
     tbl_listas_dj,
     tbl_listas_dj_canciones, 
     tbl_mesas,
+    tbl_mensajes,
     tbl_pedidos,
     tbl_personas,
     tbl_personas_discos,

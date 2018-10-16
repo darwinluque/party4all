@@ -194,19 +194,23 @@ module.exports = {
         where: whereClause,
       })
       .then(tbl_listas_dj_canciones => {
-        if (tbl_listas_dj_canciones) {
+        if (!tbl_listas_dj_canciones) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
-            votos: tbl_listas_dj_canciones.num_votos,
+            //votos: tbl_listas_dj_canciones[0].num_votos,
           });
         }
         return tbl_listas_dj_canciones
           .update({
-            id_lista:req.body.id_lista,
-            id_cancion: req.body.id_cancion,
-            num_votos: tbl_listas_dj_canciones.num_votos+1,            
-          })
+              /*id_lista:req.body.id_lista,
+              id_cancion: req.body.id_cancion,*/
+              num_votos: (tbl_listas_dj_canciones[0].num_votos) +1,            
+            },
+            {
+              fields:['num_votos']
+            }
+          )
           .then(() => res.status(200).send(tbl_listas_dj_canciones))
           .catch((error) => res.status(400).send(error));
       })
