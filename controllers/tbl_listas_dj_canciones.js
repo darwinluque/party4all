@@ -248,9 +248,9 @@ module.exports = {
         var datos = campos[i].split(':');
         whereClause[datos[0]] = datos[1];
     }
-    
+
     return tbl_listas_dj_canciones
-      .findByAll({
+      .findAll({
         where: whereClause,
       })
       .then(tbl_listas_dj_canciones => {
