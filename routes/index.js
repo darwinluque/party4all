@@ -142,6 +142,7 @@ router.get('/api/tbl_listas_peticiones/qry/:filtro', tbl_listas_peticionesContro
 router.post('/api/tbl_listas_peticiones', tbl_listas_peticionesController.add); 
 router.put('/api/tbl_listas_peticiones/:id', tbl_listas_peticionesController.update); 
 router.delete('/api/tbl_listas_peticiones/:id', tbl_listas_peticionesController.delete); 
+router.delete('/api/tbl_listas_peticiones/rem/:filtro', tbl_listas_peticionesController.deleteAll); 
 
 router.get('/api/tbl_listas_dj/all/', tbl_listas_djController.list); 
 router.get('/api/tbl_listas_dj/id/:id', tbl_listas_djController.getById); 
