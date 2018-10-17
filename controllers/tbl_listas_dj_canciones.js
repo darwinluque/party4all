@@ -204,13 +204,6 @@ module.exports = {
   votar(req, res) {
     return tbl_listas_dj_canciones
       .findById(req.params.id, {
-        /*include: [{
-          model: tbl_listas_dj,
-          as: 'lista_dj'
-        },{
-          model: tbl_canciones,
-          as: 'canciones'
-        }],*/
       })
       .then(tbl_listas_dj_canciones => {
         if (!tbl_listas_dj_canciones) {
@@ -221,7 +214,7 @@ module.exports = {
         }
         return tbl_listas_dj_canciones
           .update({
-            num_votos: num_votos+1,       
+            num_votos: tbl_listas_dj_canciones.num_votos+1,       
           })
           .then(() => res.status(200).send(tbl_listas_dj_canciones))
           .catch((error) => res.status(400).send(error));
