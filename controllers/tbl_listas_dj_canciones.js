@@ -261,7 +261,9 @@ module.exports = {
           });
         }
         tbl_listas_dj_canciones
-            .destroy()
+            .destroy({
+              where: whereClause,
+            })
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
         return res.status(200).send({
