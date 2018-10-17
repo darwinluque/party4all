@@ -98,7 +98,7 @@ module.exports = {
       .create({
         id_carta: req.body.id_carta,
         id_producto: req.body.id_producto,
-        str_estado: req.body.str_estado,
+        //str_estado: req.body.str_estado,
       })
       .then((tbl_productos_carta) => res.status(201).send(tbl_productos_carta))
       .catch((error) => res.status(400).send(error));
