@@ -157,7 +157,7 @@ router.get('/api/tbl_listas_dj_canciones/qry/:filtro', tbl_listas_dj_cancionesCo
 router.post('/api/tbl_listas_dj_canciones', tbl_listas_dj_cancionesController.add); 
 router.put('/api/tbl_listas_dj_canciones/up/:id', tbl_listas_dj_cancionesController.update); 
 router.put('/api/tbl_listas_dj_canciones/upst/:id', tbl_listas_dj_cancionesController.updateEstado); 
-router.put('/api/tbl_listas_dj_canciones/votar/:filtro', tbl_listas_dj_cancionesController.votar); 
+router.put('/api/tbl_listas_dj_canciones/votar/:id', tbl_listas_dj_cancionesController.votar); 
 router.post('/api/tbl_listas_dj_canciones/votar1/:filtro', tbl_listas_dj_cancionesController.votar); 
 router.delete('/api/tbl_listas_dj_canciones/:id', tbl_listas_dj_cancionesController.delete); 
 router.delete('/api/tbl_listas_dj_canciones/rem/:filtro', tbl_listas_dj_cancionesController.deleteAll); 
