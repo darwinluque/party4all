@@ -221,7 +221,7 @@ module.exports = {
         }
         return tbl_listas_dj_canciones
           .update({
-            num_votos: 1,       
+            num_votos: num_votos + 1,       
           })
           .then(() => res.status(200).send(tbl_listas_dj_canciones))
           .catch((error) => res.status(400).send(error));
