@@ -173,6 +173,34 @@ module.exports = {
       .catch((error) => res.status(400).send(error));
   },
 
+  updateEstado(req, res) {
+    return tbl_listas_dj_canciones
+      .findById(req.params.id, {
+        /*include: [{
+          model: tbl_listas_dj,
+          as: 'lista_dj'
+        },{
+          model: tbl_canciones,
+          as: 'canciones'
+        }],*/
+      })
+      .then(tbl_listas_dj_canciones => {
+        if (!tbl_listas_dj_canciones) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        return tbl_listas_dj_canciones
+          .update({
+            str_estado: req.body.str_estado,       
+          })
+          .then(() => res.status(200).send(tbl_listas_dj_canciones))
+          .catch((error) => res.status(400).send(error));
+      })
+      .catch((error) => res.status(400).send(error));
+  },
+
   votar(req, res) {
     let whereClause= {};  
     var filtro = req.params.filtro;
