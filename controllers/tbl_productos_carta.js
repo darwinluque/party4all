@@ -127,7 +127,7 @@ module.exports = {
           .update({
             id_carta: req.body.id_carta,
             id_producto: req.body.id_producto,
-            num_precio: req.body.num_precio,
+            num_precio: req.body.num_precio,  
             str_estado: req.body.str_estado,
           })
           .then(() => res.status(200).send(tbl_productos_carta))
