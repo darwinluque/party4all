@@ -253,7 +253,7 @@ module.exports = {
     }
 
     return tbl_listas_dj_canciones
-      .find({
+      .findAll({
         where: whereClause,
       })
       .then(tbl_listas_dj_canciones => {
