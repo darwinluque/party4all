@@ -253,7 +253,7 @@ module.exports = {
     }
 
     return tbl_listas_dj_canciones
-      .findAll({
+      .find({
         where: whereClause,
       })
       .then(tbl_listas_dj_canciones => {
@@ -263,11 +263,11 @@ module.exports = {
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_listas_dj_canciones
+        tbl_listas_dj_canciones
             .destroy({
-              where: {id_lista: lista},
+              where: whereClause,
             })
-            .then(() => res.status(204).send())
+            .then((u) => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
         return res.status(200).send({
             code: '0',  
