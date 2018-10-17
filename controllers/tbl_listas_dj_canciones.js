@@ -183,7 +183,7 @@ module.exports = {
     }
 
     return tbl_listas_dj_canciones
-      .findAll( {
+      .find( {
         /*include: [{
           model: tbl_listas_dj,
           as: 'lista_dj'
@@ -205,10 +205,7 @@ module.exports = {
           .update({
               /*id_lista:req.body.id_lista,
               id_cancion: req.body.id_cancion,*/
-              num_votos: (tbl_listas_dj_canciones[0].num_votos) +1,            
-            },
-            {
-              fields:['num_votos']
+              num_votos: num_votos+1,//(tbl_listas_dj_canciones[0].num_votos) +1,            
             }
           )
           .then(() => res.status(200).send(tbl_listas_dj_canciones))
@@ -263,12 +260,12 @@ module.exports = {
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_listas_dj_canciones
-            .destroy({
-              where: whereClause,
-            })
-            .then((u) => res.status(204).send())
+        for(i=0;i<tbl_listas_dj_canciones.length;i++){
+          tbl_listas_dj_canciones[i]
+            .destroy()
+            .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
+        }
         return res.status(200).send({
             code: '0',  
             message: 'OK: Registro eliminado exitosamente',
