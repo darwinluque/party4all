@@ -104,7 +104,7 @@ module.exports = {
       .create({
         id_discoteca: req.body.id_discoteca,
         id_persona: req.body.id_persona,
-        //dtm_fecha_suscripcion: req.body.dtm_fecha_suscripcion,
+        dtm_fecha_suscripcion: new Date(),
       })
       .then((tbl_suscriptores) => res.status(201).send(tbl_suscriptores))
       .catch((error) => res.status(400).send(error));
