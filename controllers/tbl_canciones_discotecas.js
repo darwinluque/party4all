@@ -98,7 +98,7 @@ module.exports = {
         str_estado: req.body.str_estado
       })
       .then((tbl_canciones_discotecas) => res.status(201).send(tbl_canciones_discotecas))
-      .catch((error) => res.status(400).send(error));
+      .catch((error) => res.status(400).send(msgerror(error)));
   },
 
   update(req, res) {
@@ -154,3 +154,12 @@ module.exports = {
   },
 };
 
+function msgerror(error){
+  error = JSON.stringify(error);
+  if(error.includes('is not present in table "tbl_canciones"'))
+    return JSON.parse('{"code": "5", "message": "ERROR: La cancion no se ncuentra creada"}');
+  if(error.includes('is not present in table "tbl_discotecas"'))
+    return JSON.parse('{"code": "6", "message": "ERROR: La discoteca no se encuneta creada"}');
+
+  return error;
+}
