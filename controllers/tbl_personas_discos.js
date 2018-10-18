@@ -30,7 +30,7 @@ module.exports = {
       .findAll({
         include: [{
             model: tbl_discotecas,
-            as: 'discotecas'
+            as: 'discoteca'
         },{
             model: tbl_personas,
             as: 'persona'

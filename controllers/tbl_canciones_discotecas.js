@@ -157,8 +157,8 @@ module.exports = {
 function msgerror(error){
   error = JSON.stringify(error);
   if(error.includes('is not present in table \"tbl_canciones\"'))
-    return JSON.parse('{"code": "5", "message": "ERROR: La cancion no se ncuentra creada"}');
-  if(error.includes('is not present in table \\"tbl_discotecas\\"'))
+    return JSON.parse('{"code": "5", "message": "ERROR: La cancion no se encuentra creada"}');
+  if(error.includes('is not present in table \"tbl_discotecas\"'))
     return JSON.parse('{"code": "6", "message": "ERROR: La discoteca no se encuneta creada"}');
 
   return error;

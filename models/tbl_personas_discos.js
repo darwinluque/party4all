@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     tbl_personas_discos.belongsTo(models.tbl_discotecas, {
       foreignKey: 'id_discoteca', 
       targetKey: 'str_identificacion',
-      as: 'discotecas'
+      as: 'discoteca'
     });
     tbl_personas_discos.belongsTo(models.tbl_personas, {
       foreignKey: 'id_persona', 
       targetKey: 'str_num_identificacion',
-      as: 'personas'
+      as: 'persona'
     });
   };
   return tbl_personas_discos;
