@@ -213,15 +213,16 @@ module.exports = {
         }],*/
       })
       .then(tbl_listas_dj_canciones => {
-        if (!tbl_listas_dj_canciones) {
+        if (tbl_listas_dj_canciones) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
+            num_votos: tbl_listas_dj_canciones.num_votos,
           });
         }
         return tbl_listas_dj_canciones
           .update({
-            num_votos: num_votos + 1,       
+            num_votos: tbl_listas_dj_canciones.num_votos + 1,       
           })
           .then(() => res.status(200).send(tbl_listas_dj_canciones))
           .catch((error) => res.status(400).send(error));
