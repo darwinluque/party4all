@@ -29,9 +29,12 @@ module.exports = {
     return tbl_canciones
       .findAll({
         include: [{
-            model: tbl_artista,
-            as: 'artista'
-          }],
+          model: tbl_artista,
+          as: 'artista'
+        },{
+          model: tbl_parametros,
+          as: 'genero'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
