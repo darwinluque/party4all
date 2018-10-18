@@ -1,6 +1,7 @@
 const tbl_parametros = require('./tbl_parametros');
 const tbl_artista = require('./tbl_artista');
 const tbl_canciones = require('./tbl_canciones');
+const tbl_canciones_discotecas = require('./tbl_canciones_discotecas');
 const tbl_cartas = require('./tbl_cartas');
 const tbl_discotecas = require('./tbl_discotecas');
 const tbl_encuesta = require('./tbl_encuesta');
@@ -35,6 +36,7 @@ module.exports = {
     tbl_parametros,
     tbl_artista,
     tbl_canciones,
+    tbl_canciones_discotecas,
     tbl_cartas,
     tbl_discotecas,
     tbl_encuesta,

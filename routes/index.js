@@ -7,6 +7,7 @@ var service = require('../config/services');
 const tbl_parametrosController = require('../controllers').tbl_parametros;
 const tbl_artistaController = require('../controllers').tbl_artista;
 const tbl_cancionesController = require('../controllers').tbl_canciones;
+const tbl_canciones_discotecasController = require('../controllers').tbl_canciones_discotecas;
 const tbl_cartasController = require('../controllers').tbl_cartas;
 const tbl_discotecasController = require('../controllers').tbl_discotecas;
 const tbl_encuestaController = require('../controllers').tbl_encuesta;
@@ -84,6 +85,13 @@ router.get('/api/tbl_canciones/qry/:filtro', tbl_cancionesController.getFilter);
 router.post('/api/tbl_canciones', tbl_cancionesController.add); 
 router.put('/api/tbl_canciones/:id', tbl_cancionesController.update); 
 router.delete('/api/tbl_canciones/:id', tbl_cancionesController.delete); 
+
+router.get('/api/tbl_canciones_discotecas/all/', tbl_canciones_discotecasController.list); 
+router.get('/api/tbl_canciones_discotecas/id/:id', tbl_canciones_discotecasController.getById); 
+router.get('/api/tbl_canciones_discotecas/qry/:filtro', tbl_canciones_discotecasController.getFilter); 
+router.post('/api/tbl_canciones_discotecas', tbl_canciones_discotecasController.add); 
+router.put('/api/tbl_canciones_discotecas/:id', tbl_canciones_discotecasController.update); 
+router.delete('/api/tbl_canciones_discotecas/:id', tbl_canciones_discotecasController.delete); 
 
 router.get('/api/tbl_cartas/all/', tbl_cartasController.list); 
 router.get('/api/tbl_cartas/id/:id', tbl_cartasController.getById); 
