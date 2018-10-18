@@ -29,6 +29,10 @@ module.exports = {
   list(req, res) {
     return tbl_canciones_discotecas
       .findAll({
+        include: [{
+          model: tbl_canciones,
+          as: 'cancion'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -41,10 +45,10 @@ module.exports = {
   getById(req, res) {
     return tbl_canciones_discotecas
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_artista,
-            as: 'artista'
-          }],*/
+        include: [{
+          model: tbl_canciones,
+          as: 'cancion'
+        }],
       })
       .then((tbl_canciones_discotecas) => {
         if (!tbl_canciones_discotecas) {
@@ -69,10 +73,10 @@ module.exports = {
 
     return tbl_canciones_discotecas
       .findAll( {
-        /*include: [{
-          model: tbl_artista,
-          as: 'artista'
-        }],*/
+        include: [{
+          model: tbl_canciones,
+          as: 'cancion'
+        }],
         where: whereClause,
       })
       .then((tbl_canciones_discotecas) => {
@@ -104,10 +108,10 @@ module.exports = {
   update(req, res) {
     return tbl_canciones_discotecas
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_artista,
-            as: 'artista'
-          }],*/
+        include: [{
+          model: tbl_canciones,
+          as: 'cancion'
+        }],
       })
       .then(tbl_canciones_discotecas => {
         if (!tbl_canciones_discotecas) {

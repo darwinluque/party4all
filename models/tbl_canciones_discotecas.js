@@ -13,12 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'id_artista', 
       targetKey: 'id_artista',
       as: 'artista'
-    });
-    /*tbl_canciones.belongsTo(models.tbl_listas_dj_canciones, {
+    });*/
+    tbl_canciones_discotecas.belongsTo(models.tbl_canciones, {
       foreignKey: 'id_cancion', 
       targetKey: 'id_cancion',
-      as: 'lista_dj'
-    });*/
+      as: 'cancion'
+    });
   };
   return tbl_canciones_discotecas;
 };
