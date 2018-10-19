@@ -30,8 +30,8 @@ module.exports = {
     return tbl_eventos
       .findAll({
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
+          model: tbl_precios_boletas,
+          as: 'boletas'
         },{
           model: tbl_artista,
           as: 'artista'
@@ -49,8 +49,8 @@ module.exports = {
     return tbl_eventos
       .findById(req.params.id, {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
+          model: tbl_precios_boletas,
+          as: 'boletas'
         },{
           model: tbl_artista,
           as: 'artista'
@@ -84,8 +84,8 @@ module.exports = {
     return tbl_eventos
       .findAll( {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
+          model: tbl_precios_boletas,
+          as: 'boletas'
         },{
           model: tbl_artista,
           as: 'artista'
@@ -114,7 +114,6 @@ module.exports = {
         dtm_fecha: req.body.dtm_fecha,
         str_descripcion: req.body.str_descripcion,
         str_url_imagen: req.body.str_url_imagen,
-        id_evento: req.body.id_evento,
       })
       .then((tbl_eventos) => res.status(201).send(tbl_eventos))
       .catch((error) => res.status(400).send(error));
@@ -124,8 +123,8 @@ module.exports = {
     return tbl_eventos
       .findById(req.params.id, {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
+          model: tbl_precios_boletas,
+          as: 'boletas'
         },{
           model: tbl_artista,
           as: 'artista'
@@ -147,7 +146,6 @@ module.exports = {
             dtm_fecha: req.body.dtm_fecha,
             str_descripcion: req.body.str_descripcion,
             str_url_imagen: req.body.str_url_imagen,
-            id_evento: req.body.id_evento,
           })
           .then(() => res.status(200).send(tbl_eventos))
           .catch((error) => res.status(400).send(error));

@@ -94,6 +94,7 @@ module.exports = {
         str_titulo_boleta: req.body.str_titulo_boleta,
         str_descripcion: req.body.str_descripcion,
         vlr_precio: req.body.vlr_precio,
+        num_cantidad: req.body.num_cantidad,
       })
       .then((tbl_precios_boletas) => res.status(201).send(tbl_precios_boletas))
       .catch((error) => res.status(400).send(error));
@@ -120,6 +121,7 @@ module.exports = {
             str_titulo_boleta: req.body.str_titulo_boleta,
             str_descripcion: req.body.str_descripcion,
             vlr_precio: req.body.vlr_precio,
+            num_cantidad: req.body.num_cantidad,
           })
           .then(() => res.status(200).send(tbl_precios_boletas))
           .catch((error) => res.status(400).send(error));
