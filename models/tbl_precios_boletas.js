@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     id_evento: DataTypes.STRING,
     str_titulo_boleta: DataTypes.STRING,
     str_descripcion: DataTypes.STRING,
-    vlr_precio: DataTypes.DECIMAL
+    vlr_precio: DataTypes.DECIMAL,
+    num_cantidad: DataTypes.INTEGER
   }, {});
   tbl_precios_boletas.associate = function(models) {
     // associations can be defined here

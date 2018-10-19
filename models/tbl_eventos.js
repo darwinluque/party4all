@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var tbl_eventos = sequelize.define('tbl_eventos', {
-    id_evento: DataTypes.STRING,
     id_discoteca: DataTypes.STRING,
     str_titulo: DataTypes.STRING,
     id_artista: DataTypes.STRING,
@@ -12,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     str_estado: DataTypes.STRING
   }, {});
   tbl_eventos.associate = function(models) {
+    tbl_eventos.hasMany(models.tbl_precios_boletas, {
+      foreignKey: 'id_evento', 
+      sourceKey: 'id',
+      as: 'boletas'
+    });
     tbl_eventos.belongsTo(models.tbl_artista, {
       foreignKey: 'id_artista', 
       targetKey: 'id_artista',
