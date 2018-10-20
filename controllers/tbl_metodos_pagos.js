@@ -4,12 +4,12 @@ const tbl_canciones = require('../models').tbl_canciones;
 const tbl_cartas = require('../models').tbl_cartas;
 const tbl_discotecas = require('../models').tbl_discotecas;
 const tbl_encuesta = require('../models').tbl_encuesta;
-const tbl_encuesta_votos = require('../models').tbl_encuesta_votos;
 const tbl_eventos = require('../models').tbl_eventos;
 const tbl_funcionarios = require('../models').tbl_funcionarios;
 const tbl_generos_fav = require('../models').tbl_generos_fav;
 const tbl_listas = require('../models').tbl_listas;
 const tbl_mesas = require('../models').tbl_mesas;
+const tbl_metodos_pagos = require('../models').tbl_metodos_pagos;
 const tbl_pedidos = require('../models').tbl_pedidos;
 const tbl_personas = require('../models').tbl_personas;
 const tbl_personas_discoteca = require('../models').tbl_personas_discoteca;
@@ -24,54 +24,39 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
-
 module.exports = {
   list(req, res) {
-    return tbl_encuesta
+    return tbl_metodos_pagos
       .findAll({
-          include: [{
-            model: tbl_discotecas,
-            as: 'discoteca'
-          },{
-            model: tbl_encuesta_votos,
-            include: [{
-              model: tbl_artista,
-              as: 'artistas'
-            }],
-            as: 'votos'
-          }],
+        include: [{
+          model: tbl_parametros,
+          as: 'metodo_pago'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
         ],
       })
-      .then((tbl_encuesta) => res.status(200).send(tbl_encuesta))
+      .then((tbl_metodos_pagos) => res.status(200).send(tbl_metodos_pagos))
       .catch((error) => { res.status(400).send(error); });
   },
 
   getById(req, res) {
-    return tbl_encuesta
+    return tbl_metodos_pagos
       .findById(req.params.id, {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
-        },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
+          model: tbl_parametros,
+          as: 'metodo_pago'
         }],
       })
-      .then((tbl_encuesta) => {
-        if (!tbl_encuesta) {
+      .then((tbl_metodos_pagos) => {
+        if (!tbl_metodos_pagos) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_encuesta);
+        return res.status(200).send(tbl_metodos_pagos);
       })
       .catch((error) => res.status(400).send(error));
   },
@@ -85,91 +70,73 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
-    return tbl_encuesta
+    return tbl_metodos_pagos
       .findAll( {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
-        },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
+          model: tbl_parametros,
+          as: 'metodo_pago'
         }],
         where: whereClause,
       })
-      .then((tbl_encuesta) => {
-        if (!tbl_encuesta) {
+      .then((tbl_metodos_pagos) => {
+        if (!tbl_metodos_pagos) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_encuesta);
+        return res.status(200).send(tbl_metodos_pagos);
       })
       .catch((error) => { res.status(400).send(error); });
   },
 
   add(req, res) {
-    return tbl_encuesta
+    return tbl_metodos_pagos
       .create({
-            id_discoteca: req.body.id_discoteca,
-            str_titulo: req.body.str_titulo,
-            str_pregunta: req.body.str_pregunta,
-            str_url_imagen: req.body.str_url_imagen, 
+        id_discoteca: req.body.id_discoteca,
+        id_metodo: req.body.id_metodo,   
       })
-      .then((tbl_encuesta) => res.status(201).send(tbl_encuesta))
+      .then((tbl_metodos_pagos) => res.status(201).send(tbl_metodos_pagos))
       .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
-    return tbl_encuesta
+    return tbl_metodos_pagos
       .findById(req.params.id, {
-        include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
-        },{
-          model: tbl_encuesta_votos,
           include: [{
-            model: tbl_artista,
-            as: 'artistas'
+            model: tbl_parametros,
+            as: 'metodo_pago'
           }],
-          as: 'votos'
-        }],
       })
-      .then(tbl_encuesta => {
-        if (!tbl_encuesta) {
+      .then(tbl_metodos_pagos => {
+        if (!tbl_metodos_pagos) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_encuesta
+        return tbl_metodos_pagos
           .update({
             id_discoteca: req.body.id_discoteca,
-            str_titulo: req.body.str_titulo,
-            str_pregunta: req.body.str_pregunta,
-            str_url_imagen: req.body.str_url_imagen, 
+            id_metodo: req.body.id_metodo,  
           })
-          .then(() => res.status(200).send(tbl_encuesta))
+          .then(() => res.status(200).send(tbl_metodos_pagos))
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
   },
 
   delete(req, res) {
-    return tbl_encuesta
+    return tbl_metodos_pagos
       .findById(req.params.id)
-      .then(tbl_encuesta => {
-        if (!tbl_encuesta) {
+      .then(tbl_metodos_pagos => {
+        if (!tbl_metodos_pagos) {
           return res.status(400).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_encuesta
+        tbl_metodos_pagos
             .destroy()
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));

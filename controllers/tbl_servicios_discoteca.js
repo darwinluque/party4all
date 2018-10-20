@@ -98,7 +98,7 @@ module.exports = {
       .create({
         id_discoteca: req.body.id_discoteca,
         id_servicio: req.body.id_servicio,
-        dtm_fecha_servicio: req.body.dtm_fecha_servicio,
+        str_descripcion: req.body.str_descripcion,
       })
       .then((tbl_servicios_discoteca) => res.status(201).send(tbl_servicios_discoteca))
       .catch((error) => res.status(400).send(error));
@@ -126,7 +126,7 @@ module.exports = {
           .update({
             id_discoteca: req.body.id_discoteca,
             id_servicio: req.body.id_servicio,
-            dtm_fecha_servicio: req.body.dtm_fecha_servicio,
+            str_descripcion: req.body.str_descripcion,
           })
           .then(() => res.status(200).send(tbl_servicios_discoteca))
           .catch((error) => res.status(400).send(error));

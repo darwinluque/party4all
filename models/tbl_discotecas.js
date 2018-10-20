@@ -53,6 +53,32 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: 'str_identificacion',
       as: 'eventos'      
     });
+
+    tbl_discotecas.hasMany(models.tbl_galeria, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'galeria'      
+    });
+    tbl_discotecas.hasMany(models.tbl_servicios_discoteca, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'servicios'      
+    });
+    tbl_discotecas.hasMany(models.tbl_funcionarios, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'funcionarios'      
+    });
+    tbl_discotecas.hasMany(models.tbl_metodos_pagos, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'metodos_pago'      
+    });
+    tbl_discotecas.hasMany(models.tbl_encuesta, {
+      foreignKey: 'id_discoteca',
+      sourceKey: 'str_identificacion',
+      as: 'encuestas'      
+    });
     tbl_discotecas.belongsTo(models.tbl_parametros, {
       foreignKey: 'id_vestuario', 
       targetKey: 'str_valor',

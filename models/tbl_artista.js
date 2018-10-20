@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     id_genero: DataTypes.STRING    
   }, {});
   tbl_artista.associate = function(models) {
-    tbl_artista.hasMany(models.tbl_canciones, {
+    /*tbl_artista.hasMany(models.tbl_canciones, {
       foreignKey: 'id_artista', 
       sourceKey: 'id_artista',
       as: 'canciones'
@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     tbl_artista.hasMany(models.tbl_canciones, {
       foreignKey: 'id_artista', 
       sourceKey: 'id_artista',
-      as: 'evenctos'
+      as: 'eventos'
     });
-    tbl_artista.hasMany(models.tbl_encuesta, {
+    tbl_artista.hasMany(models.tbl_encuesta_votos, {
       foreignKey: 'id_artista', 
       sourceKey: 'id_artista',
       as: 'encuestas'
-    });
+    });*/
     tbl_artista.belongsTo(models.tbl_parametros, {
       foreignKey: 'id_genero', 
       targetKey: 'str_valor',

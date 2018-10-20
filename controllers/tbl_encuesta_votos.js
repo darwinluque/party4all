@@ -27,51 +27,43 @@ const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
 module.exports = {
   list(req, res) {
-    return tbl_encuesta
+    return tbl_encuesta_votos
       .findAll({
           include: [{
-            model: tbl_discotecas,
-            as: 'discoteca'
+            model: tbl_encuesta,
+            as: 'encuestas'
           },{
-            model: tbl_encuesta_votos,
-            include: [{
-              model: tbl_artista,
-              as: 'artistas'
-            }],
-            as: 'votos'
+            model: tbl_artista,
+            as: 'artistas'
           }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
         ],
       })
-      .then((tbl_encuesta) => res.status(200).send(tbl_encuesta))
+      .then((tbl_encuesta_votos) => res.status(200).send(tbl_encuesta_votos))
       .catch((error) => { res.status(400).send(error); });
   },
 
   getById(req, res) {
-    return tbl_encuesta
+    return tbl_encuesta_votos
       .findById(req.params.id, {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
+          model: tbl_encuesta,
+          as: 'encuestas'
         },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
+          model: tbl_artista,
+          as: 'artistas'
         }],
       })
-      .then((tbl_encuesta) => {
-        if (!tbl_encuesta) {
+      .then((tbl_encuesta_votos) => {
+        if (!tbl_encuesta_votos) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_encuesta);
+        return res.status(200).send(tbl_encuesta_votos);
       })
       .catch((error) => res.status(400).send(error));
   },
@@ -85,91 +77,83 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
-    return tbl_encuesta
+    return tbl_encuesta_votos
       .findAll( {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
+          model: tbl_encuesta,
+          as: 'encuestas'
         },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
+          model: tbl_artista,
+          as: 'artistas'
         }],
         where: whereClause,
       })
-      .then((tbl_encuesta) => {
-        if (!tbl_encuesta) {
+      .then((tbl_encuesta_votos) => {
+        if (!tbl_encuesta_votos) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_encuesta);
+        return res.status(200).send(tbl_encuesta_votos);
       })
       .catch((error) => { res.status(400).send(error); });
   },
 
   add(req, res) {
-    return tbl_encuesta
+    return tbl_encuesta_votos
       .create({
-            id_discoteca: req.body.id_discoteca,
-            str_titulo: req.body.str_titulo,
-            str_pregunta: req.body.str_pregunta,
-            str_url_imagen: req.body.str_url_imagen, 
+        id_encuesta: req.body.id_encuesta,
+        id_artista: req.body.id_artista,
+        num_votos: req.body.num_votos,
+        str_url_imagen: req.body.str_url_imagen,
       })
-      .then((tbl_encuesta) => res.status(201).send(tbl_encuesta))
+      .then((tbl_encuesta_votos) => res.status(201).send(tbl_encuesta_votos))
       .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
-    return tbl_encuesta
+    return tbl_encuesta_votos
       .findById(req.params.id, {
         include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
+          model: tbl_encuesta,
+          as: 'encuestas'
         },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
+          model: tbl_artista,
+          as: 'artistas'
         }],
       })
-      .then(tbl_encuesta => {
-        if (!tbl_encuesta) {
+      .then(tbl_encuesta_votos => {
+        if (!tbl_encuesta_votos) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_encuesta
+        return tbl_encuesta_votos
           .update({
-            id_discoteca: req.body.id_discoteca,
-            str_titulo: req.body.str_titulo,
-            str_pregunta: req.body.str_pregunta,
+            id_encuesta: req.body.id_encuesta,
+            id_artista: req.body.id_artista,
+            num_votos: req.body.num_votos,
             str_url_imagen: req.body.str_url_imagen, 
           })
-          .then(() => res.status(200).send(tbl_encuesta))
+          .then(() => res.status(200).send(tbl_encuesta_votos))
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
   },
 
   delete(req, res) {
-    return tbl_encuesta
+    return tbl_encuesta_votos
       .findById(req.params.id)
-      .then(tbl_encuesta => {
-        if (!tbl_encuesta) {
+      .then(tbl_encuesta_votos => {
+        if (!tbl_encuesta_votos) {
           return res.status(400).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_encuesta
+        tbl_encuesta_votos
             .destroy()
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
@@ -179,6 +163,36 @@ module.exports = {
         });
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
+  },
+
+  votar(req, res) {
+    var votos_actuales = 0;
+    return tbl_encuesta_votos
+      .findById(req.params.id, {
+        include: [{
+          model: tbl_encuesta,
+          as: 'encuestas'
+        },{
+          model: tbl_artista,
+          as: 'artistas'
+        }],
+      })
+      .then(tbl_encuesta_votos => {
+        if (!tbl_encuesta_votos) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        votos_actuales = tbl_encuesta_votos.num_votos;
+        return tbl_encuesta_votos
+          .update({
+            num_votos: votos_actuales + 1,       
+          })
+          .then(() => res.status(200).send(tbl_encuesta_votos))
+          .catch((error) => res.status(400).send(error));
+      })
+      .catch((error) => res.status(400).send(error));
   },
 };
 

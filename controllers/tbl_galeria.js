@@ -4,9 +4,9 @@ const tbl_canciones = require('../models').tbl_canciones;
 const tbl_cartas = require('../models').tbl_cartas;
 const tbl_discotecas = require('../models').tbl_discotecas;
 const tbl_encuesta = require('../models').tbl_encuesta;
-const tbl_encuesta_votos = require('../models').tbl_encuesta_votos;
 const tbl_eventos = require('../models').tbl_eventos;
 const tbl_funcionarios = require('../models').tbl_funcionarios;
+const tbl_galeria = require('../models').tbl_galeria;
 const tbl_generos_fav = require('../models').tbl_generos_fav;
 const tbl_listas = require('../models').tbl_listas;
 const tbl_mesas = require('../models').tbl_mesas;
@@ -24,54 +24,39 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
-
 module.exports = {
   list(req, res) {
-    return tbl_encuesta
+    return tbl_galeria
       .findAll({
-          include: [{
+        /*include: [{
             model: tbl_discotecas,
-            as: 'discoteca'
-          },{
-            model: tbl_encuesta_votos,
-            include: [{
-              model: tbl_artista,
-              as: 'artistas'
-            }],
-            as: 'votos'
-          }],
+            as: 'discotecas'
+          }],*/
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
         ],
       })
-      .then((tbl_encuesta) => res.status(200).send(tbl_encuesta))
+      .then((tbl_galeria) => res.status(200).send(tbl_galeria))
       .catch((error) => { res.status(400).send(error); });
   },
 
   getById(req, res) {
-    return tbl_encuesta
+    return tbl_galeria
       .findById(req.params.id, {
-        include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
-        },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
-        }],
+        /*include: [{
+            model: tbl_discotecas,
+            as: 'discotecas'
+          }],*/
       })
-      .then((tbl_encuesta) => {
-        if (!tbl_encuesta) {
+      .then((tbl_galeria) => {
+        if (!tbl_galeria) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_encuesta);
+        return res.status(200).send(tbl_galeria);
       })
       .catch((error) => res.status(400).send(error));
   },
@@ -85,91 +70,72 @@ module.exports = {
         whereClause[datos[0]] = datos[1];
     }
 
-    return tbl_encuesta
+    return tbl_galeria
       .findAll( {
-        include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
-        },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
-        }],
+        // ACA VAN LOS INCLUDES PARA RELACION
         where: whereClause,
       })
-      .then((tbl_encuesta) => {
-        if (!tbl_encuesta) {
+      .then((tbl_galeria) => {
+        if (!tbl_galeria) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return res.status(200).send(tbl_encuesta);
+        return res.status(200).send(tbl_galeria);
       })
       .catch((error) => { res.status(400).send(error); });
   },
 
   add(req, res) {
-    return tbl_encuesta
+    return tbl_galeria
       .create({
-            id_discoteca: req.body.id_discoteca,
-            str_titulo: req.body.str_titulo,
-            str_pregunta: req.body.str_pregunta,
-            str_url_imagen: req.body.str_url_imagen, 
+        id_discoteca: req.body.id_discoteca,
+        str_url_imagen: req.body.str_url_imagen,   
+        str_titulo: req.body.str_titulo, 
       })
-      .then((tbl_encuesta) => res.status(201).send(tbl_encuesta))
+      .then((tbl_galeria) => res.status(201).send(tbl_galeria))
       .catch((error) => res.status(400).send(error));
   },
 
   update(req, res) {
-    return tbl_encuesta
+    return tbl_galeria
       .findById(req.params.id, {
-        include: [{
-          model: tbl_discotecas,
-          as: 'discoteca'
-        },{
-          model: tbl_encuesta_votos,
-          include: [{
-            model: tbl_artista,
-            as: 'artistas'
-          }],
-          as: 'votos'
-        }],
+        /*include: [{
+            model: tbl_discotecas,
+            as: 'discotecas'
+          }],*/
       })
-      .then(tbl_encuesta => {
-        if (!tbl_encuesta) {
+      .then(tbl_galeria => {
+        if (!tbl_galeria) {
           return res.status(404).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        return tbl_encuesta
+        return tbl_galeria
           .update({
             id_discoteca: req.body.id_discoteca,
-            str_titulo: req.body.str_titulo,
-            str_pregunta: req.body.str_pregunta,
-            str_url_imagen: req.body.str_url_imagen, 
+            str_url_imagen: req.body.str_url_imagen,   
+            str_titulo: req.body.str_titulo,   
           })
-          .then(() => res.status(200).send(tbl_encuesta))
+          .then(() => res.status(200).send(tbl_galeria))
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
   },
 
   delete(req, res) {
-    return tbl_encuesta
+    return tbl_galeria
       .findById(req.params.id)
-      .then(tbl_encuesta => {
-        if (!tbl_encuesta) {
+      .then(tbl_galeria => {
+        if (!tbl_galeria) {
           return res.status(400).send({
             code: '1',  
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_encuesta
+        tbl_galeria
             .destroy()
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));

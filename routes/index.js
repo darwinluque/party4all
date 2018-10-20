@@ -11,8 +11,10 @@ const tbl_canciones_discotecasController = require('../controllers').tbl_cancion
 const tbl_cartasController = require('../controllers').tbl_cartas;
 const tbl_discotecasController = require('../controllers').tbl_discotecas;
 const tbl_encuestaController = require('../controllers').tbl_encuesta;
+const tbl_encuesta_votosController = require('../controllers').tbl_encuesta_votos;
 const tbl_eventosController = require('../controllers').tbl_eventos;
 const tbl_funcionariosController = require('../controllers').tbl_funcionarios;
+const tbl_galeriaController = require('../controllers').tbl_galeria;
 const tbl_generos_favController = require('../controllers').tbl_generos_fav;
 const tbl_listasController = require('../controllers').tbl_listas;
 const tbl_listas_peticionesController = require('../controllers').tbl_listas_peticiones;
@@ -20,6 +22,7 @@ const tbl_listas_djController = require('../controllers').tbl_listas_dj;
 const tbl_listas_dj_cancionesController = require('../controllers').tbl_listas_dj_canciones;
 const tbl_mesasController = require('../controllers').tbl_mesas;
 const tbl_mensajesController = require('../controllers').tbl_mensajes;
+const tbl_metodos_pagosController = require('../controllers').tbl_metodos_pagos;
 const tbl_pedidosController = require('../controllers').tbl_pedidos;
 const tbl_personasController = require('../controllers').tbl_personas;
 const tbl_personas_discosController = require('../controllers').tbl_personas_discos;
@@ -115,6 +118,14 @@ router.post('/api/tbl_encuesta', tbl_encuestaController.add);
 router.put('/api/tbl_encuesta/:id', tbl_encuestaController.update); 
 router.delete('/api/tbl_encuesta/:id', tbl_encuestaController.delete); 
 
+router.get('/api/tbl_encuesta_votos/all/', tbl_encuesta_votosController.list); 
+router.get('/api/tbl_encuesta_votos/id/:id', tbl_encuesta_votosController.getById); 
+router.get('/api/tbl_encuesta_votos/qry/:filtro', tbl_encuesta_votosController.getFilter); 
+router.post('/api/tbl_encuesta_votos', tbl_encuesta_votosController.add); 
+router.put('/api/tbl_encuesta_votos/up/:id', tbl_encuesta_votosController.update); 
+router.put('/api/tbl_encuesta_votos/votar/:id', tbl_encuesta_votosController.votar); 
+router.delete('/api/tbl_encuesta_votos/:id', tbl_encuesta_votosController.delete); 
+
 router.get('/api/tbl_eventos/all/', tbl_eventosController.list); 
 router.get('/api/tbl_eventos/id/:id', tbl_eventosController.getById); 
 router.get('/api/tbl_eventos/qry/:filtro', tbl_eventosController.getFilter); 
@@ -128,6 +139,13 @@ router.get('/api/tbl_funcionarios/qry/:filtro', tbl_funcionariosController.getFi
 router.post('/api/tbl_funcionarios', tbl_funcionariosController.add); 
 router.put('/api/tbl_funcionarios/:id', tbl_funcionariosController.update); 
 router.delete('/api/tbl_funcionarios/:id', tbl_funcionariosController.delete); 
+
+router.get('/api/tbl_galeria/all/', tbl_galeriaController.list); 
+router.get('/api/tbl_galeria/id/:id', tbl_galeriaController.getById); 
+router.get('/api/tbl_galeria/qry/:filtro', tbl_galeriaController.getFilter); 
+router.post('/api/tbl_galeria', tbl_galeriaController.add); 
+router.put('/api/tbl_galeria/:id', tbl_galeriaController.update); 
+router.delete('/api/tbl_galeria/:id', tbl_galeriaController.delete); 
 
 router.get('/api/tbl_generos_fav/all/', tbl_generos_favController.list); 
 router.get('/api/tbl_generos_fav/id/:id', tbl_generos_favController.getById); 
@@ -167,7 +185,6 @@ router.post('/api/tbl_listas_dj_canciones', tbl_listas_dj_cancionesController.ad
 router.put('/api/tbl_listas_dj_canciones/up/:id', tbl_listas_dj_cancionesController.update); 
 router.put('/api/tbl_listas_dj_canciones/upst/:id', tbl_listas_dj_cancionesController.updateEstado); 
 router.put('/api/tbl_listas_dj_canciones/votar/:id', tbl_listas_dj_cancionesController.votar); 
-router.post('/api/tbl_listas_dj_canciones/votar1/:filtro', tbl_listas_dj_cancionesController.votar); 
 router.delete('/api/tbl_listas_dj_canciones/:id', tbl_listas_dj_cancionesController.delete); 
 router.delete('/api/tbl_listas_dj_canciones/rem/:filtro', tbl_listas_dj_cancionesController.deleteAll); 
 router.get('/api/tbl_listas_dj_canciones/view/:filtro', tbl_listas_dj_cancionesController.view); 
@@ -185,6 +202,13 @@ router.get('/api/tbl_mensajes/qry/:filtro', tbl_mensajesController.getFilter);
 router.post('/api/tbl_mensajes', tbl_mensajesController.add); 
 router.put('/api/tbl_mensajes/:id', tbl_mensajesController.update); 
 router.delete('/api/tbl_mensajes/:id', tbl_mensajesController.delete); 
+
+router.get('/api/tbl_metodos_pagos/all/', tbl_metodos_pagosController.list); 
+router.get('/api/tbl_metodos_pagos/id/:id', tbl_metodos_pagosController.getById); 
+router.get('/api/tbl_metodos_pagos/qry/:filtro', tbl_metodos_pagosController.getFilter); 
+router.post('/api/tbl_metodos_pagos', tbl_metodos_pagosController.add); 
+router.put('/api/tbl_metodos_pagos/:id', tbl_metodos_pagosController.update); 
+router.delete('/api/tbl_metodos_pagos/:id', tbl_metodos_pagosController.delete); 
 
 router.get('/api/tbl_pedidos/all/', tbl_pedidosController.list); 
 router.get('/api/tbl_pedidos/id/:id', tbl_pedidosController.getById); 
