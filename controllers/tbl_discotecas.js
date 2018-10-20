@@ -4,6 +4,7 @@ const tbl_canciones = require('../models').tbl_canciones;
 const tbl_cartas = require('../models').tbl_cartas;
 const tbl_discotecas = require('../models').tbl_discotecas;
 const tbl_encuesta = require('../models').tbl_encuesta;
+const tbl_encuesta_votos = require('../models').tbl_encuesta_votos;
 const tbl_eventos = require('../models').tbl_eventos;
 const tbl_funcionarios = require('../models').tbl_funcionarios;
 const tbl_generos_fav = require('../models').tbl_generos_fav;
