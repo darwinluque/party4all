@@ -36,7 +36,7 @@ module.exports = {
             as: 'persona'
         },{
             model: tbl_parametros,
-            as: 'tipos_pqr'
+            as: 'tipo_pqr'
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -58,7 +58,7 @@ module.exports = {
             as: 'persona'
         },{
             model: tbl_parametros,
-            as: 'tipos_pqr'
+            as: 'tipo_pqr'
         }],
       })
       .then((tbl_pqrs) => {
@@ -92,7 +92,7 @@ module.exports = {
           as: 'persona'
       },{
           model: tbl_parametros,
-          as: 'tipos_pqr'
+          as: 'tipo_pqr'
       }],
         where: whereClause,
       })
@@ -131,7 +131,7 @@ module.exports = {
           as: 'persona'
       },{
           model: tbl_parametros,
-          as: 'tipos_pqr'
+          as: 'tipo_pqr'
       }],
       })
       .then(tbl_pqrs => {

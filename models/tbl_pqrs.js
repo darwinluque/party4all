@@ -8,7 +8,21 @@ module.exports = (sequelize, DataTypes) => {
     str_respuesta: DataTypes.STRING,
   }, {});
   tbl_pqrs.associate = function(models) {
-    // associations can be defined here
+    tbl_pqrs.belongsTo(models.tbl_discotecas, {
+      foreignKey: 'id_discoteca', 
+      targetKey: 'str_identificacion',
+      as: 'discoteca'
+    });
+    tbl_pqrs.belongsTo(models.tbl_personas, {
+      foreignKey: 'id_persona', 
+      targetKey: 'str_num_identificacion',
+      as: 'persona'
+    });
+    tbl_pqrs.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_tipo_pqr', 
+      targetKey: 'str_valor',
+      as: 'tipo_pqr'
+    });
   };
   return tbl_pqrs;
 };

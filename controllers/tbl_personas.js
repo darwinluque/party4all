@@ -90,6 +90,13 @@ module.exports = {
           model: tbl_generos_fav,
           as: 'generos_favoritos'
         },{
+          model: tbl_pqrs,
+          include: [{
+              model: tbl_parametros,
+              as: 'tipo_pqr'
+          }],
+          as: 'pqrs'
+        },{
           model: tbl_parametros,
           as: 'genero'
         },{
@@ -141,6 +148,9 @@ module.exports = {
           model: tbl_generos_fav,
           as: 'generos_favoritos'
         },{
+          model: tbl_pqrs,
+          as: 'pqrs'
+        },{
           model: tbl_parametros,
           as: 'genero'
         },{
@@ -183,6 +193,9 @@ module.exports = {
         },{
           model: tbl_generos_fav,
           as: 'generos_favoritos'
+        },{
+          model: tbl_pqrs,
+          as: 'pqrs'
         },{
           model: tbl_parametros,
           as: 'genero'
@@ -281,6 +294,9 @@ module.exports = {
         },{
           model: tbl_generos_fav,
           as: 'generos_favoritos'
+        },{
+          model: tbl_pqrs,
+          as: 'pqrs'
         },{
           model: tbl_parametros,
           as: 'genero'

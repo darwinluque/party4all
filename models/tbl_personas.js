@@ -32,6 +32,11 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: 'str_num_identificacion',
       as: 'generos_favoritos'
     });
+    tbl_personas.hasMany(models.tbl_pqrs, {
+      foreignKey: 'id_persona', 
+      sourceKey: 'str_num_identificacion',
+      as: 'pqrs'
+    });
     tbl_personas.belongsTo(models.tbl_parametros, {
       foreignKey: 'id_genero_sexo', 
       targetKey: 'str_valor',
