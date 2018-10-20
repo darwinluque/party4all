@@ -28,13 +28,13 @@ module.exports = {
   list(req, res) {
     return tbl_servicios_discoteca
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_parametros,
-            as: 'servicios'
+            as: 'servicio'
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discoteca'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +47,13 @@ module.exports = {
   getById(req, res) {
     return tbl_servicios_discoteca
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_parametros,
-            as: 'servicios'
+            as: 'servicio'
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discoteca'
+        }],
       })
       .then((tbl_servicios_discoteca) => {
         if (!tbl_servicios_discoteca) {
@@ -78,7 +78,13 @@ module.exports = {
 
     return tbl_servicios_discoteca
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+            model: tbl_parametros,
+            as: 'servicio'
+        },{
+            model: tbl_discotecas,
+            as: 'discoteca'
+        }],
         where: whereClause,
       })
       .then((tbl_servicios_discoteca) => {
@@ -107,13 +113,13 @@ module.exports = {
   update(req, res) {
     return tbl_servicios_discoteca
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_parametros,
-            as: 'servicios'
+            as: 'servicio'
         },{
             model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+            as: 'discoteca'
+        }],
       })
       .then(tbl_servicios_discoteca => {
         if (!tbl_servicios_discoteca) {

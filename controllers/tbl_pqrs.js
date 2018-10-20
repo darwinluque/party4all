@@ -28,16 +28,16 @@ module.exports = {
   list(req, res) {
     return tbl_pqrs
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_discotecas,
-            as: 'discotecas'
+            as: 'discoteca'
         },{
             model: tbl_personas,
-            as: 'personas'
+            as: 'persona'
         },{
             model: tbl_parametros,
             as: 'tipos_pqr'
-        }],*/
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -50,16 +50,16 @@ module.exports = {
   getById(req, res) {
     return tbl_pqrs
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_discotecas,
-            as: 'discotecas'
+            as: 'discoteca'
         },{
             model: tbl_personas,
-            as: 'personas'
+            as: 'persona'
         },{
             model: tbl_parametros,
             as: 'tipos_pqr'
-        }],*/
+        }],
       })
       .then((tbl_pqrs) => {
         if (!tbl_pqrs) {
@@ -84,7 +84,16 @@ module.exports = {
 
     return tbl_pqrs
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+      },{
+          model: tbl_personas,
+          as: 'persona'
+      },{
+          model: tbl_parametros,
+          as: 'tipos_pqr'
+      }],
         where: whereClause,
       })
       .then((tbl_pqrs) => {
@@ -106,7 +115,6 @@ module.exports = {
         id_persona: req.body.id_persona,
         id_tipo_pqr: req.body.id_tipo_pqr,
         str_descripcion: req.body.str_descripcion,
-        dtm_fecha_pqr: req.body.dtm_fecha_pqr,
       })
       .then((tbl_pqrs) => res.status(201).send(tbl_pqrs))
       .catch((error) => res.status(400).send(error));
@@ -115,16 +123,16 @@ module.exports = {
   update(req, res) {
     return tbl_pqrs
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        },{
-            model: tbl_personas,
-            as: 'personas'
-        },{
-            model: tbl_parametros,
-            as: 'tipos_pqr'
-        }],*/
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+      },{
+          model: tbl_personas,
+          as: 'persona'
+      },{
+          model: tbl_parametros,
+          as: 'tipos_pqr'
+      }],
       })
       .then(tbl_pqrs => {
         if (!tbl_pqrs) {
@@ -139,7 +147,7 @@ module.exports = {
             id_persona: req.body.id_persona,
             id_tipo_pqr: req.body.id_tipo_pqr,
             str_descripcion: req.body.str_descripcion,
-            dtm_fecha_pqr: req.body.dtm_fecha_pqr,
+            str_respuesta: req.body.str_respuesta,
           })
           .then(() => res.status(200).send(tbl_pqrs))
           .catch((error) => res.status(400).send(error));

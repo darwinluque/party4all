@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     id_discoteca: DataTypes.STRING,
     id_tipo_pqr: DataTypes.STRING,
     str_descripcion: DataTypes.STRING,
-    dtm_fecha_pqr: DataTypes.DATE
+    str_respuesta: DataTypes.STRING,
   }, {});
   tbl_pqrs.associate = function(models) {
     // associations can be defined here

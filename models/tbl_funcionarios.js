@@ -9,10 +9,21 @@ module.exports = (sequelize, DataTypes) => {
     str_primer_apellido: DataTypes.STRING,
     str_segundo_apellido: DataTypes.STRING,
     str_email: DataTypes.STRING,
-    str_token: DataTypes.STRING
+    str_token: DataTypes.STRING,
+    usuario: DataTypes.STRING,
+    dtm_fecha_nacimiento: DataTypes.DATE
   }, {});
   tbl_funcionarios.associate = function(models) {
-    // associations can be defined here
+    tbl_funcionarios.belongsTo(models.tbl_discotecas, {
+      foreignKey: 'id_discoteca', 
+      targetKey: 'str_identificacion',
+      as: 'discoteca'
+    });
+    tbl_funcionarios.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_rol', 
+      targetKey: 'str_valor',
+      as: 'rol'
+    });
   };
   return tbl_funcionarios;
 };

@@ -28,13 +28,13 @@ module.exports = {
   list(req, res) {
     return tbl_funcionarios
       .findAll({
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-          },{
-            model: tbl_parametros,
-            as: 'roles'
-          }],*/
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_parametros,
+          as: 'rol'
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -47,13 +47,13 @@ module.exports = {
   getById(req, res) {
     return tbl_funcionarios
       .findById(req.params.id, {
-        /*include: [{
+          include: [{
             model: tbl_discotecas,
-            as: 'discotecas'
+            as: 'discoteca'
           },{
             model: tbl_parametros,
-            as: 'roles'
-          }],*/
+            as: 'rol'
+          }],
       })
       .then((tbl_funcionarios) => {
         if (!tbl_funcionarios) {
@@ -78,7 +78,13 @@ module.exports = {
 
     return tbl_funcionarios
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_parametros,
+          as: 'rol'
+        }],
         where: whereClause,
       })
       .then((tbl_funcionarios) => {
@@ -98,11 +104,13 @@ module.exports = {
       .create({
         id_discoteca: req.body.id_discoteca,
         id_rol: req.body.id_rol,
-        num_votos: req.body.num_votos,
+        str_identificacion: req.body.str_identificacion,
+        usuario: req.body.usuario,
         str_primer_nombre: req.body.str_primer_nombre,
         str_segundo_nombre: req.body.str_segundo_nombre,
         str_primer_apellido: req.body.str_primer_apellido,
         str_segundo_apellido: req.body.str_segundo_apellido,
+        dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
         str_email: req.body.str_email,
         str_token: req.body.str_token,
       })
@@ -113,13 +121,13 @@ module.exports = {
   update(req, res) {
     return tbl_funcionarios
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_discotecas,
-            as: 'discotecas'
-          },{
-            model: tbl_parametros,
-            as: 'roles'
-          }],*/
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        },{
+          model: tbl_parametros,
+          as: 'rol'
+        }],
       })
       .then(tbl_funcionarios => {
         if (!tbl_funcionarios) {
@@ -132,11 +140,13 @@ module.exports = {
           .update({
             id_discoteca: req.body.id_discoteca,
             id_rol: req.body.id_rol,
-            num_votos: req.body.num_votos,
+            str_identificacion: req.body.str_identificacion,
+            usuario: req.body.usuario,
             str_primer_nombre: req.body.str_primer_nombre,
             str_segundo_nombre: req.body.str_segundo_nombre,
             str_primer_apellido: req.body.str_primer_apellido,
             str_segundo_apellido: req.body.str_segundo_apellido,
+            dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
             str_email: req.body.str_email,
             str_token: req.body.str_token,
           })

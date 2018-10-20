@@ -53,6 +53,10 @@ module.exports = {
             as: 'galeria'
           },{
             model: tbl_servicios_discoteca,
+            include: [{
+              model: tbl_parametros,
+              as: 'servicio'
+            }],
             as: 'servicios'
           },{
             model: tbl_funcionarios,
@@ -367,6 +371,10 @@ module.exports = {
             as: 'servicios'
           },{
             model: tbl_funcionarios,
+            include: [{
+              model: tbl_parametros,
+              as: 'rol'
+            }],
             as: 'funcionarios'
           },{
             model: tbl_metodos_pagos,
