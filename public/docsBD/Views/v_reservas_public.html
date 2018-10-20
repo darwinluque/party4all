@@ -1,0 +1,270 @@
+<HTML>
+<HEAD>
+<TITLE>View v_reservas</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<LINK HREF="../HTMLReport.css" type=text/css rel=STYLESHEET>
+</HEAD>
+<BODY>
+<DIV ID="nsbanner">
+  <DIV ID="bannerrow1">
+    <TABLE CLASS="bannerparthead" CELLSPACING=0>
+      <TR ID="hdr" VALIGN="middle">
+        <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku</pre></TD>
+                <TD ALIGN="left" WIDTH="54px" NOWRAP>
+          <A HREF="Index.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+          <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
+          <A HREF="Index.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
+        </TD>
+      </TR>
+    </TABLE>
+  </DIV>
+  <DIV ID="TitleRow">
+    <P CLASS="dtH1">View: v_reservas</P>
+  </DIV>
+</DIV>
+<P CLASS="Base">&nbsp;</P>
+<P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Schema</P>
+<P CLASS="Base"><A HREF="../Schemas/public.html">public</A></P>
+<P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Owner</P>
+<P CLASS="Base">cjjjqdwqfnvhdw</P>
+<P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Descriptions</P>
+<P CLASS="Base">There is no description for view v_reservas</P>
+<P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Fields</P>
+<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
+<TH WIDTH="1%"><P CLASS="Base2"><B>Name</B></P>
+<TH WIDTH="1%"><P CLASS="Base2"><B>Data type</B></P>
+<TH WIDTH="2%"><P CLASS="Base2"><B>Description</B></P>
+<TR>
+<TD><P CLASS="Base2">id</P></TD>
+<TD><P CLASS="Base2">integer</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_id_persona</P></TD>
+<TD><P CLASS="Base2">varchar(15)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_id_discoteca</P></TD>
+<TD><P CLASS="Base2">varchar(15)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_dtm_fecha_reserva</P></TD>
+<TD><P CLASS="Base2">timestamptz</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_str_hora</P></TD>
+<TD><P CLASS="Base2">varchar(255)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_num_cantidad_personas</P></TD>
+<TD><P CLASS="Base2">integer</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_str_motivo</P></TD>
+<TD><P CLASS="Base2">varchar</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_servicio_decoracion</P></TD>
+<TD><P CLASS="Base2">varchar</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_id_reserva</P></TD>
+<TD><P CLASS="Base2">varchar(10)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">reser_str_estado</P></TD>
+<TD><P CLASS="Base2">varchar(1)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">per_str_primer_nombre</P></TD>
+<TD><P CLASS="Base2">varchar(50)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">per_str_segundo_nombre</P></TD>
+<TD><P CLASS="Base2">varchar(50)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">per_str_primer_apellido</P></TD>
+<TD><P CLASS="Base2">varchar(50)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">per_str_segundo_apellido</P></TD>
+<TD><P CLASS="Base2">varchar(50)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">per_str_email</P></TD>
+<TD><P CLASS="Base2">varchar(255)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">disco_str_nombre</P></TD>
+<TD><P CLASS="Base2">varchar(500)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">disco_str_direccion</P></TD>
+<TD><P CLASS="Base2">varchar(500)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">disco_str_barrio</P></TD>
+<TD><P CLASS="Base2">varchar(255)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">disco_str_num_telefono</P></TD>
+<TD><P CLASS="Base2">varchar(10)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">disco_str_num_celular</P></TD>
+<TD><P CLASS="Base2">varchar(15)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">disco_str_url_ubicacion</P></TD>
+<TD><P CLASS="Base2">varchar</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2">disco_str_telefono_reserva</P></TD>
+<TD><P CLASS="Base2">varchar(100)</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+</TABLE>
+
+<P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Rules</P>
+<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
+<TH WIDTH="10%"><P CLASS="Base2"><B>Name</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Event</B></P>
+<TH WIDTH="7%"><P CLASS="Base2"><B>Instead</B></P>
+<TH WIDTH="15%"><P CLASS="Base2"><B>Condition</B></P>
+<TH WIDTH="20%"><P CLASS="Base2"><B>Description</B></P>
+<TR>
+<TD><P CLASS="Base2">_RETURN</P></TD>
+<TD><P CLASS="Base2">SELECT</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+</TABLE>
+
+<P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Indices</P>
+<P CLASS="Base">There are no indices for table v_reservas</P><P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Definition</P>
+<P CLASS="Base">
+<blockquote><code><basefont size=1 face="Courier New"><font size= +1>
+<STYLE TYPE="text/css" TITLE="Bright Colours">
+#seDefault { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
+#Default { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
+#String { color: #0000FF; font-weight: normal; font-style: normal; text-decoration: none;}
+#Number { color: #000080; font-weight: bold; font-style: normal; text-decoration: none;}
+#SQL_keyword { color: #000000; font-weight: bold; font-style: normal; text-decoration: none;}
+#Symbol { color: #800000; font-weight: bold; font-style: normal; text-decoration: none;}
+#Comment {background-color: #EFEFEF; color: #0000FF;}
+#Identifier_link { color: #008080; font-weight: normal; font-style: normal; text-decoration: underline;}
+#Highlighted_link { color: #008080; font-weight: bold; font-style: normal; text-decoration: underline;}
+#Table_alias { color: #FF00FF; font-weight: normal; font-style: normal; text-decoration: none;}
+#Field_alias { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
+#SQL_datatype { color: #800080; font-weight: bold; font-style: normal; text-decoration: underline;}
+#SQL_variable { color: #800000; font-weight: normal; font-style: normal; text-decoration: none;}
+#SQL_function { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
+#Wrong_symbol { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
+#Exception {background-color: #800000; color: #FFFFFF;}
+#Current_line {background-color: #FFFFE1;}
+#Parenthesis_matching {background-color: #C0C0C0; color: #000000; font-weight: normal; font-style: normal; text-decoration: none;}
+#Selected_text {background-color: #0A246A; color: #FFFFFF;}
+#Search_mark {background-color: #0A246A; color: #FFFFFF;}
+#Breakpoint {background-color: #FF0000; color: #FFFFFF; font-weight: normal; font-style: normal; text-decoration: none;}
+#Debug_line {background-color: #000080; color: #FFFFFF;}
+#Marked_block {background-color: #0A246A; color: #FFFFFF;}
+#DiffLinesFormat {background-color: #CCFFFF;}
+#AddedLinesFormat {background-color: #CCCCCC;}
+#AdditionalLinesFormat {background-color: #FFFFCC;}
+#DeletedLinesFormat {background-color: #FF9999;}
+</STYLE><span id="seDefault"><SPAN id="SQL_keyword">CREATE VIEW public</span><SPAN id="Symbol">.</span>v_reservas <SPAN id="Symbol">(</span><br>
+ &nbsp;&nbsp;&nbsp;id<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_id_persona<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_id_discoteca<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_dtm_fecha_reserva<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_str_hora<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_num_cantidad_personas<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_str_motivo<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_servicio_decoracion<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_id_reserva<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;reser_str_estado<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;per_str_primer_nombre<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;per_str_segundo_nombre<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;per_str_primer_apellido<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;per_str_segundo_apellido<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;per_str_email<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;disco_str_nombre<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;disco_str_direccion<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;disco_str_barrio<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;disco_str_num_telefono<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;disco_str_num_celular<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;disco_str_url_ubicacion<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;disco_str_telefono_reserva<SPAN id="Symbol">)</span><br>
+<SPAN id="SQL_keyword">AS<br>
+SELECT</span> r<SPAN id="Symbol">.</span>id<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>id_persona <SPAN id="SQL_keyword">AS</span> reser_id_persona<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>id_discoteca <SPAN id="SQL_keyword">AS</span> reser_id_discoteca<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>dtm_fecha_reserva <SPAN id="SQL_keyword">AS</span> reser_dtm_fecha_reserva<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>str_hora <SPAN id="SQL_keyword">AS</span> reser_str_hora<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>num_cantidad_personas <SPAN id="SQL_keyword">AS</span> reser_num_cantidad_personas<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>str_motivo <SPAN id="SQL_keyword">AS</span> reser_str_motivo<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>servicio_decoracion <SPAN id="SQL_keyword">AS</span> reser_servicio_decoracion<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>id_reserva <SPAN id="SQL_keyword">AS</span> reser_id_reserva<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>str_estado <SPAN id="SQL_keyword">AS</span> reser_str_estado<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;p<SPAN id="Symbol">.</span>str_primer_nombre <SPAN id="SQL_keyword">AS</span> per_str_primer_nombre<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;p<SPAN id="Symbol">.</span>str_segundo_nombre <SPAN id="SQL_keyword">AS</span> per_str_segundo_nombre<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;p<SPAN id="Symbol">.</span>str_primer_apellido <SPAN id="SQL_keyword">AS</span> per_str_primer_apellido<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;p<SPAN id="Symbol">.</span>str_segundo_apellido <SPAN id="SQL_keyword">AS</span> per_str_segundo_apellido<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;p<SPAN id="Symbol">.</span>str_email <SPAN id="SQL_keyword">AS</span> per_str_email<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;d<SPAN id="Symbol">.</span>str_nombre <SPAN id="SQL_keyword">AS</span> disco_str_nombre<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;d<SPAN id="Symbol">.</span>str_direccion <SPAN id="SQL_keyword">AS</span> disco_str_direccion<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;d<SPAN id="Symbol">.</span>str_barrio <SPAN id="SQL_keyword">AS</span> disco_str_barrio<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;d<SPAN id="Symbol">.</span>str_num_telefono <SPAN id="SQL_keyword">AS</span> disco_str_num_telefono<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;d<SPAN id="Symbol">.</span>str_num_celular <SPAN id="SQL_keyword">AS</span> disco_str_num_celular<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;d<SPAN id="Symbol">.</span>str_url_ubicacion <SPAN id="SQL_keyword">AS</span> disco_str_url_ubicacion<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;d<SPAN id="Symbol">.</span>str_telefono_reserva <SPAN id="SQL_keyword">AS</span> disco_str_telefono_reserva<br>
+<SPAN id="SQL_keyword">FROM</span> tbl_reservas r<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;tbl_personas p<SPAN id="Symbol">,</span><br>
+ &nbsp;&nbsp;&nbsp;tbl_discotecas d<br>
+<SPAN id="SQL_keyword">WHERE</span> r<SPAN id="Symbol">.</span>id_persona<SPAN id="Symbol">::</span><SPAN id="SQL_datatype">text</span> <SPAN id="Symbol">=</span> p<SPAN id="Symbol">.</span>str_num_identificacion<SPAN id="Symbol">::</span><SPAN id="SQL_datatype">text</span> <SPAN id="SQL_keyword">AND</span><br>
+ &nbsp;&nbsp;&nbsp;r<SPAN id="Symbol">.</span>id_discoteca<SPAN id="Symbol">::</span><SPAN id="SQL_datatype">text</span> <SPAN id="Symbol">=</span> d<SPAN id="Symbol">.</span>str_identificacion<SPAN id="Symbol">::</span><SPAN id="SQL_datatype">text</span>;
+</span>
+</font></basefont></code></blockquote>
+</P>
+<DIV CLASS="footer"><BR><HR></DIV>
+    <TABLE CLASS="bannerparthead" CELLSPACING=0>
+    <TR VALIGN="middle">
+    <TD CLASS="runninghead"><pre>This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 19/10/2018 10:15 p.m.</pre></TD>
+      <TD ALIGN="left" WIDTH="54px" NOWRAP>
+        <A HREF="Index.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+        <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
+        <A HREF="Index.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
+      </TD>
+    </TR>
+  </TABLE>
+<P CLASS="Base">&nbsp;</P></BODY>
+</HTML>

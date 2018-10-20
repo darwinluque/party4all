@@ -9,11 +9,11 @@
   <DIV ID="bannerrow1">
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
       <TR ID="hdr" VALIGN="middle">
-        <TD CLASS="runninghead"><pre>BD PARTY4ALL</pre></TD>
+        <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku</pre></TD>
                 <TD ALIGN="left" WIDTH="54px" NOWRAP>
-          <A HREF="tbl_artista_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+          <A HREF="tbl_auditoria_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
           <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
-          <A HREF="tbl_cartas_public.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
+          <A HREF="tbl_canciones_discotecas_public.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
         </TD>
       </TR>
     </TABLE>
@@ -104,17 +104,6 @@
 </TR>
 <TR>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
-<TD><P CLASS="Base2">id_lista</P></TD>
-<TD><P CLASS="Base2">varchar(10)</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
-</TR>
-<TR>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">createdAt</P></TD>
 <TD><P CLASS="Base2">timestamptz</P></TD>
@@ -153,15 +142,6 @@
 <TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_canciones_fk__tbl_canciones.html">tbl_canciones_fk</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
 <TD><P CLASS="Base2"><A HREF="../Tables/tbl_artista_public.html">public.tbl_artista</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
 <TD><P CLASS="Base2">Restrict</P></TD>
-<TD><P CLASS="Base2">Cascade</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">Immediate</P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
-</TR>
-<TR>
-<TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_canciones_lista_fk__tbl_canciones.html">tbl_canciones_lista_fk</A></TD><TD><P CLASS="Base2">id_lista</P></TD>
-<TD><P CLASS="Base2"><A HREF="../Tables/tbl_listas_public.html">public.tbl_listas</A></TD><TD><P CLASS="Base2">id_lista</P></TD>
-<TD><P CLASS="Base2">Set Null</P></TD>
 <TD><P CLASS="Base2">Cascade</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">Immediate</P></TD>
@@ -220,7 +200,16 @@
 <TH WIDTH="10%"><P CLASS="Base2"><B>Check Time</B></P>
 <TH WIDTH="20%"><P CLASS="Base2"><B>Description</B></P>
 <TR>
-<TD><P CLASS="Base2"><A HREF="../Tables/tbl_votos_canciones_public.html">tbl_votos_canciones</A></TD><TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_votos_canciones_fk1__tbl_votos_canciones.html">tbl_votos_canciones_fk1</A></TD><TD><P CLASS="Base2">id_cancion</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_canciones_discotecas_public.html">tbl_canciones_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_canciones_discotecas_fk1__tbl_canciones_discotecas.html">tbl_canciones_discotecas_fk1</A></TD><TD><P CLASS="Base2">id_cancion</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_canciones_public.html">public.tbl_canciones</A></TD><TD><P CLASS="Base2">id_cancion</P></TD>
+<TD><P CLASS="Base2">Restrict</P></TD>
+<TD><P CLASS="Base2">Cascade</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">Immediate</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_listas_dj_canciones_public.html">tbl_listas_dj_canciones</A></TD><TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_listas_dj_canciones_fk__tbl_listas_dj_canciones.html">tbl_listas_dj_canciones_fk</A></TD><TD><P CLASS="Base2">id_cancion</P></TD>
 <TD><P CLASS="Base2"><A HREF="../Tables/tbl_canciones_public.html">public.tbl_canciones</A></TD><TD><P CLASS="Base2">id_cancion</P></TD>
 <TD><P CLASS="Base2">Restrict</P></TD>
 <TD><P CLASS="Base2">Cascade</P></TD>
@@ -264,7 +253,7 @@
 <P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Definition</P>
 <P CLASS="Base">
-<blockquote><code><basefont size=1 face="Courier New"><font size= +2>
+<blockquote><code><basefont size=1 face="Courier New"><font size= +1>
 <STYLE TYPE="text/css" TITLE="Bright Colours">
 #seDefault { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
 #Default { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
@@ -299,7 +288,6 @@
  &nbsp;str_titulo <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">255</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;id_genero <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">10</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;id_artista <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">10</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
- &nbsp;id_lista <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">10</span><SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
  &nbsp;"createdAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;"updatedAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_canciones_idx <SPAN id="SQL_keyword">UNIQUE</span><SPAN id="Symbol">(</span>id_cancion<SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
@@ -307,11 +295,6 @@
  &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_canciones_fk <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_artista<SPAN id="Symbol">)</span><br>
  &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_artista<SPAN id="Symbol">(</span>id_artista<SPAN id="Symbol">)</span><br>
  &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">ON DELETE RESTRICT<br>
- &nbsp;&nbsp;&nbsp;ON UPDATE CASCADE<br>
- &nbsp;&nbsp;&nbsp;NOT DEFERRABLE</span><SPAN id="Symbol">,</span><br>
- &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_canciones_lista_fk <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_lista<SPAN id="Symbol">)</span><br>
- &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_listas<SPAN id="Symbol">(</span>id_lista<SPAN id="Symbol">)</span><br>
- &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">ON DELETE SET NULL<br>
  &nbsp;&nbsp;&nbsp;ON UPDATE CASCADE<br>
  &nbsp;&nbsp;&nbsp;NOT DEFERRABLE</span><br>
 <SPAN id="Symbol">)</span> <br>
@@ -343,12 +326,11 @@
 <DIV CLASS="footer"><BR><HR></DIV>
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
     <TR VALIGN="middle">
-    <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku
-This file was generated with SQL Manager for PostgreSQL at 16/09/2018 03:52 p.m.</pre></TD>
+    <TD CLASS="runninghead"><pre>This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 19/10/2018 10:15 p.m.</pre></TD>
       <TD ALIGN="left" WIDTH="54px" NOWRAP>
-        <A HREF="tbl_artista_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+        <A HREF="tbl_auditoria_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
         <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
-        <A HREF="tbl_cartas_public.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
+        <A HREF="tbl_canciones_discotecas_public.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
       </TD>
     </TR>
   </TABLE>

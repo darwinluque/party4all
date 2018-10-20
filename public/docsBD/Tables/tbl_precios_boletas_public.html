@@ -9,7 +9,7 @@
   <DIV ID="bannerrow1">
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
       <TR ID="hdr" VALIGN="middle">
-        <TD CLASS="runninghead"><pre>BD PARTY4ALL</pre></TD>
+        <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku</pre></TD>
                 <TD ALIGN="left" WIDTH="54px" NOWRAP>
           <A HREF="tbl_pqrs_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
           <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
@@ -60,9 +60,9 @@
 </TR>
 <TR>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD><P CLASS="Base2">id_evento</P></TD>
-<TD><P CLASS="Base2">varchar(10)</P></TD>
+<TD><P CLASS="Base2">bigint</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
@@ -124,32 +124,22 @@
 <TD><P CLASS="Base2">now()</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
-</TABLE>
-
-<P CLASS="Base">&nbsp;</P>
-<P CLASS="Header1">Foreign Keys</P>
-<TABLE CLASS="dtArg" CELLSPACING="0" WIDTH=90%>
-<TH WIDTH="5%"><P CLASS="Base2"><B>Name</B></P>
-<TH WIDTH="10%"><P CLASS="Base2"><B>Fields</B></P>
-<TH WIDTH="5%"><P CLASS="Base2"><B>FK Table</B></P>
-<TH WIDTH="10%"><P CLASS="Base2"><B>FK Fields</B></P>
-<TH WIDTH="5%"><P CLASS="Base2"><B>Delete Action</B></P>
-<TH WIDTH="5%"><P CLASS="Base2"><B>Update Action</B></P>
-<TH WIDTH="3%"><P CLASS="Base2"><B>Deferrable</B></P>
-<TH WIDTH="5%"><P CLASS="Base2"><B>Check Time</B></P>
-<TH WIDTH="10%"><P CLASS="Base2"><B>Description</B></P>
 <TR>
-<TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_precios_boletas_fk__tbl_precios_boletas.html">tbl_precios_boletas_fk</A></TD><TD><P CLASS="Base2">id_evento</P></TD>
-<TD><P CLASS="Base2"><A HREF="../Tables/tbl_eventos_public.html">public.tbl_eventos</A></TD><TD><P CLASS="Base2">id_evento</P></TD>
-<TD><P CLASS="Base2">Restrict</P></TD>
-<TD><P CLASS="Base2">Cascade</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">Immediate</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">num_cantidad</P></TD>
+<TD><P CLASS="Base2">integer</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">0</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 </TABLE>
 
 <P CLASS="Base">&nbsp;</P>
+<P CLASS="Header1">Foreign Keys</P>
+<P CLASS="Base">There are no foreign keys for table tbl_precios_boletas</P><P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Check Constraints</P>
 <P CLASS="Base">There are no check constraints for table tbl_precios_boletas</P><P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Indices</P>
@@ -213,7 +203,7 @@
 <P CLASS="Base">&nbsp;</P>
 <P CLASS="Header1">Definition</P>
 <P CLASS="Base">
-<blockquote><code><basefont size=1 face="Courier New"><font size= +2>
+<blockquote><code><basefont size=1 face="Courier New"><font size= +1>
 <STYLE TYPE="text/css" TITLE="Bright Colours">
 #seDefault { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
 #Default { color: #000000; font-weight: normal; font-style: normal; text-decoration: none;             font-family: "Courier New";}
@@ -244,18 +234,14 @@
 #DeletedLinesFormat {background-color: #FF9999;}
 </STYLE><span id="seDefault"><SPAN id="SQL_keyword">CREATE TABLE public</span><SPAN id="Symbol">.</span>tbl_precios_boletas <SPAN id="Symbol">(</span><br>
  &nbsp;id <SPAN id="SQL_datatype">SERIAL</span><SPAN id="Symbol">,</span><br>
- &nbsp;id_evento <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">10</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;id_evento <SPAN id="SQL_datatype">BIGINT</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;str_titulo_boleta <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">(</span><SPAN id="Number">255</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;str_descripcion <SPAN id="SQL_datatype">VARCHAR</span><SPAN id="Symbol">,</span><br>
  &nbsp;vlr_precio <SPAN id="SQL_datatype">NUMERIC</span><SPAN id="Symbol">,</span><br>
  &nbsp;"createdAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;"updatedAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
- &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_precios_boletas_pkey <SPAN id="SQL_keyword">PRIMARY KEY</span><SPAN id="Symbol">(</span>id<SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
- &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_precios_boletas_fk <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_evento<SPAN id="Symbol">)</span><br>
- &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_eventos<SPAN id="Symbol">(</span>id_evento<SPAN id="Symbol">)</span><br>
- &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">ON DELETE RESTRICT<br>
- &nbsp;&nbsp;&nbsp;ON UPDATE CASCADE<br>
- &nbsp;&nbsp;&nbsp;NOT DEFERRABLE</span><br>
+ &nbsp;num_cantidad <SPAN id="SQL_datatype">INTEGER</span> <SPAN id="SQL_keyword">DEFAULT</span> <SPAN id="Number">0</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_precios_boletas_pkey <SPAN id="SQL_keyword">PRIMARY KEY</span><SPAN id="Symbol">(</span>id<SPAN id="Symbol">)</span><br>
 <SPAN id="Symbol">)</span> <br>
 <SPAN id="SQL_keyword">WITH</span> <SPAN id="Symbol">(</span><SPAN id="SQL_keyword">oids</span> <SPAN id="Symbol">=</span> <SPAN id="SQL_keyword">false</span><SPAN id="Symbol">)</span>;
 </span>
@@ -264,8 +250,7 @@
 <DIV CLASS="footer"><BR><HR></DIV>
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
     <TR VALIGN="middle">
-    <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku
-This file was generated with SQL Manager for PostgreSQL at 16/09/2018 03:52 p.m.</pre></TD>
+    <TD CLASS="runninghead"><pre>This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 19/10/2018 10:15 p.m.</pre></TD>
       <TD ALIGN="left" WIDTH="54px" NOWRAP>
         <A HREF="tbl_pqrs_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
         <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
