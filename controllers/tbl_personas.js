@@ -149,6 +149,10 @@ module.exports = {
           as: 'generos_favoritos'
         },{
           model: tbl_pqrs,
+          include: [{
+              model: tbl_parametros,
+              as: 'tipo_pqr'
+          }],
           as: 'pqrs'
         },{
           model: tbl_parametros,
@@ -195,6 +199,10 @@ module.exports = {
           as: 'generos_favoritos'
         },{
           model: tbl_pqrs,
+          include: [{
+              model: tbl_parametros,
+              as: 'tipo_pqr'
+          }],
           as: 'pqrs'
         },{
           model: tbl_parametros,
@@ -296,6 +304,10 @@ module.exports = {
           as: 'generos_favoritos'
         },{
           model: tbl_pqrs,
+          include: [{
+              model: tbl_parametros,
+              as: 'tipo_pqr'
+          }],
           as: 'pqrs'
         },{
           model: tbl_parametros,
