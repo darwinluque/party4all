@@ -68,7 +68,7 @@ module.exports = {
             model: tbl_encuesta,
             include: [{
               model: tbl_encuesta_votos,
-              include: [,{
+              include: [{
                 model: tbl_artista,
                 as: 'artistas'
               }],
@@ -157,7 +157,7 @@ module.exports = {
             model: tbl_encuesta,
             include: [{
               model: tbl_encuesta_votos,
-              include: [,{
+              include: [{
                 model: tbl_artista,
                 as: 'artistas'
               }],
@@ -237,7 +237,7 @@ module.exports = {
             model: tbl_encuesta,
             include: [{
               model: tbl_encuesta_votos,
-              include: [,{
+              include: [{
                 model: tbl_artista,
                 as: 'artistas'
               }],
@@ -379,7 +379,7 @@ module.exports = {
             model: tbl_encuesta,
             include: [{
               model: tbl_encuesta_votos,
-              include: [,{
+              include: [{
                 model: tbl_artista,
                 as: 'artistas'
               }],
