@@ -152,6 +152,15 @@
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 <TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_encuesta_personas_public.html">tbl_encuesta_personas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_encuesta_personas_pkey__tbl_encuesta_personas.html">tbl_encuesta_personas_pkey</A></TD><TD><P CLASS="Base2">(default)</P></TD>
+<TD><P CLASS="Base2">btree</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">id</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
 <TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_encuesta_votos_public.html">tbl_encuesta_votos</A></TD><TD><P CLASS="Base2"><A HREF="tbl_encuesta_votos_pkey__tbl_encuesta_votos.html">tbl_encuesta_votos_pkey</A></TD><TD><P CLASS="Base2">(default)</P></TD>
 <TD><P CLASS="Base2">btree</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
@@ -170,10 +179,19 @@
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 <TR>
-<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_funcionarios_public.html">tbl_funcionarios</A></TD><TD><P CLASS="Base2"><A HREF="tbl_funcionarios_idx__tbl_funcionarios.html">tbl_funcionarios_idx</A></TD><TD><P CLASS="Base2">(default)</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_funcionarios_public.html">tbl_funcionarios</A></TD><TD><P CLASS="Base2"><A HREF="tbl_funcionarios_idx1__tbl_funcionarios.html">tbl_funcionarios_idx1</A></TD><TD><P CLASS="Base2">(default)</P></TD>
 <TD><P CLASS="Base2">btree</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">str_identificacion</P></TD>
+<TD><P CLASS="Base2">str_identificacion, id_discoteca</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
+<TR>
+<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_funcionarios_public.html">tbl_funcionarios</A></TD><TD><P CLASS="Base2"><A HREF="tbl_funcionarios_idx2__tbl_funcionarios.html">tbl_funcionarios_idx2</A></TD><TD><P CLASS="Base2">(default)</P></TD>
+<TD><P CLASS="Base2">btree</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">usuario, id_discoteca</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
@@ -413,15 +431,6 @@
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 <TR>
-<TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_servicios_discotecas_public.html">tbl_servicios_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_servicios_discotecas_idx__tbl_servicios_discotecas.html">tbl_servicios_discotecas_idx</A></TD><TD><P CLASS="Base2">(default)</P></TD>
-<TD><P CLASS="Base2">btree</P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
-<TD><P CLASS="Base2">id_servicio</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
-<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
-<TD><P CLASS="Base2">&nbsp;</P></TD>
-</TR>
-<TR>
 <TD><P CLASS="Base2"><A HREF="../Schemas/public.html">public</A></TD><TD><P CLASS="Base2"><A HREF="../Tables/tbl_servicios_discotecas_public.html">tbl_servicios_discotecas</A></TD><TD><P CLASS="Base2"><A HREF="tbl_servicios_discotecas_pkey__tbl_servicios_discotecas.html">tbl_servicios_discotecas_pkey</A></TD><TD><P CLASS="Base2">(default)</P></TD>
 <TD><P CLASS="Base2">btree</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
@@ -453,7 +462,7 @@
 <DIV CLASS="footer"><BR><HR></DIV>
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
     <TR VALIGN="middle">
-    <TD CLASS="runninghead"><pre>This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 19/10/2018 10:15 p.m.</pre></TD>
+    <TD CLASS="runninghead"><pre>This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 20/10/2018 04:02 p.m.</pre></TD>
       <TD ALIGN="left" WIDTH="54px" NOWRAP>
         <A HREF="../Index.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
         <A HREF="../Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>

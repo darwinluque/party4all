@@ -11,6 +11,7 @@ const tbl_canciones_discotecasController = require('../controllers').tbl_cancion
 const tbl_cartasController = require('../controllers').tbl_cartas;
 const tbl_discotecasController = require('../controllers').tbl_discotecas;
 const tbl_encuestaController = require('../controllers').tbl_encuesta;
+const tbl_encuesta_personasController = require('../controllers').tbl_encuesta_personas;
 const tbl_encuesta_votosController = require('../controllers').tbl_encuesta_votos;
 const tbl_eventosController = require('../controllers').tbl_eventos;
 const tbl_funcionariosController = require('../controllers').tbl_funcionarios;
@@ -117,6 +118,13 @@ router.get('/api/tbl_encuesta/qry/:filtro', tbl_encuestaController.getFilter);
 router.post('/api/tbl_encuesta', tbl_encuestaController.add); 
 router.put('/api/tbl_encuesta/:id', tbl_encuestaController.update); 
 router.delete('/api/tbl_encuesta/:id', tbl_encuestaController.delete); 
+
+router.get('/api/tbl_encuesta_personas/all/', tbl_encuesta_personasController.list); 
+router.get('/api/tbl_encuesta_personas/id/:id', tbl_encuesta_personasController.getById); 
+router.get('/api/tbl_encuesta_personas/qry/:filtro', tbl_encuesta_personasController.getFilter); 
+router.post('/api/tbl_encuesta_personas', tbl_encuesta_personasController.add); 
+router.put('/api/tbl_encuesta_personas/:id', tbl_encuesta_personasController.update); 
+router.delete('/api/tbl_encuesta_personas/:id', tbl_encuesta_personasController.delete); 
 
 router.get('/api/tbl_encuesta_votos/all/', tbl_encuesta_votosController.list); 
 router.get('/api/tbl_encuesta_votos/id/:id', tbl_encuesta_votosController.getById); 

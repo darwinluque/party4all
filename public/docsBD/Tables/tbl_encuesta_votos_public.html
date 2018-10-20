@@ -11,7 +11,7 @@
       <TR ID="hdr" VALIGN="middle">
         <TD CLASS="runninghead"><pre>ec2-23-21-238-28.compute-1.amazonaws.com/dedgoomjpett0e - heroku</pre></TD>
                 <TD ALIGN="left" WIDTH="54px" NOWRAP>
-          <A HREF="tbl_encuesta_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+          <A HREF="tbl_encuesta_personas_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
           <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
           <A HREF="tbl_eventos_public.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
         </TD>
@@ -113,6 +113,17 @@
 <TD><P CLASS="Base2">now()</P></TD>
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
+<TR>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">str_url_imagen</P></TD>
+<TD><P CLASS="Base2">varchar</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2"><IMG SRC="../Images/Yes.bmp" BORDER="0"></P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+<TD><P CLASS="Base2">&nbsp;</P></TD>
+</TR>
 </TABLE>
 
 <P CLASS="Base">&nbsp;</P>
@@ -128,8 +139,8 @@
 <TH WIDTH="5%"><P CLASS="Base2"><B>Check Time</B></P>
 <TH WIDTH="10%"><P CLASS="Base2"><B>Description</B></P>
 <TR>
-<TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_encuesta_fk__tbl_encuesta_votos.html">tbl_encuesta_fk</A></TD><TD><P CLASS="Base2">id_encuesta</P></TD>
-<TD><P CLASS="Base2"><A HREF="../Tables/tbl_encuesta_public.html">public.tbl_encuesta</A></TD><TD><P CLASS="Base2">id</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_encuesta_votos_fk__tbl_encuesta_votos.html">tbl_encuesta_votos_fk</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_artista_public.html">public.tbl_artista</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
 <TD><P CLASS="Base2">Restrict</P></TD>
 <TD><P CLASS="Base2">Cascade</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
@@ -137,8 +148,8 @@
 <TD><P CLASS="Base2">&nbsp;</P></TD>
 </TR>
 <TR>
-<TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_encuesta_votos_fk__tbl_encuesta_votos.html">tbl_encuesta_votos_fk</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
-<TD><P CLASS="Base2"><A HREF="../Tables/tbl_artista_public.html">public.tbl_artista</A></TD><TD><P CLASS="Base2">id_artista</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Foreign Keys/tbl_encuesta_votos_fk1__tbl_encuesta_votos.html">tbl_encuesta_votos_fk1</A></TD><TD><P CLASS="Base2">id_encuesta</P></TD>
+<TD><P CLASS="Base2"><A HREF="../Tables/tbl_encuesta_public.html">public.tbl_encuesta</A></TD><TD><P CLASS="Base2">id</P></TD>
 <TD><P CLASS="Base2">Restrict</P></TD>
 <TD><P CLASS="Base2">Cascade</P></TD>
 <TD ALIGN="middle"><P CLASS="Base2">&nbsp;</P></TD>
@@ -247,14 +258,15 @@
  &nbsp;num_votos <SPAN id="SQL_datatype">INTEGER</span> <SPAN id="SQL_keyword">DEFAULT</span> <SPAN id="Number">0</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;"createdAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;"updatedAt" <SPAN id="SQL_datatype">TIMESTAMP</span> <SPAN id="SQL_keyword">WITH TIME ZONE DEFAULT</span> now<SPAN id="Symbol">(</span><SPAN id="Symbol">)</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
+ &nbsp;str_url_imagen <SPAN id="SQL_datatype">VARCHAR</span> <SPAN id="SQL_keyword">NOT NULL</span><SPAN id="Symbol">,</span><br>
  &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_encuesta_votos_pkey <SPAN id="SQL_keyword">PRIMARY KEY</span><SPAN id="Symbol">(</span>id<SPAN id="Symbol">)</span><SPAN id="Symbol">,</span><br>
- &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_encuesta_fk <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_encuesta<SPAN id="Symbol">)</span><br>
- &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_encuesta<SPAN id="Symbol">(</span>id<SPAN id="Symbol">)</span><br>
+ &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_encuesta_votos_fk <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_artista<SPAN id="Symbol">)</span><br>
+ &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_artista<SPAN id="Symbol">(</span>id_artista<SPAN id="Symbol">)</span><br>
  &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">ON DELETE RESTRICT<br>
  &nbsp;&nbsp;&nbsp;ON UPDATE CASCADE<br>
  &nbsp;&nbsp;&nbsp;NOT DEFERRABLE</span><SPAN id="Symbol">,</span><br>
- &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_encuesta_votos_fk <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_artista<SPAN id="Symbol">)</span><br>
- &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_artista<SPAN id="Symbol">(</span>id_artista<SPAN id="Symbol">)</span><br>
+ &nbsp;<SPAN id="SQL_keyword">CONSTRAINT</span> tbl_encuesta_votos_fk1 <SPAN id="SQL_keyword">FOREIGN KEY</span> <SPAN id="Symbol">(</span>id_encuesta<SPAN id="Symbol">)</span><br>
+ &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">REFERENCES public</span><SPAN id="Symbol">.</span>tbl_encuesta<SPAN id="Symbol">(</span>id<SPAN id="Symbol">)</span><br>
  &nbsp;&nbsp;&nbsp;<SPAN id="SQL_keyword">ON DELETE RESTRICT<br>
  &nbsp;&nbsp;&nbsp;ON UPDATE CASCADE<br>
  &nbsp;&nbsp;&nbsp;NOT DEFERRABLE</span><br>
@@ -266,9 +278,9 @@
 <DIV CLASS="footer"><BR><HR></DIV>
     <TABLE CLASS="bannerparthead" CELLSPACING=0>
     <TR VALIGN="middle">
-    <TD CLASS="runninghead"><pre>This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 19/10/2018 10:15 p.m.</pre></TD>
+    <TD CLASS="runninghead"><pre>This file was generated with SQL Manager for PostgreSQL (<A HREF="http://www.pgsqlmanager.com/">www.pgsqlmanager.com</A>) at 20/10/2018 04:02 p.m.</pre></TD>
       <TD ALIGN="left" WIDTH="54px" NOWRAP>
-        <A HREF="tbl_encuesta_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
+        <A HREF="tbl_encuesta_personas_public.html"><IMG ALT="Previous topic" SRC="../Images/GoPrev.bmp" BORDER="0"></A>
         <A HREF="Index.html"><IMG ALT="Chapter index" SRC="../Images/GoIndex.bmp" BORDER="0"></A>
         <A HREF="tbl_eventos_public.html"><IMG ALT="Next topic" SRC="../Images/GoNext.bmp" BORDER="0"></A>
       </TD>
