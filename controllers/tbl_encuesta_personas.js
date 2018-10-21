@@ -107,7 +107,7 @@ module.exports = {
         id_encuesta: req.body.id_encuesta,
         id_persona: req.body.id_persona,
       })
-      .then((tbl_encuesta_votos) => res.status(201).send(tbl_encuesta_personas))
+      .then((tbl_encuesta_personas) => res.status(201).send(tbl_encuesta_personas))
       .catch((error) => res.status(400).send(error));
   },
 
