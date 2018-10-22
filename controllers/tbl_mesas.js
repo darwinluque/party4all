@@ -31,6 +31,9 @@ module.exports = {
         include: [{
             model: tbl_pedidos,
             as: 'pedidos'
+        },{
+          model: tbl_personas,
+          as: 'persona'
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -45,9 +48,12 @@ module.exports = {
     return tbl_mesas
       .findById(req.params.id, {
         include: [{
-          model: tbl_pedidos,
-          as: 'pedidos'
-      }],
+            model: tbl_pedidos,
+            as: 'pedidos'
+        },{
+          model: tbl_personas,
+          as: 'persona'
+        }],
       })
       .then((tbl_mesas) => {
         if (!tbl_mesas) {
@@ -73,9 +79,12 @@ module.exports = {
     return tbl_mesas
       .findAll( {
         include: [{
-          model: tbl_pedidos,
-          as: 'pedidos'
-      }],
+            model: tbl_pedidos,
+            as: 'pedidos'
+        },{
+          model: tbl_personas,
+          as: 'persona'
+        }],
         where: whereClause,
       })
       .then((tbl_mesas) => {
@@ -107,9 +116,12 @@ module.exports = {
     return tbl_mesas
       .findById(req.params.id, {
         include: [{
-          model: tbl_pedidos,
-          as: 'pedidos'
-      }],
+            model: tbl_pedidos,
+            as: 'pedidos'
+        },{
+          model: tbl_personas,
+          as: 'persona'
+        }],
       })
       .then(tbl_mesas => {
         if (!tbl_mesas) {

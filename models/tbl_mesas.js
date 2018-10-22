@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: 'id',
       as: 'pedidos'
     });
+    tbl_mesas.belongsTo(models.tbl_personas, {
+      foreignKey: 'id_persona', 
+      targetKey: 'str_num_identificacion',
+      as: 'persona'
+    });
   };
   return tbl_mesas;
 };
