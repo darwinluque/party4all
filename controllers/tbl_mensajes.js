@@ -111,7 +111,6 @@ module.exports = {
       })
       .catch((error) => res.status(400).send(error));
   },
-
   
   delete(req, res) {
     return tbl_mensajes

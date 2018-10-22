@@ -23,7 +23,6 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
-
 module.exports = {
   list(req, res) {
     return tbl_mesas

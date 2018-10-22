@@ -323,3 +323,4 @@ router.put('/api/tbl_atencion_mesas/:id', tbl_atencion_mesasController.update);
 router.delete('/api/tbl_atencion_mesas/:id', tbl_atencion_mesasController.delete); 
 
 module.exports = router;
+
