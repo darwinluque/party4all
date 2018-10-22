@@ -20,4 +20,4 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   return tbl_mesas;
-};
+}; 
