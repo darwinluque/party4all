@@ -34,11 +34,11 @@ module.exports = {
         },{
           model: tbl_productos_pedido,
           as: 'productos_pedido',
-          include: [{
+          /*include: [{
             model: tbl_productos,
             attributes: ['str_descripcion'],
             as: 'productos',
-          }],
+          }],*/
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -211,7 +211,7 @@ module.exports = {
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
-};
+}; 
 
 
 

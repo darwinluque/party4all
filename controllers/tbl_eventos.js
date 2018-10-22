@@ -35,6 +35,9 @@ module.exports = {
         },{
           model: tbl_artista,
           as: 'artista'
+        },{
+          model: tbl_discotecas,
+          as: 'discoteca'
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -54,6 +57,9 @@ module.exports = {
         },{
           model: tbl_artista,
           as: 'artista'
+        },{
+          model: tbl_discotecas,
+          as: 'discoteca'
         }],
       })
       .then((tbl_eventos) => {
@@ -89,6 +95,9 @@ module.exports = {
         },{
           model: tbl_artista,
           as: 'artista'
+        },{
+          model: tbl_discotecas,
+          as: 'discoteca'
         }],
         where: whereClause,
       })
