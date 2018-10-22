@@ -32,8 +32,8 @@ module.exports = {
             model: tbl_pedidos,
             as: 'pedidos'
         },{
-          model: tbl_personas,
-          as: 'persona'
+            model: tbl_personas,
+            as: 'persona'
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -51,8 +51,8 @@ module.exports = {
             model: tbl_pedidos,
             as: 'pedidos'
         },{
-          model: tbl_personas,
-          as: 'persona'
+            model: tbl_personas,
+            as: 'persona'
         }],
       })
       .then((tbl_mesas) => {
@@ -82,8 +82,8 @@ module.exports = {
             model: tbl_pedidos,
             as: 'pedidos'
         },{
-          model: tbl_personas,
-          as: 'persona'
+            model: tbl_personas,
+            as: 'persona'
         }],
         where: whereClause,
       })
@@ -119,8 +119,8 @@ module.exports = {
             model: tbl_pedidos,
             as: 'pedidos'
         },{
-          model: tbl_personas,
-          as: 'persona'
+            model: tbl_personas,
+            as: 'persona'
         }],
       })
       .then(tbl_mesas => {
