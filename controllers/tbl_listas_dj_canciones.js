@@ -37,7 +37,7 @@ module.exports = {
           model: tbl_canciones,
           include: [{
             model: tbl_artista,
-            as: 'artistas'
+            as: 'artista'
           }],
           as: 'canciones'
         }],
@@ -60,7 +60,7 @@ module.exports = {
           model: tbl_canciones,
           include: [{
             model: tbl_artista,
-            as: 'artistas'
+            as: 'artista'
           }],
           as: 'canciones'
         }],
@@ -95,7 +95,7 @@ module.exports = {
           model: tbl_canciones,
           include: [{
             model: tbl_artista,
-            as: 'artistas'
+            as: 'artista'
           }],
           as: 'canciones'
         }],
@@ -131,7 +131,7 @@ module.exports = {
           model: tbl_canciones,
           include: [{
             model: tbl_artista,
-            as: 'artistas'
+            as: 'artista'
           }],
           as: 'canciones'
         }],
@@ -169,7 +169,7 @@ module.exports = {
           model: tbl_canciones,
           include: [{
             model: tbl_artista,
-            as: 'artistas'
+            as: 'artista'
           }],
           as: 'canciones'
         }],
@@ -191,7 +191,7 @@ module.exports = {
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
-  },
+  }, 
 
   updateEstado(req, res) {
     return tbl_listas_dj_canciones
