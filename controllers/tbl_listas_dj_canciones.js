@@ -35,6 +35,10 @@ module.exports = {
             as: 'lista_dj'
         },{
           model: tbl_canciones,
+          include: [{
+            model: tbl_artista,
+            as: 'artistas'
+          }],
           as: 'canciones'
         }],
         order: [
@@ -54,6 +58,10 @@ module.exports = {
           as: 'lista_dj'
         },{
           model: tbl_canciones,
+          include: [{
+            model: tbl_artista,
+            as: 'artistas'
+          }],
           as: 'canciones'
         }],
       })
@@ -85,6 +93,10 @@ module.exports = {
           as: 'lista_dj'
         },{
           model: tbl_canciones,
+          include: [{
+            model: tbl_artista,
+            as: 'artistas'
+          }],
           as: 'canciones'
         }],
         where: whereClause,
@@ -117,6 +129,10 @@ module.exports = {
           as: 'lista_dj'
         },{
           model: tbl_canciones,
+          include: [{
+            model: tbl_artista,
+            as: 'artistas'
+          }],
           as: 'canciones'
         }],
         where: whereClause,
@@ -151,6 +167,10 @@ module.exports = {
           as: 'lista_dj'
         },{
           model: tbl_canciones,
+          include: [{
+            model: tbl_artista,
+            as: 'artistas'
+          }],
           as: 'canciones'
         }],
       })
