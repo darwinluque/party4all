@@ -7,15 +7,15 @@ module.exports = (sequelize, DataTypes) => {
     num_precio: DataTypes.DECIMAL
   }, {});
   tbl_productos_carta.associate = function(models) {
-    tbl_productos_carta.belongsTo(models.tbl_productos_carta, {
+    tbl_productos_carta.belongsTo(models.tbl_cartas, {
       foreignKey: 'id_carta', 
       sourceKey: 'id',
       as: 'carta'
     });
-    tbl_productos_carta.hasMany(models.tbl_productos, {
-      foreignKey: 'id', 
-      targetKey: 'id_producto',
-      as: 'productos'
+    tbl_productos_carta.belongsTo(models.tbl_productos, {
+      foreignKey: 'id_producto', 
+      targetKey: 'id',
+      as: 'producto'
     });
   };
   return tbl_productos_carta;

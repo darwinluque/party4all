@@ -6,7 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     str_titulo: DataTypes.STRING
   }, {});
   tbl_cartas.associate = function(models) {
-    // associations can be defined here
+    tbl_cartas.belongsTo(models.tbl_productos_carta, {
+      foreignKey: 'id', 
+      targetKey: 'id_carta',
+      as: 'productos'
+    });
   };
   return tbl_cartas;
 };

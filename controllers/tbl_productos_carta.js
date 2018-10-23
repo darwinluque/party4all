@@ -33,7 +33,7 @@ module.exports = {
             as: 'carta'
         },{
             model: tbl_productos,
-            as: 'productos'
+            as: 'producto'
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -53,7 +53,7 @@ module.exports = {
             as: 'carta'
         },{
             model: tbl_productos,
-            as: 'productos'
+            as: 'producto'
         }],
       })
       .then((tbl_productos_carta) => {
@@ -83,7 +83,7 @@ module.exports = {
             as: 'carta'
         },{
             model: tbl_productos,
-            as: 'productos'
+            as: 'producto'
         }],
         where: whereClause,
       })
@@ -119,7 +119,7 @@ module.exports = {
             as: 'carta'
         },{
             model: tbl_productos,
-            as: 'productos'
+            as: 'producto'
         }],
       })
       .then(tbl_productos_carta => {
