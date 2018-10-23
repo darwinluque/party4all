@@ -198,8 +198,10 @@ router.delete('/api/tbl_listas_dj_canciones/rem/:filtro', tbl_listas_dj_cancione
 router.get('/api/tbl_listas_dj_canciones/view/:filtro', tbl_listas_dj_cancionesController.view); 
 
 router.get('/api/tbl_mesas/all/', tbl_mesasController.list); 
+router.get('/api/tbl_mesas/allFull/', tbl_mesasController.listFull); 
 router.get('/api/tbl_mesas/id/:id', tbl_mesasController.getById); 
 router.get('/api/tbl_mesas/qry/:filtro', tbl_mesasController.getFilter); 
+router.get('/api/tbl_mesas/qryfull/:filtro', tbl_mesasController.getFilterFull); 
 router.post('/api/tbl_mesas', tbl_mesasController.add); 
 router.put('/api/tbl_mesas/:id', tbl_mesasController.update); 
 router.delete('/api/tbl_mesas/:id', tbl_mesasController.delete); 

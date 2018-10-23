@@ -28,13 +28,13 @@ module.exports = {
   list(req, res) {
     return tbl_productos_carta
       .findAll({
-        /*include: [{
+        include: [{
             model: tbl_cartas,
-            as: 'cartas'
+            as: 'carta'
         },{
             model: tbl_productos,
             as: 'productos'
-        }],*/
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -48,13 +48,13 @@ module.exports = {
   getById(req, res) {
     return tbl_productos_carta
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_cartas,
-            as: 'cartas'
+            as: 'carta'
         },{
             model: tbl_productos,
             as: 'productos'
-        }],*/
+        }],
       })
       .then((tbl_productos_carta) => {
         if (!tbl_productos_carta) {
@@ -78,7 +78,13 @@ module.exports = {
 
     return tbl_productos_carta
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+            model: tbl_cartas,
+            as: 'carta'
+        },{
+            model: tbl_productos,
+            as: 'productos'
+        }],
         where: whereClause,
       })
       .then((tbl_productos_carta) => {
@@ -108,13 +114,13 @@ module.exports = {
   update(req, res) {
     return tbl_productos_carta
       .findById(req.params.id, {
-        /*include: [{
+        include: [{
             model: tbl_cartas,
-            as: 'cartas'
+            as: 'carta'
         },{
             model: tbl_productos,
             as: 'productos'
-        }],*/
+        }],
       })
       .then(tbl_productos_carta => {
         if (!tbl_productos_carta) {

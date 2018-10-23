@@ -43,6 +43,30 @@ module.exports = {
       .catch((error) => { res.status(400).send(error); });
   },
 
+  listFull(req, res) {
+    return tbl_mesas
+      .findAll({
+        include: [{
+            model: tbl_pedidos,
+            include: [{
+              model: tbl_productos_pedido,
+              attributes: ['id_carta','id_producto', 'num_cantidad','vlr_costo'],
+              as: 'productos_pedido',
+            }],
+            as: 'pedidos'
+        },{
+            model: tbl_personas,
+            as: 'persona'
+        }],
+        order: [
+          ['createdAt', 'DESC'],
+          //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
+        ],
+      })
+      .then((tbl_mesas) => res.status(200).send(tbl_mesas))
+      .catch((error) => { res.status(400).send(error); });
+  },
+
   getById(req, res) {
     return tbl_mesas
       .findById(req.params.id, {
@@ -80,6 +104,43 @@ module.exports = {
         include: [{
             model: tbl_pedidos,
             as: 'pedidos'
+        },{
+            model: tbl_personas,
+            as: 'persona'
+        }],
+        where: whereClause,
+      })
+      .then((tbl_mesas) => {
+        if (!tbl_mesas) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        return res.status(200).send(tbl_mesas);
+      })
+      .catch((error) => { res.status(400).send(error); });
+  },
+
+  getFilterFull(req, res) {
+    let whereClause= {};  
+    var filtro = req.params.filtro;
+    var campos = filtro.split(',');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        whereClause[datos[0]] = datos[1];
+    }
+
+    return tbl_mesas
+      .findAll( {
+        include: [{
+          model: tbl_pedidos,
+          include: [{
+            model: tbl_productos_pedido,
+            attributes: ['id_carta','id_producto', 'num_cantidad','vlr_costo'],
+            as: 'productos_pedido',
+          }],
+          as: 'pedidos'
         },{
             model: tbl_personas,
             as: 'persona'
