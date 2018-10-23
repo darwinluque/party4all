@@ -30,15 +30,11 @@ module.exports = {
       .findAll({
         include: [{
           model: tbl_mesas,
-          as: 'mesa'
+          attributes: ['num_mesa'],
+          as: 'mesa',
         },{
           model: tbl_productos_pedido,
           as: 'productos_pedido',
-          /*include: [{
-            model: tbl_productos,
-            attributes: ['str_descripcion'],
-            as: 'productos',
-          }],*/
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -124,11 +120,6 @@ module.exports = {
           model: tbl_productos_pedido,
           attributes: ['id_producto', 'num_cantidad'],
           as: 'productos_pedido',
-          include: [{
-            model: tbl_productos,
-            attributes: ['str_descripcion'],
-            as: 'productos',
-          }],
         }],
         where: whereClause,
       })
@@ -211,7 +202,7 @@ module.exports = {
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
-}; 
+};
 
 
 
