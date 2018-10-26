@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     id_carta: DataTypes.INTEGER,
     id_producto: DataTypes.INTEGER,
     num_cantidad: DataTypes.INTEGER,
+    str_estado: DataTypes.STRING,
     vlr_costo: DataTypes.DECIMAL
   }, {});
   tbl_productos_pedido.associate = function(models) {

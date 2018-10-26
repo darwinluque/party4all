@@ -138,6 +138,7 @@ module.exports = {
             id_producto: req.body.id_producto,
             num_cantidad: req.body.num_cantidad,
             vlr_costo: req.body.vlr_costo,
+            str_estado: req.body.str_estado,
           })
           .then(() => res.status(200).send(tbl_productos_pedido))
           .catch((error) => res.status(400).send(error));
