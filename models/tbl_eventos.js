@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha: DataTypes.DATE,
     str_descripcion: DataTypes.STRING,
     str_url_imagen: DataTypes.STRING,
-    str_estado: DataTypes.STRING
+    str_estado: DataTypes.STRING,
+    str_lugar: DataTypes.STRING
   }, {});
   tbl_eventos.associate = function(models) {
     tbl_eventos.hasMany(models.tbl_precios_boletas, {

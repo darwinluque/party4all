@@ -123,6 +123,7 @@ module.exports = {
         dtm_fecha: req.body.dtm_fecha,
         str_descripcion: req.body.str_descripcion,
         str_url_imagen: req.body.str_url_imagen,
+        str_lugar: req.body.str_lugar,
       })
       .then((tbl_eventos) => res.status(201).send(tbl_eventos))
       .catch((error) => res.status(400).send(error));
@@ -155,6 +156,7 @@ module.exports = {
             dtm_fecha: req.body.dtm_fecha,
             str_descripcion: req.body.str_descripcion,
             str_url_imagen: req.body.str_url_imagen,
+            str_lugar: req.body.str_lugar,
           })
           .then(() => res.status(200).send(tbl_eventos))
           .catch((error) => res.status(400).send(error));
