@@ -98,7 +98,7 @@ module.exports = {
       .create({
         str_descripcion: req.body.str_descripcion,
         str_tamano: req.body.str_tamano,
-        str_url_imagen: req.body.str_url_imagen,
+        //str_url_imagen: req.body.str_url_imagen,
         str_activo: req.body.str_activo,
       })
       .then((tbl_productos) => res.status(201).send(tbl_productos))
@@ -127,7 +127,7 @@ module.exports = {
           .update({
             str_descripcion: req.body.str_descripcion,
             str_tamano: req.body.str_tamano,
-            str_url_imagen: req.body.str_url_imagen,
+            //str_url_imagen: req.body.str_url_imagen,
             str_activo: req.body.str_activo,
           })
           .then(() => res.status(200).send(tbl_productos))
