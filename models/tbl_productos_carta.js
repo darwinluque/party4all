@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     id_carta: DataTypes.INTEGER,
     id_producto: DataTypes.INTEGER,
     str_estado: DataTypes.STRING,
-    num_precio: DataTypes.DECIMAL
+    num_precio: DataTypes.DECIMAL,
+    str_url_imagen: DataTypes.STRING
   }, {});
   tbl_productos_carta.associate = function(models) {
     tbl_productos_carta.belongsTo(models.tbl_cartas, {
