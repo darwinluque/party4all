@@ -142,7 +142,7 @@ module.exports = {
         id_mesa: req.body.id_mesa,
         vlr_total: req.body.vlr_total,
         id_metodo_pago: req.body.id_metodo_pago,
-        dtm_fecha_pedido: req.body.dtm_fecha_pedido,
+        //dtm_fecha_pedido: req.body.dtm_fecha_pedido,
       })
       .then((tbl_pedidos) => res.status(201).send(tbl_pedidos))
       .catch((error) => res.status(400).send(error));
@@ -172,7 +172,7 @@ module.exports = {
             id_mesa: req.body.id_mesa,
             vlr_total: req.body.vlr_total,
             id_metodo_pago: req.body.id_metodo_pago,
-            dtm_fecha_pedido: req.body.dtm_fecha_pedido,
+            //dtm_fecha_pedido: req.body.dtm_fecha_pedido,
             str_estado: req.body.str_estado,
           })
           .then(() => res.status(200).send(tbl_pedidos))
