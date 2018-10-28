@@ -107,6 +107,7 @@ module.exports = {
         id_discoteca: req.body.id_discoteca,
         str_descripcion: req.body.str_descripcion,   
         str_titulo: req.body.str_titulo, 
+        str_url_imagen: req.body.str_url_imagen, 
       })
       .then((tbl_cartas) => res.status(201).send(tbl_cartas))
       .catch((error) => res.status(400).send(error));
@@ -131,7 +132,8 @@ module.exports = {
           .update({
             id_discoteca: req.body.id_discoteca,
             str_descripcion: req.body.str_descripcion,   
-            str_titulo: req.body.str_titulo,   
+            str_titulo: req.body.str_titulo,    
+            str_url_imagen: req.body.str_url_imagen, 
           })
           .then(() => res.status(200).send(tbl_cartas))
           .catch((error) => res.status(400).send(error));
