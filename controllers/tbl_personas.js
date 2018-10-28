@@ -107,6 +107,9 @@ module.exports = {
           as: 'bebida'
         },{
           model: tbl_parametros,
+          as: 'ciudad'
+        },{
+          model: tbl_parametros,
           as: 'tipo_id'
         }],
         /*,{
@@ -165,6 +168,9 @@ module.exports = {
           as: 'bebida'
         },{
           model: tbl_parametros,
+          as: 'ciudad'
+        },{
+          model: tbl_parametros,
           as: 'tipo_id'
         }],
       })
@@ -210,6 +216,9 @@ module.exports = {
         },{
           model: tbl_parametros,
           as: 'estado_civil'
+        },{
+          model: tbl_parametros,
+          as: 'ciudad'
         },{
           model: tbl_parametros,
           as: 'bebida'
@@ -314,6 +323,9 @@ module.exports = {
         },{
           model: tbl_parametros,
           as: 'genero'
+        },{
+          model: tbl_parametros,
+          as: 'ciudad'
         },{
           model: tbl_parametros,
           as: 'estado_civil'

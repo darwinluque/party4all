@@ -63,6 +63,11 @@ module.exports = (sequelize, DataTypes) => {
       targetKey: 'str_valor',
       as: 'condiciones'
     });
+    tbl_personas.belongsTo(models.tbl_parametros, {
+      foreignKey: 'str_ciudad', 
+      targetKey: 'str_valor',
+      as: 'ciudad'
+    });
   };
   return tbl_personas;
 };
