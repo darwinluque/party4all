@@ -251,6 +251,7 @@ module.exports = {
         dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
         dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
         str_celular: req.body.str_celular,
+        str_ciudad: req.body.str_ciudad,
         str_password: encriptar(req.body.str_email.toLowerCase(),(req.body.str_password!=null ? (req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ) : 'passw0rd')),
         str_facebook_id: req.body.str_facebook_id,
       })
@@ -282,6 +283,7 @@ module.exports = {
         dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
         dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
         str_celular: req.body.str_celular,
+        str_ciudad: req.body.str_ciudad,
         str_password: encriptar(req.body.str_email.toLowerCase(),(req.body.str_password!=null ? (req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ) : 'passw0rd')),
         str_facebook_id: req.body.str_facebook_id,
       })
@@ -350,6 +352,7 @@ module.exports = {
               //dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
               //dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
               str_celular: req.body.str_celular,
+              str_ciudad: req.body.str_ciudad,
               //str_password: encriptar(req.body.str_email.toLowerCase(),req.body.str_password),
             })
             .then(() => res.status(200).send(tbl_personas))
