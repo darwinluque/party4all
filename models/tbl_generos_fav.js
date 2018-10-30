@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     tbl_generos_fav.belongsTo(models.tbl_parametros, {
       foreignKey: 'id_genero', 
       targetKey: 'str_valor',
-      as: 'generos_favoritos'
+      as: 'genero'
     });
   };
-  return tbl_generos_fav;
+  return tbl_generos_fav; 
 };

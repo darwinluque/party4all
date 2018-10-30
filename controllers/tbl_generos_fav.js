@@ -31,6 +31,9 @@ module.exports = {
         include: [{
             model: tbl_personas,
             as: 'personas'
+        },{
+          model: tbl_parametros,
+          as: 'genero'
         }],
         order: [
           ['createdAt', 'DESC'],
@@ -47,6 +50,9 @@ module.exports = {
         include: [{
             model: tbl_personas,
             as: 'personas'
+        },{
+          model: tbl_parametros,
+          as: 'genero'
         }],
       })
       .then((tbl_generos_fav) => {
@@ -75,6 +81,9 @@ module.exports = {
         include: [{
           model: tbl_personas,
           as: 'personas'
+        },{
+          model: tbl_parametros,
+          as: 'genero'
         }],
         where: whereClause,
       })
