@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     vlr_costo: DataTypes.DECIMAL
   }, {});
   tbl_productos_pedido.associate = function(models) {
-    /*tbl_productos_pedido.belongsTo(models.tbl_productos_carta, {
+    tbl_productos_pedido.belongsTo(models.tbl_productos_carta, {
       foreignKey: ['id_carta','id_producto'], 
-      sourceKey: ['id_carta','id_producto'],
-      as: 'productos_carta'
-    });*/
+      targetKey: ['id_carta','id_producto'],
+      as: 'productos'
+    });
     tbl_productos_pedido.belongsTo(models.tbl_pedidos, {
       foreignKey: 'id_pedido', 
       targetKey: 'id',
