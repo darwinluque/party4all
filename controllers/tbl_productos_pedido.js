@@ -27,16 +27,10 @@ module.exports = {
   list(req, res) {
     return tbl_productos_pedido
       .findAll({
-        /*include: [{
-            model: tbl_pedidos,
-            as: 'pedidos'
-        },{
-            model: tbl_productos,
+        include: [{
+            model: tbl_productos_carta,
             as: 'productos'
-        },{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+        }],
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -49,16 +43,10 @@ module.exports = {
   getById(req, res) {
     return tbl_productos_pedido
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_pedidos,
-            as: 'pedidos'
-        },{
-            model: tbl_productos,
+        include: [{
+            model: tbl_productos_carta,
             as: 'productos'
-        },{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+        }],
       })
       .then((tbl_productos_pedido) => {
         if (!tbl_productos_pedido) {
