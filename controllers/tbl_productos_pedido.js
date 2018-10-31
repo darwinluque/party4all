@@ -84,7 +84,17 @@ module.exports = {
 
     return tbl_productos_pedido
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_productos_carta,
+          include: [{
+            model: tbl_cartas,
+            as: 'carta'
+          },{
+            model: tbl_productos,
+            as: 'producto'
+          }],
+          as: 'productos'
+        }],
         where: whereClause,
       })
       .then((tbl_productos_pedido) => {
