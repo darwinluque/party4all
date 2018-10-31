@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   tbl_productos_pedido.associate = function(models) {
     tbl_productos_pedido.belongsTo(models.tbl_productos_carta, {
       foreignKey: ['id_carta','id_producto'], 
-      targetKey: ['id_carta','id_producto'],
+      sourceKey: ['id_carta','id_producto'],
       as: 'productos'
     });
     tbl_productos_pedido.belongsTo(models.tbl_pedidos, {
