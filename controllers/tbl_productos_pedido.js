@@ -115,16 +115,17 @@ module.exports = {
   update(req, res) {
     return tbl_productos_pedido
       .findById(req.params.id, {
-        /*include: [{
-            model: tbl_pedidos,
-            as: 'pedidos'
-        },{
-            model: tbl_productos,
+        include: [{
+            model: tbl_productos_carta,
+            include: [{
+              model: tbl_cartas,
+              as: 'carta'
+            },{
+              model: tbl_productos,
+              as: 'producto'
+            }],
             as: 'productos'
-        },{
-            model: tbl_discotecas,
-            as: 'discotecas'
-        }],*/
+        }],
       })
       .then(tbl_productos_pedido => {
         if (!tbl_productos_pedido) {
