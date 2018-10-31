@@ -32,10 +32,9 @@ module.exports = {
             include: [{
               model: tbl_cartas,
               as: 'carta'
-            }],
-            include: [{
+            },{
               model: tbl_productos,
-              as: 'ProducotMaestro'
+              as: 'producto'
             }],
             as: 'productos'
         }],
@@ -56,10 +55,9 @@ module.exports = {
             include: [{
               model: tbl_cartas,
               as: 'carta'
-            }],
-            include: [{
+            },{
               model: tbl_productos,
-              as: 'ProducotMaestro'
+              as: 'producto'
             }],
             as: 'productos'
         }],
