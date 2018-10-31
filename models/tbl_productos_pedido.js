@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     vlr_costo: DataTypes.DECIMAL
   }, {});
   tbl_productos_pedido.associate = function(models) {
-    tbl_productos_pedido.belongsTo(models.tbl_productos_carta, {
+    tbl_productos_pedido.hasMany(models.tbl_productos_carta, {
       foreignKey: 'id', 
       sourceKey: 'id_producto',
       as: 'productos'
