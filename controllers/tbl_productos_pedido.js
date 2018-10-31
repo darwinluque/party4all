@@ -29,6 +29,14 @@ module.exports = {
       .findAll({
         include: [{
             model: tbl_productos_carta,
+            include: [{
+              model: tbl_cartas,
+              as: 'carta'
+            }],
+            include: [{
+              model: tbl_productos,
+              as: 'ProducotMaestro'
+            }],
             as: 'productos'
         }],
         order: [
