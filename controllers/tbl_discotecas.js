@@ -133,6 +133,9 @@ module.exports = {
             model: tbl_promociones,
             as: 'promociones'
           },{
+            model: tbl_cartas,
+            as: 'carta'
+          },{
             model: tbl_listas_dj,
             as: 'lista_dj'
           },/*{
@@ -212,6 +215,9 @@ module.exports = {
           {
             model: tbl_promociones,
             as: 'promociones'
+          },{
+            model: tbl_cartas,
+            as: 'carta'
           },{
             model: tbl_listas_dj,
             as: 'lista_dj'
