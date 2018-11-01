@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     str_geolocalizacion: DataTypes.STRING,
     str_facebook: DataTypes.STRING,
     str_logo: DataTypes.STRING,
+    str_url_instagram: DataTypes.STRING,
+    str_url_facebook: DataTypes.STRING,
+    str_url_twitter: DataTypes.STRING,
   }, {});
   tbl_discotecas.associate = function(models) {
     tbl_discotecas.hasMany(models.tbl_reservas, {
