@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     id_tipo_rumba: DataTypes.STRING,
     num_cupo_reservas: DataTypes.INTEGER,
     str_geolocalizacion: DataTypes.STRING,
-    str_facebook: DataTypes.STRING,
     str_logo: DataTypes.STRING,
     str_url_instagram: DataTypes.STRING,
     str_url_facebook: DataTypes.STRING,

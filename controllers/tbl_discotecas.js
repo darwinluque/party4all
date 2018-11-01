@@ -305,8 +305,10 @@ module.exports = {
         str_estado: req.body.str_estado,
         num_cupo_reservas: req.body.num_cupo_reservas,
         str_geolocalizacion: req.body.str_geolocalizacion,
-        str_facebook: req.body.str_facebook,
         str_logo: req.body.str_logo,  
+        str_url_instagram: req.body.str_url_instagram,  
+        str_url_facebook: req.body.str_url_facebook,  
+        str_url_twitter: req.body.str_url_twitter,
       })
       .then((tbl_discotecas) => res.status(201).send(tbl_discotecas))
       .catch((error) => res.status(400).send(error));
@@ -337,8 +339,10 @@ module.exports = {
         lista: rlista,
         lista_dj: rlista_dj,
         str_geolocalizacion: req.body.str_geolocalizacion,
-        str_facebook: req.body.str_facebook,
-        str_logo: req.body.str_logo,
+        str_logo: req.body.str_logo, 
+        str_url_instagram: req.body.str_url_instagram,  
+        str_url_facebook: req.body.str_url_facebook,  
+        str_url_twitter: req.body.str_url_twitter,
       }, {
         include: [{
           model: tbl_listas,
@@ -444,8 +448,10 @@ module.exports = {
             str_estado: req.body.str_estado,
             num_cupo_reservas: req.body.num_cupo_reservas,
             str_geolocalizacion: req.body.str_geolocalizacion,
-            str_facebook: req.body.str_facebook,
-            str_logo: req.body.str_logo,
+            str_logo: req.body.str_logo, 
+            str_url_instagram: req.body.str_url_instagram,  
+            str_url_facebook: req.body.str_url_facebook,  
+            str_url_twitter: req.body.str_url_twitter,
           })
           .then(() => res.status(200).send(tbl_discotecas))
           .catch((error) => res.status(400).send(error));
