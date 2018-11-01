@@ -34,21 +34,24 @@ module.exports = {
       .findAll({
         include:[
           {
-            model: tbl_reservas,
-            as: 'reservas',
-          },{
             model: tbl_promociones,
             as: 'promociones'
           },{
+            model: tbl_cartas,
+            as: 'carta'
+          },{
             model: tbl_listas_dj,
             as: 'lista_dj'
+          },/*{
+            model: tbl_reservas,
+            as: 'reservas',
           },{
             model: tbl_listas,
             as: 'lista_peticiones'
           },{
             model: tbl_eventos,
             as: 'eventos'
-          },{
+          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
@@ -112,7 +115,7 @@ module.exports = {
           },{
             model: tbl_cartas,
             as: 'cartas'
-          }],*/
+          }], */
         order: [
           ['str_nombre', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -127,21 +130,21 @@ module.exports = {
       .findById(req.params.id, {
         include:[
           {
-            model: tbl_reservas,
-            as: 'reservas',
-          },{
             model: tbl_promociones,
             as: 'promociones'
           },{
             model: tbl_listas_dj,
             as: 'lista_dj'
+          },/*{
+            model: tbl_reservas,
+            as: 'reservas',
           },{
             model: tbl_listas,
             as: 'lista_peticiones'
           },{
             model: tbl_eventos,
             as: 'eventos'
-          },{
+          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
@@ -207,21 +210,21 @@ module.exports = {
       .findAll( {
         include:[
           {
-            model: tbl_reservas,
-            as: 'reservas',
-          },{
             model: tbl_promociones,
             as: 'promociones'
           },{
             model: tbl_listas_dj,
             as: 'lista_dj'
+          },/*{
+            model: tbl_reservas,
+            as: 'reservas',
           },{
             model: tbl_listas,
             as: 'lista_peticiones'
           },{
             model: tbl_eventos,
             as: 'eventos'
-          },{
+          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
@@ -349,21 +352,21 @@ module.exports = {
       .findById(req.params.id, {
         include:[
           {
-            model: tbl_reservas,
-            as: 'reservas',
-          },{
             model: tbl_promociones,
             as: 'promociones'
           },{
             model: tbl_listas_dj,
             as: 'lista_dj'
+          },/*{
+            model: tbl_reservas,
+            as: 'reservas',
           },{
             model: tbl_listas,
             as: 'lista_peticiones'
           },{
             model: tbl_eventos,
             as: 'eventos'
-          },{
+          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
