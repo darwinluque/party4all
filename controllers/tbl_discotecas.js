@@ -309,6 +309,7 @@ module.exports = {
         str_url_instagram: req.body.str_url_instagram,  
         str_url_facebook: req.body.str_url_facebook,  
         str_url_twitter: req.body.str_url_twitter,
+        str_tyc_reservas: req.body.str_tyc_reservas,
       })
       .then((tbl_discotecas) => res.status(201).send(tbl_discotecas))
       .catch((error) => res.status(400).send(error));
@@ -343,6 +344,7 @@ module.exports = {
         str_url_instagram: req.body.str_url_instagram,  
         str_url_facebook: req.body.str_url_facebook,  
         str_url_twitter: req.body.str_url_twitter,
+        str_tyc_reservas: req.body.str_tyc_reservas,
       }, {
         include: [{
           model: tbl_listas,
@@ -452,6 +454,7 @@ module.exports = {
             str_url_instagram: req.body.str_url_instagram,  
             str_url_facebook: req.body.str_url_facebook,  
             str_url_twitter: req.body.str_url_twitter,
+            str_tyc_reservas: req.body.str_tyc_reservas,
           })
           .then(() => res.status(200).send(tbl_discotecas))
           .catch((error) => res.status(400).send(error));

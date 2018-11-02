@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     str_url_instagram: DataTypes.STRING,
     str_url_facebook: DataTypes.STRING,
     str_url_twitter: DataTypes.STRING,
+    str_tyc_reservas: DataTypes.STRING,
   }, {});
   tbl_discotecas.associate = function(models) {
     tbl_discotecas.hasMany(models.tbl_reservas, {
