@@ -227,6 +227,7 @@ router.get('/api/tbl_pedidos/view/:filtro', tbl_pedidosController.view);
 router.post('/api/tbl_pedidos', tbl_pedidosController.add); 
 router.put('/api/tbl_pedidos/:id', tbl_pedidosController.update); 
 router.delete('/api/tbl_pedidos/:id', tbl_pedidosController.delete); 
+router.delete('/api/tbl_pedidos/rem/:filtro', tbl_pedidosController.delete); 
 
 router.post('/api/login/', tbl_personasController.login);
 router.get('/api/tbl_personas/all/', tbl_personasController.list); 
@@ -264,6 +265,7 @@ router.get('/api/tbl_productos_pedido/qry/:filtro', tbl_productos_pedidoControll
 router.post('/api/tbl_productos_pedido', tbl_productos_pedidoController.add); 
 router.put('/api/tbl_productos_pedido/:id', tbl_productos_pedidoController.update); 
 router.delete('/api/tbl_productos_pedido/:id', tbl_productos_pedidoController.delete); 
+router.delete('/api/tbl_pedidos/rem/:filtro', tbl_productos_pedidoController.delete); 
 
 router.get('/api/tbl_productos/all/', tbl_productosController.list); 
 router.get('/api/tbl_productos/id/:id', tbl_productosController.getById); 
