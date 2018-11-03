@@ -207,12 +207,9 @@ module.exports = {
     let whereClause= {};  
     var filtro = req.params.filtro;
     var campos = filtro.split(',');
-    var lista = '';
     for(var i=0; i<campos.length; i++){
         var datos = campos[i].split(':');
         whereClause[datos[0]] = datos[1];
-        if(datos[0]=='id_lista')
-          lista = datos[1];
     }
 
     return tbl_pedidos
