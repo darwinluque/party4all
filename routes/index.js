@@ -4,7 +4,7 @@ var cors = require('cors');
 var router = express.Router();
 var service = require('../config/services');
 
-const mailerController = require('../controllers').mailer;
+//const mailerController = require('../controllers').mailer;
 const tbl_parametrosController = require('../controllers').tbl_parametros;
 const tbl_artistaController = require('../controllers').tbl_artista;
 const tbl_cancionesController = require('../controllers').tbl_canciones;
@@ -66,7 +66,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'PARTY4ALL', content: 'Catalogo API' });  
 });
 
-router.post('/api/mail/', mailerController.enviar); 
+//router.post('/api/mail/', mailerController.enviar); 
 
 //router.get('/api/tbl_parametros/all/', middleware.ensureAuthenticated, tbl_parametrosController.list); 
 router.get('/api/tbl_parametros/all/', tbl_parametrosController.list); 
