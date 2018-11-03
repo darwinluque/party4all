@@ -112,11 +112,6 @@ module.exports = {
   },
 
   add(req, res) {
-    //tbl_pedidos.findById(req.params.id, {})
-    //var id_ped = tbl_pedidos.findById({id: req.body.id_pedido,});
-    //var total = id_ped.vlr_total;
-    //var total = total + req.body.vlr_costo;
-    return tbl_pedidos.update({vlr_total: 4444});
     return tbl_productos_pedido
       .create({
         id_pedido: req.body.id_pedido,

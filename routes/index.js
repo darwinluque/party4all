@@ -226,6 +226,7 @@ router.get('/api/tbl_pedidos/qry/:filtro', tbl_pedidosController.getFilter);
 router.get('/api/tbl_pedidos/view/:filtro', tbl_pedidosController.view); 
 router.post('/api/tbl_pedidos', tbl_pedidosController.add); 
 router.put('/api/tbl_pedidos/:id', tbl_pedidosController.update); 
+router.put('/api/tbl_pedidos/:id', tbl_pedidosController.sumar); 
 router.delete('/api/tbl_pedidos/:id', tbl_pedidosController.delete); 
 router.delete('/api/tbl_pedidos/rem/:filtro', tbl_pedidosController.deleteAll); 
 

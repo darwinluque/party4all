@@ -237,6 +237,29 @@ module.exports = {
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
 
+  sumar(req, res) {
+    var valor = req.body.num_valor;
+    return tbl_pedidos
+      .findById(req.params.id, {
+      })
+      .then(tbl_pedidos => {
+        if (!tbl_pedidos) {
+          return res.status(404).send({
+            code: '1',  
+            message: 'ERROR: Registro no encontrado',
+          });
+        }
+        valor = valor + tbl_pedidos.vlr_total;
+        return tbl_pedidos
+          .update({
+            vlr_total: valor,       
+          })
+          .then(() => res.status(200).send(tbl_pedidos))
+          .catch((error) => res.status(400).send(error));
+      })
+      .catch((error) => res.status(400).send(error));
+  },
+
 };
 
 
