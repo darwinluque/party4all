@@ -208,14 +208,13 @@ module.exports = {
     let whereClause= {};  
     var filtro = req.params.filtro;
     var campos = filtro.split(',');
-    var cantidad = 0;
     for(var i=0; i<campos.length; i++){
         var datos = campos[i].split(':');
         whereClause[datos[0]] = datos[1];
     }
 
     return tbl_parametros
-      .findAll( {
+      .findAll({
         where: whereClause,
       })
       .then(tbl_parametros => {
@@ -225,15 +224,15 @@ module.exports = {
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_parametros
-            .destroy({
-                where: whereClause,
-            })  
-            .then(function(rowDeleted){cantidad = rowDeleted},() => res.status(204).send())
+        for(i=0;i<tbl_parametros.length;i++){
+          tbl_parametros[i]
+            .destroy()
+            .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
+        }
         return res.status(200).send({
             code: '0',  
-            message: 'OK: '+cantidad+'Registro eliminado exitosamente',
+            message: 'OK: Registro eliminado exitosamente',
         });
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
