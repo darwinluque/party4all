@@ -181,18 +181,20 @@ module.exports = {
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
 
-  deleteFilter(req, res) {
+  deleteAll(req, res) {
     let whereClause= {};  
     var filtro = req.params.filtro;
     var campos = filtro.split(',');
-    var cantidad = 0;
+    var lista = '';
     for(var i=0; i<campos.length; i++){
         var datos = campos[i].split(':');
         whereClause[datos[0]] = datos[1];
+        if(datos[0]=='id_lista')
+          lista = datos[1];
     }
 
     return tbl_productos_pedido
-      .findAll( {
+      .findAll({
         where: whereClause,
       })
       .then(tbl_productos_pedido => {
@@ -202,15 +204,15 @@ module.exports = {
             message: 'ERROR: Registro no encontrado',
           });
         }
-        tbl_productos_pedido
-            .destroy({
-                where: whereClause,
-            })  
-            .then(function(rowDeleted){cantidad = rowDeleted},() => res.status(204).send())
+        for(i=0;i<tbl_productos_pedido.length;i++){
+          tbl_productos_pedido[i]
+            .destroy()
+            .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
+        }
         return res.status(200).send({
             code: '0',  
-            message: 'OK: '+cantidad+'Registro eliminado exitosamente',
+            message: 'OK: Registro eliminado exitosamente',
         });
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
