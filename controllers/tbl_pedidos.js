@@ -238,7 +238,7 @@ module.exports = {
   },
 
   sumar(req, res) {
-    var valor = Integer(req.body.num_valor);
+    var valor = Number(req.body.num_valor);
     return tbl_pedidos
       .findById(req.params.id, {
       })
