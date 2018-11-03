@@ -120,6 +120,11 @@ module.exports = {
       })
       .then((tbl_productos_pedido) => res.status(201).send(tbl_productos_pedido))
       .catch((error) => res.status(400).send(error));
+
+    return tbl_pedidos
+      .update({
+        vlr_total: 666666,
+      })
   },
 
   update(req, res) {
