@@ -238,7 +238,7 @@ module.exports = {
   },
 
   sumar(req, res) {
-    var valor = Number(req.body.num_valor);
+    var valor = parseInt(req.body.num_valor, 10);
     return tbl_pedidos
       .findById(req.params.id, {
       })
@@ -249,7 +249,7 @@ module.exports = {
             message: 'ERROR: Registro no encontrado',
           });
         }
-        valor = valor + tbl_pedidos.vlr_total;
+        valor = valor + parseInt(tbl_pedidos.vlr_total, 10);
         return tbl_pedidos
           .update({
             vlr_total: valor,       
