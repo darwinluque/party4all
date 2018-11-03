@@ -23,6 +23,8 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 
+const tbl_pedidosController = require('../controllers').tbl_pedidos;
+
 module.exports = {
   list(req, res) {
     return tbl_productos_pedido
@@ -110,21 +112,21 @@ module.exports = {
   },
 
   add(req, res) {
+    //tbl_pedidos.findById(req.params.id, {})
+    //var id_ped = tbl_pedidos.findById({id: req.body.id_pedido,});
+    //var total = id_ped.vlr_total;
+    //var total = total + req.body.vlr_costo;
+    return tbl_pedidos.update({vlr_total: 4444});
     return tbl_productos_pedido
       .create({
         id_pedido: req.body.id_pedido,
         id_carta: req.body.id_carta,
         id_producto: req.body.id_producto,
         num_cantidad: req.body.num_cantidad,
-        vlr_costo: req.body.vlr_costo,
+        vlr_costo: req.body.vlr_costo,        
       })
       .then((tbl_productos_pedido) => res.status(201).send(tbl_productos_pedido))
-      .catch((error) => res.status(400).send(error));
-
-    return tbl_pedidos
-      .update({
-        vlr_total: 666666,
-      })
+      .catch((error) => res.status(400).send(error));   
   },
 
   update(req, res) {
