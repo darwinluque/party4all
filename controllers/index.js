@@ -35,10 +35,8 @@ const tbl_atencion_mesas = require('./tbl_atencion_mesas');
 
 const v_reservas = require('./v_reservas');
 
-const mailer = require('./mailer');
 
 module.exports = {
-    mailer,
     tbl_parametros,
     tbl_artista,
     tbl_canciones,
