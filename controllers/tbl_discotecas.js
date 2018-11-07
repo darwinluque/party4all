@@ -40,7 +40,7 @@ module.exports = {
             model: tbl_cartas,
             as: 'carta'
           },{
-            model: tbl_listas_dj,
+            model: tbl_listas_dj, 
             as: 'lista_dj'
           },/*{
             model: tbl_reservas,
@@ -310,6 +310,7 @@ module.exports = {
         str_url_facebook: req.body.str_url_facebook,  
         str_url_twitter: req.body.str_url_twitter,
         str_tyc_reservas: req.body.str_tyc_reservas,
+        str_nombre_contacto: req.body.str_nombre_contacto,
       })
       .then((tbl_discotecas) => res.status(201).send(tbl_discotecas))
       .catch((error) => res.status(400).send(error));
@@ -345,6 +346,7 @@ module.exports = {
         str_url_facebook: req.body.str_url_facebook,  
         str_url_twitter: req.body.str_url_twitter,
         str_tyc_reservas: req.body.str_tyc_reservas,
+        str_nombre_contacto: req.body.str_nombre_contacto,
       }, {
         include: [{
           model: tbl_listas,
@@ -455,6 +457,7 @@ module.exports = {
             str_url_facebook: req.body.str_url_facebook,  
             str_url_twitter: req.body.str_url_twitter,
             str_tyc_reservas: req.body.str_tyc_reservas,
+            str_nombre_contacto: req.body.str_nombre_contacto,
           })
           .then(() => res.status(200).send(tbl_discotecas))
           .catch((error) => res.status(400).send(error));
