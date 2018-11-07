@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     dtm_fecha_reserva: DataTypes.DATE,
     str_hora: DataTypes.STRING,
     num_cantidad_personas: DataTypes.INTEGER,
+    num_cantidad_cupos: DataTypes.INTEGER,
     str_motivo: DataTypes.STRING,
     servicio_decoracion: DataTypes.STRING,
     str_estado: DataTypes.STRING,
