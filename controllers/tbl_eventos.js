@@ -157,6 +157,7 @@ module.exports = {
             str_descripcion: req.body.str_descripcion,
             str_url_imagen: req.body.str_url_imagen,
             str_lugar: req.body.str_lugar,
+            str_estado: req.body.str_estado,
           })
           .then(() => res.status(200).send(tbl_eventos))
           .catch((error) => res.status(400).send(error));
