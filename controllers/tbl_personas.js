@@ -23,7 +23,6 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 const service = require('../config/services');
-const mailCtrl = require('./mailCtrl');
 
 
 module.exports = {
@@ -248,10 +247,10 @@ module.exports = {
         id_estado_civil: req.body.id_estado_civil,
         id_bebida: req.body.id_bebida,
         num_estrellas: req.body.num_estrellas,
-        str_primer_nombre: req.body.str_primer_nombre.toLowerCase(),
-        str_segundo_nombre: req.body.str_segundo_nombre.toLowerCase(),
-        str_primer_apellido: req.body.str_primer_apellido.toLowerCase(),
-        str_segundo_apellido: req.body.str_segundo_apellido.toLowerCase(),
+        str_primer_nombre: req.body.str_primer_nombre,
+        str_segundo_nombre: req.body.str_segundo_nombre,
+        str_primer_apellido: req.body.str_primer_apellido,
+        str_segundo_apellido: req.body.str_segundo_apellido,
         str_tipo_id: req.body.str_tipo_id,
         str_num_identificacion: req.body.str_num_identificacion,
         str_email: req.body.str_email.toLowerCase(),
@@ -267,10 +266,8 @@ module.exports = {
       })
       .then((tbl_personas) => res.status(201).send({
           tbl_personas,
-          notificacion: mailCtrl.enviarMail(req.body.str_primer_nombre.toLowerCase(), req.body.str_segundo_nombre.toLowerCase(), req.body.str_primer_apellido.toLowerCase(), req.body.str_segundo_apellido.toLowerCase(), req.body.str_email.toLowerCase(), req.body.str_password),
           //tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ))),
       }),
-      //mailCtrl.enviarMail(req,res),
       )
       .catch((error) => res.status(400).send(msgerror(error)));
   },
@@ -282,10 +279,10 @@ module.exports = {
         id_estado_civil: req.body.id_estado_civil,
         id_bebida: req.body.id_bebida,
         num_estrellas: req.body.num_estrellas,
-        str_primer_nombre: req.body.str_primer_nombre.toLowerCase(),
-        str_segundo_nombre: req.body.str_segundo_nombre.toLowerCase(),
-        str_primer_apellido: req.body.str_primer_apellido.toLowerCase(),
-        str_segundo_apellido: req.body.str_segundo_apellido.toLowerCase(),
+        str_primer_nombre: req.body.str_primer_nombre,
+        str_segundo_nombre: req.body.str_segundo_nombre,
+        str_primer_apellido: req.body.str_primer_apellido,
+        str_segundo_apellido: req.body.str_segundo_apellido,
         str_tipo_id: req.body.str_tipo_id,
         str_num_identificacion: req.body.str_num_identificacion,
         str_email: req.body.str_email.toLowerCase(),
@@ -301,10 +298,8 @@ module.exports = {
       })
       .then((tbl_personas) => res.status(201).send({
           tbl_personas,
-          notificacion: mailCtrl.enviarMail(req.body.str_primer_nombre.toLowerCase(), req.body.str_segundo_nombre.toLowerCase(), req.body.str_primer_apellido.toLowerCase(), req.body.str_segundo_apellido.toLowerCase(), req.body.str_email.toLowerCase(), req.body.str_password),
           //tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ))),
       }),
-      
       )
       .catch((error) => res.status(400).send(msgerror(error)));
   },
