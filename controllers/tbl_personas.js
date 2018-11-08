@@ -23,7 +23,7 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 const service = require('../config/services');
-//const mailCtrl = require('./mailGun');
+const mailCtrl = require('./mailCtrl');
 
 
 module.exports = {
@@ -267,7 +267,7 @@ module.exports = {
       })
       .then((tbl_personas) => res.status(201).send({
           tbl_personas,
-          //notificacion: mailCtrl.enviarMail(req.body.str_primer_nombre.toLowerCase(), req.body.str_segundo_nombre.toLowerCase(), req.body.str_primer_apellido.toLowerCase(), req.body.str_segundo_apellido.toLowerCase(), req.body.str_email.toLowerCase(), req.body.str_password),
+          notificacion: mailCtrl.enviarMail(req.body.str_primer_nombre.toLowerCase(), req.body.str_segundo_nombre.toLowerCase(), req.body.str_primer_apellido.toLowerCase(), req.body.str_segundo_apellido.toLowerCase(), req.body.str_email.toLowerCase(), req.body.str_password),
           //tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ))),
       }),
       //mailCtrl.enviarMail(req,res),
@@ -301,7 +301,7 @@ module.exports = {
       })
       .then((tbl_personas) => res.status(201).send({
           tbl_personas,
-          //notificacion: mailCtrl.enviarMail(req.body.str_primer_nombre.toLowerCase(), req.body.str_segundo_nombre.toLowerCase(), req.body.str_primer_apellido.toLowerCase(), req.body.str_segundo_apellido.toLowerCase(), req.body.str_email.toLowerCase(), req.body.str_password),
+          notificacion: mailCtrl.enviarMail(req.body.str_primer_nombre.toLowerCase(), req.body.str_segundo_nombre.toLowerCase(), req.body.str_primer_apellido.toLowerCase(), req.body.str_segundo_apellido.toLowerCase(), req.body.str_email.toLowerCase(), req.body.str_password),
           //tokenSession: service.createToken(req.body.str_email.toLowerCase()+encriptar(req.body.str_email.toLowerCase(),(req.body.str_password.trim()!='' ? req.body.str_password.trim() : 'passw0rd' ))),
       }),
       
