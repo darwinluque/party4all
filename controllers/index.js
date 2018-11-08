@@ -34,9 +34,11 @@ const tbl_votos_canciones = require('./tbl_votos_canciones');
 const tbl_atencion_mesas = require('./tbl_atencion_mesas');
 
 const v_reservas = require('./v_reservas');
+const mailCtrl = require('./mailCtrl');
 
 
 module.exports = {
+    mailCtrl,
     tbl_parametros,
     tbl_artista,
     tbl_canciones,
