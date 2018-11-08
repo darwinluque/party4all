@@ -1,13 +1,5 @@
 var nodemailer = require('nodemailer');
-var aws = require('aws-sdk');
-/*
-aws.config.update({
-    accessKeyId: "Party4all-key-mail",
-    secretAccessKey: "Party4all-key-res-18*",
-    region:'us-east-1'
-});//loadFromPath('/../config/config.json');
-*/
-//router.post('/', handleSayHello);
+
 module.exports = {
     enviarMail(req, res) {
     
