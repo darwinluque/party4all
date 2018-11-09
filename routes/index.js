@@ -212,6 +212,7 @@ router.get('/api/tbl_mensajes/qry/:filtro', tbl_mensajesController.getFilter);
 router.post('/api/tbl_mensajes', tbl_mensajesController.add); 
 router.put('/api/tbl_mensajes/:id', tbl_mensajesController.update); 
 router.delete('/api/tbl_mensajes/:id', tbl_mensajesController.delete); 
+router.delete('/api/tbl_mensajes/rem/:filtro', tbl_mensajesController.deleteAll); 
 
 router.get('/api/tbl_metodos_pagos/all/', tbl_metodos_pagosController.list); 
 router.get('/api/tbl_metodos_pagos/id/:id', tbl_metodos_pagosController.getById); 
