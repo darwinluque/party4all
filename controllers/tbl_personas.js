@@ -23,7 +23,7 @@ const tbl_servicios_discoteca = require('../models').tbl_servicios_discoteca;
 const tbl_suscriptores = require('../models').tbl_suscriptores;
 const tbl_votos_canciones = require('../models').tbl_votos_canciones;
 const service = require('../config/services');
-const mailCtrl = require('../controllers/mailCtrl');
+//const mailCtrl = require('../controllers/mailCtrl');
 
 
 module.exports = {
