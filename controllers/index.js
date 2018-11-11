@@ -27,6 +27,7 @@ const tbl_productos_pedido = require('./tbl_productos_pedido');
 const tbl_productos = require('./tbl_productos');
 const tbl_productos_carta = require('./tbl_productos_carta');
 const tbl_promociones = require('./tbl_promociones');
+const tbl_promociones_personas = require('./tbl_promociones_personas');
 const tbl_reservas = require('./tbl_reservas');
 const tbl_servicios_discoteca = require('./tbl_servicios_discoteca');
 const tbl_suscriptores = require('./tbl_suscriptores');
@@ -66,6 +67,7 @@ module.exports = {
     tbl_productos,
     tbl_productos_carta,
     tbl_promociones,
+    tbl_promociones_personas,
     tbl_reservas,
     tbl_servicios_discoteca,
     tbl_suscriptores,
