@@ -290,6 +290,13 @@ router.post('/api/tbl_promociones', tbl_promocionesController.add);
 router.put('/api/tbl_promociones/:id', tbl_promocionesController.update); 
 router.delete('/api/tbl_promociones/:id', tbl_promocionesController.delete); 
 
+router.get('/api/tbl_promociones_personas/all/', tbl_promociones_personasController.list); 
+router.get('/api/tbl_promociones_personas/id/:id', tbl_promociones_personasController.getById); 
+router.get('/api/tbl_promociones_personas/qry/:filtro', tbl_promociones_personasController.getFilter); 
+router.post('/api/tbl_promociones_personas', tbl_promociones_personasController.add); 
+router.put('/api/tbl_promociones_personas/:id', tbl_promociones_personasController.update); 
+router.delete('/api/tbl_promociones_personas/:id', tbl_promociones_personasController.delete); 
+
 router.get('/api/views/v_reservas/all/', v_reservasController.list); 
 router.get('/api/views/v_reservas/qry/:filtro', v_reservasController.getFilter); 
 
