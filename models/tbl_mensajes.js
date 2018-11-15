@@ -6,6 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     str_mensaje: DataTypes.STRING,
   }, {});
   tbl_mensajes.associate = function(models) {
+    tbl_mensajes.belongsTo(models.tbl_discotecas, {
+      foreignKey: 'id_discoteca', 
+      targetKey: 'str_identificacion',
+      as: 'discoteca'
+    });
   };
   return tbl_mensajes;
 };
