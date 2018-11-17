@@ -6,6 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     str_estado: DataTypes.STRING,
   }, {});
   tbl_promociones_personas.associate = function(models) {
+    tbl_promociones_personas.belongsTo(models.tbl_promociones, {
+      foreignKey: 'id_promocion', 
+      targetKey: 'id',
+      as: 'promocion'
+    });
   };
   return tbl_promociones_personas;
 };

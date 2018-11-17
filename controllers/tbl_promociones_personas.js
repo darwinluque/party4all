@@ -29,6 +29,10 @@ module.exports = {
   list(req, res) {
     return tbl_promociones_personas
       .findAll({
+        include: [{
+          model: tbl_promociones,
+          as: 'promocion'
+        }],
         order: [
           ['createdAt', 'DESC'],
         ],
@@ -64,7 +68,10 @@ module.exports = {
 
     return tbl_promociones_personas
       .findAll( {
-        // ACA VAN LOS INCLUDES PARA RELACION
+        include: [{
+          model: tbl_promociones,
+          as: 'promocion'
+        }],
         where: whereClause,
       })
       .then((tbl_promociones_personas) => {
