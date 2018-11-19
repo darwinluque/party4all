@@ -119,6 +119,7 @@ module.exports = {
             str_titulo: req.body.str_titulo,
             str_pregunta: req.body.str_pregunta,
             str_url_imagen: req.body.str_url_imagen, 
+            str_estado: req.body.str_estado, 
       })
       .then((tbl_encuesta) => res.status(201).send(tbl_encuesta))
       .catch((error) => res.status(400).send(error));
@@ -152,6 +153,7 @@ module.exports = {
             str_titulo: req.body.str_titulo,
             str_pregunta: req.body.str_pregunta,
             str_url_imagen: req.body.str_url_imagen, 
+            str_estado: req.body.str_estado, 
           })
           .then(() => res.status(200).send(tbl_encuesta))
           .catch((error) => res.status(400).send(error));
