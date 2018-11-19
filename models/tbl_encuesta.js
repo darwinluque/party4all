@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     id_discoteca: DataTypes.STRING,
     str_titulo: DataTypes.STRING,
     str_pregunta: DataTypes.STRING,
-    str_url_imagen: DataTypes.STRING
+    str_url_imagen: DataTypes.STRING,
+    str_estado: DataTypes.STRING
   }, {});
   tbl_encuesta.associate = function(models) {
     tbl_encuesta.hasMany(models.tbl_encuesta_votos, {
