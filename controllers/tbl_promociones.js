@@ -95,6 +95,7 @@ module.exports = {
         str_descripcion: req.body.str_descripcion,
         vlr_porcentaje: req.body.vlr_porcentaje,
         str_url_imagen: req.body.str_url_imagen,
+        str_estado: req.body.str_estado,
         dtm_fecha_promocion: req.body.dtm_fecha_promocion,
       })
       .then((tbl_promociones) => res.status(201).send(tbl_promociones))
@@ -123,6 +124,7 @@ module.exports = {
             str_descripcion: req.body.str_descripcion,
             vlr_porcentaje: req.body.vlr_porcentaje,
             str_url_imagen: req.body.str_url_imagen,
+            str_estado: req.body.str_estado,
             dtm_fecha_promocion: req.body.dtm_fecha_promocion,
           })
           .then(() => res.status(200).send(tbl_promociones))

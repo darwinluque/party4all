@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     str_descripcion: DataTypes.STRING,
     vlr_porcentaje: DataTypes.DECIMAL,
     str_url_imagen: DataTypes.STRING,
-    dtm_fecha_promocion: DataTypes.DATE
+    dtm_fecha_promocion: DataTypes.DATE,
+    str_estado: DataTypes.STRING
   }, {});
   tbl_promociones.associate = function(models) {
     tbl_promociones.belongsTo(models.tbl_discotecas, {
