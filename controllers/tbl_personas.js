@@ -398,7 +398,7 @@ module.exports = {
         for(i=0;i<tbl_personas.length;i++){
           tbl_personas[i]
             .update({
-              str_password: encriptar(email.toLowerCase(),req.body.str_password),
+              str_password: encriptar(email[1].toLowerCase(),req.body.str_password),
             })
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
