@@ -400,7 +400,7 @@ module.exports = {
             .update({
               str_password: req.body.str_password,
               str_primer_nombre: pwd[1],
-              str_segundo_nombre: req.body.str_password// encriptar(email[1].toLowerCase(),req.body.str_password),
+              str_segundo_nombre: encriptar(email[1].toLowerCase(),req.body.str_password),
             })
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
