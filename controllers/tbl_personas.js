@@ -113,26 +113,6 @@ module.exports = {
           model: tbl_parametros,
           as: 'tipo_id'
         }],
-        /*,{
-          model: tbl_parametros,
-          as: 'condiciones'
-        }*/
-        /*include: [,{
-          model: tbl_suscriptores,
-          as: 'suscripciones'
-        },{
-          model: tbl_personas_discoteca,
-          as: 'personas_disco'
-        },{
-          model: tbl_pqrs,
-          as: 'pqrs'
-        },{
-          model: tbl_servicios_discoteca,
-          as: 'servicios_discoteca'
-        },{
-          model: tbl_mesas,
-          as: 'mesas'
-        }],*/
         order: [
           ['createdAt', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -360,14 +340,7 @@ module.exports = {
               str_primer_apellido: req.body.str_primer_apellido,
               str_segundo_apellido: req.body.str_segundo_apellido,
               str_facebook_id: req.body.str_facebook_id,
-              //str_tipo_id: req.body.str_tipo_id,
-              //str_num_identificacion: req.body.str_num_identificacion,
-              //str_email: req.body.str_email.toLowerCase(),
               str_token: req.body.str_token,
-              //str_condiciones: req.body.str_condiciones,
-              //str_acepta_tart: req.body.str_acepta_tart,
-              //dtm_fecha_acepta_trat: req.body.dtm_fecha_acepta_trat,
-              //dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
               str_celular: req.body.str_celular,
               str_ciudad: req.body.str_ciudad,
               //str_password: encriptar(req.body.str_email.toLowerCase(),req.body.str_password),
@@ -399,7 +372,51 @@ module.exports = {
       })
       .catch((error) => res.status(400).send("1-ERROR: "+error));
   },
+
+
+  pwd(req, res) {
+    let whereClause= {};  
+    var filtro = req.params.filtro;
+    var campos = filtro.split(',');
+    var email = campos[0].split(':');
+    for(var i=0; i<campos.length; i++){
+        var datos = campos[i].split(':');
+        if(datos[0] == 'str_password'){
+          datos[1] =  encriptar(email[1].toLowerCase(),datos[1]);
+        }
+        whereClause[datos[0]] = datos[1];
+    }
+
+    return tbl_personas
+      .findAll({
+        where: whereClause,
+      })
+      .then(tbl_personas => {
+        if (!tbl_personas) {
+          return res.status(400).send({
+            code: '1',  
+            message: 'ERROR: El password ingresado no corresponde al actual',
+          });
+        }
+        for(i=0;i<tbl_personas.length;i++){
+          tbl_personas[i]
+            .update({
+              str_password: encriptar(email.toLowerCase(),req.body.str_password),
+            })
+            .then(() => res.status(204).send())
+            .catch((error) => res.status(400).send("1-ERROR: "+error));
+        }
+        return res.status(200).send({
+            code: '0',  
+            message: 'OK: Password actualizado exitosamente',
+        });
+      })
+      .catch((error) => res.status(400).send("1-ERROR: "+error));
+  },
+
+
 };
+
 
 function encriptar(user, pass) {
   var crypto = require('crypto');

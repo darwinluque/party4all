@@ -239,6 +239,7 @@ router.get('/api/tbl_personas/qry/:filtro', tbl_personasController.getFilter);
 router.post('/api/tbl_personas', tbl_personasController.add); 
 router.post('/api/tbl_personas/addOne/', tbl_personasController.addOne); 
 router.put('/api/tbl_personas/:id', tbl_personasController.update); 
+router.put('/api/tbl_personas/pwc/:filtro', tbl_personasController.pwd); 
 router.delete('/api/tbl_personas/:id', tbl_personasController.delete); 
 
 router.get('/api/tbl_personas_discos/all/', tbl_personas_discosController.list); 
