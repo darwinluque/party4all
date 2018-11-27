@@ -389,7 +389,7 @@ module.exports = {
         where: whereClause,
       })
       .then(tbl_personas => {
-        if (!tbl_personas) {
+        if (!tbl_personas || tbl_personas.length != 1 || tbl_personas.length < 1) {
           return res.status(400).send({
             code: '1',  
             message: 'ERROR: El password ingresado no corresponde al actual',
@@ -398,9 +398,7 @@ module.exports = {
         for(i=0;i<tbl_personas.length;i++){
           tbl_personas[i]
             .update({
-              str_password: req.body.str_password,
-              str_primer_nombre: pwd[1],
-              str_segundo_nombre: encriptar(email[1].toLowerCase(),req.body.str_password),
+              str_password: encriptar(email[1].toLowerCase(),req.body.str_password)
             })
             .then(() => res.status(204).send())
             .catch((error) => res.status(400).send("1-ERROR: "+error));
