@@ -379,13 +379,10 @@ module.exports = {
     var filtro = req.params.filtro;
     var campos = filtro.split(',');
     var email = campos[0].split(':');
-    for(var i=0; i<campos.length; i++){
-        var datos = campos[i].split(':');
-        if(datos[0] == 'str_password'){
-          datos[1] =  encriptar(email[1].toLowerCase(),datos[1]);
-        }
-        whereClause[datos[0]] = datos[1];
-    }
+    var pwd = campos[1].split(':');
+    pwd[1] =  encriptar(email[1].toLowerCase(),pwd[1]);
+    whereClause[email[0]] = email[1];
+    whereClause[pwd[0]] = pwd[1];
 
     return tbl_personas
       .findAll({
