@@ -92,6 +92,8 @@ module.exports = {
         id_discoteca: req.body.id_discoteca,
         id_persona: req.body.id_persona,
         str_mensaje: req.body.str_mensaje,
+        str_estado: req.body.etr_estado,
+        str_url_imagen: req.body.str_url_imagen,
       })
       .then((tbl_mensajes) => res.status(201).send(tbl_mensajes))
       .catch((error) => res.status(400).send(error));
@@ -113,6 +115,8 @@ module.exports = {
             id_discoteca: req.body.id_discoteca,
             id_persona: req.body.id_persona,
             str_mensaje: req.body.str_mensaje,
+            str_estado: req.body.etr_estado,
+            str_url_imagen: req.body.str_url_imagen,
           })
           .then(() => res.status(200).send(tbl_mensajes))
           .catch((error) => res.status(400).send(error));
