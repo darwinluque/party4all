@@ -42,16 +42,7 @@ module.exports = {
           },{
             model: tbl_listas_dj, 
             as: 'lista_dj'
-          },/*{
-            model: tbl_reservas,
-            as: 'reservas',
           },{
-            model: tbl_listas,
-            as: 'lista_peticiones'
-          },{
-            model: tbl_eventos,
-            as: 'eventos'
-          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
@@ -93,29 +84,11 @@ module.exports = {
             as: 'genero_musical'
           },{
             model: tbl_parametros,
+            as: 'rango_precios'
+          },{
+            model: tbl_parametros,
             as: 'tipo_rumba'
-          }],/*{
-            model: tbl_productos,
-            as: 'productos'
-          },{
-            model: tbl_productos_pedido,
-            as: 'productos_pedido'
-          },{
-            model: tbl_mesas,
-            as: 'mesas'
-          },{
-            model: tbl_suscriptores,
-            as: 'suscriptores'
-          },{
-            model: tbl_personas_discoteca,
-            as: 'personas_disco'
-          },{
-            model: tbl_pqrs,
-            as: 'pqrs'
-          },{
-            model: tbl_cartas,
-            as: 'cartas'
-          }], */
+          }],
         order: [
           ['str_nombre', 'DESC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
@@ -138,16 +111,7 @@ module.exports = {
           },{
             model: tbl_listas_dj,
             as: 'lista_dj'
-          },/*{
-            model: tbl_reservas,
-            as: 'reservas',
           },{
-            model: tbl_listas,
-            as: 'lista_peticiones'
-          },{
-            model: tbl_eventos,
-            as: 'eventos'
-          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
@@ -180,6 +144,9 @@ module.exports = {
           },{
             model: tbl_parametros,
             as: 'zona'
+          },{
+            model: tbl_parametros,
+            as: 'rango_precios'
           },{
             model: tbl_parametros,
             as: 'genero_musical'
@@ -221,16 +188,7 @@ module.exports = {
           },{
             model: tbl_listas_dj,
             as: 'lista_dj'
-          },/*{
-            model: tbl_reservas,
-            as: 'reservas',
           },{
-            model: tbl_listas,
-            as: 'lista_peticiones'
-          },{
-            model: tbl_eventos,
-            as: 'eventos'
-          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
@@ -263,6 +221,9 @@ module.exports = {
           },{
             model: tbl_parametros,
             as: 'zona'
+          },{
+            model: tbl_parametros,
+            as: 'rango_precios'
           },{
             model: tbl_parametros,
             as: 'genero_musical'
@@ -373,16 +334,7 @@ module.exports = {
           },{
             model: tbl_listas_dj,
             as: 'lista_dj'
-          },/*{
-            model: tbl_reservas,
-            as: 'reservas',
           },{
-            model: tbl_listas,
-            as: 'lista_peticiones'
-          },{
-            model: tbl_eventos,
-            as: 'eventos'
-          },*/{
             model: tbl_galeria,
             as: 'galeria'
           },{
@@ -419,6 +371,9 @@ module.exports = {
           },{
             model: tbl_parametros,
             as: 'zona'
+          },{
+            model: tbl_parametros,
+            as: 'rango_precios'
           },{
             model: tbl_parametros,
             as: 'genero_musical'

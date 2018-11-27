@@ -105,6 +105,11 @@ module.exports = (sequelize, DataTypes) => {
       as: 'genero_musical'
     });
     tbl_discotecas.belongsTo(models.tbl_parametros, {
+      foreignKey: 'id_genero', 
+      targetKey: 'str_valor',
+      as: 'rango_precios'
+    });
+    tbl_discotecas.belongsTo(models.tbl_parametros, {
       foreignKey: 'id_tipo_rumba', 
       targetKey: 'str_valor',
       as: 'tipo_rumba'
