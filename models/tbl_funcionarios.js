@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     str_email: DataTypes.STRING,
     str_token: DataTypes.STRING,
     usuario: DataTypes.STRING,
+    str_estado: DataTypes.STRING,
     dtm_fecha_nacimiento: DataTypes.DATE
   }, {});
   tbl_funcionarios.associate = function(models) {

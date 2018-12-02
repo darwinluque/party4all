@@ -111,6 +111,7 @@ module.exports = {
         str_primer_apellido: req.body.str_primer_apellido,
         str_segundo_apellido: req.body.str_segundo_apellido,
         dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
+        str_estado: req.body.str_estado,
         str_email: req.body.str_email,
         str_token: req.body.str_token,
       })
@@ -148,6 +149,7 @@ module.exports = {
             str_segundo_apellido: req.body.str_segundo_apellido,
             dtm_fecha_nacimiento: req.body.dtm_fecha_nacimiento,
             str_email: req.body.str_email,
+            str_estado: req.body.str_estado,
             str_token: req.body.str_token,
           })
           .then(() => res.status(200).send(tbl_funcionarios))
