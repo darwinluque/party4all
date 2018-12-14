@@ -6,7 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     str_estado: DataTypes.STRING    
   }, {});
   tbl_atencion_mesas.associate = function(models) {
-    // relaciones
+    tbl_atencion_mesas.belongsTo(models.tbl_discotecas, {
+      foreignKey: 'id_discoteca', 
+      targetKey: 'str_identificacion',
+      as: 'discoteca'
+    });
   };
   return tbl_atencion_mesas; 
 };

@@ -29,6 +29,10 @@ module.exports = {
   list(req, res) {
     return tbl_atencion_mesa
       .findAll({
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        }],
         order: [
           ['createdAt', 'DESC'],
         ],
@@ -48,6 +52,10 @@ module.exports = {
 
     return tbl_atencion_mesa
       .findAll( {
+        include: [{
+          model: tbl_discotecas,
+          as: 'discoteca'
+        }],
         where: whereClause,
       })
       .then((tbl_atencion_mesa) => {
