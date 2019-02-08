@@ -33,7 +33,7 @@ module.exports = {
           as: 'discoteca'
         }],
         order: [
-          ['createdAt', 'DESC'],
+          ['createdAt', 'ASC'],
           //[{ model: tbl_discotecas, as: 'vestuarios' }, 'createdAt', 'DESC'],
         ],
       })
