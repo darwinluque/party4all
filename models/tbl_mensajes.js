@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   var tbl_mensajes = sequelize.define('tbl_mensajes', {
     id_discoteca: DataTypes.STRING,
-    id_persona: DataTypes.STRING,    
+    id_persona: DataTypes.STRING, 
+    str_mensaje: DataTypes.STRING,   
     str_estado: DataTypes.STRING,
     str_url_imagen: DataTypes.STRING,
   }, {});
